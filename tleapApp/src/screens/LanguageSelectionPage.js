@@ -15,7 +15,7 @@ export default function LanguageSelectionScreen() {
   ];
 
   const selectLanguage = (lang) => {
-    navigation.navigate("Quiz", {
+    navigation.navigate("Question", {
       classId,
       subject,
       topic,
