@@ -1,7 +1,20 @@
 // DifficultySelectionPage.js
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  Dimensions,
+} from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
+
+const { width, height } = Dimensions.get("window");
+
+// scale helper (like Tailwind rem)
+const wp = (perc) => (width * perc) / 100;
+const hp = (perc) => (height * perc) / 100;
 
 const levels = [
   { key: "Beginner 🐣", desc: "Start easy and warm up" },
@@ -15,7 +28,6 @@ export default function DifficultySelectionPage() {
   const { classId, subject, topic } = route.params;
 
   const goNext = (difficulty) => {
-    console.log("Navigating with params:", { classId, subject, topic, difficulty });
     navigation.navigate("QuizType", {
       classId,
       subject,
@@ -25,99 +37,123 @@ export default function DifficultySelectionPage() {
   };
 
   return (
+    <LinearGradient
+          colors={["#c5baff", "#c4d9ff", "#e8f9ff"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={{ flex: 1 }}
+        >
     <ScrollView
-      contentContainerStyle={styles.container}
-      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{
+        flexGrow: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: wp(2), // responsive padding
+      }}
     >
-      <View style={styles.card}>
-        <Text style={styles.heading}>Select Difficulty</Text>
-        <Text style={styles.subheading}>
+      <View
+        style={{
+          backgroundColor: "#fbfbfb",
+          borderRadius: wp(2),
+          shadowColor: "#000",
+          shadowOpacity: 0.15,
+          shadowRadius: wp(1),
+          paddingVertical: hp(5),
+          paddingHorizontal: wp(1),
+          width: "100%",
+          maxWidth: wp(90),
+        }}
+      >
+        {/* Heading */}
+        <Text
+          style={{
+            fontSize: wp(3), // ~ big title
+            fontWeight: "bold",
+            textAlign: "center",
+            marginBottom: hp(2.5),
+            color: "black",
+          }}
+        >
+          Select Difficulty
+        </Text>
+        <Text
+          style={{
+            fontSize: wp(1.5),
+            textAlign: "center",
+            color: "#555",
+            marginBottom: hp(6.5),
+          }}
+        >
           Choose your challenge level and test your knowledge at your own pace.
         </Text>
 
-        <View style={styles.grid}>
+        {/* Grid - single column, but responsive */}
+        <View
+          style={{
+            flexDirection: width > 1200 ? "row" : "column", // row in big screens
+            justifyContent: "center",
+            flexWrap: "wrap",
+            gap: wp(2),
+
+          }}
+        >
           {levels.map((l) => (
             <TouchableOpacity
               key={l.key}
-              style={styles.button}
               onPress={() => goNext(l.key)}
-              activeOpacity={0.8}
+              activeOpacity={0.85}
+              style={{
+                position: "relative",
+                borderRadius: wp(1.6),
+                paddingVertical: hp(4),
+                paddingHorizontal: wp(1),
+                backgroundColor: "#e8f9ff",
+                width: width > 1200 ? wp(25) : "100%", // grid-like responsive
+                alignItems: "center",
+                shadowColor: "#000",
+                shadowOpacity: 0.2,
+                shadowRadius: wp(1),
+                elevation: 10,
+              }}
             >
-              <Text style={styles.buttonTitle}>{l.key}</Text>
-              <Text style={styles.buttonDesc}>{l.desc}</Text>
-              <View style={styles.circle} />
+              <Text
+                style={{
+                  fontSize: wp(1.75),
+                  fontWeight: "bold",
+                  color: "#333",
+                  textAlign: "center",
+                }}
+              >
+                {l.key}
+              </Text>
+              <Text
+                style={{
+                  marginTop: hp(2),
+                  fontSize: wp(1.3),
+                  color: "#666",
+                  textAlign: "center",
+                }}
+              >
+                {l.desc}
+              </Text>
+
+              {/* Decorative circle */}
+              <View
+                style={{
+                  position: "absolute",
+                  top: -hp(2),
+                  right: -wp(2),
+                  width: wp(2.5),
+                  height: wp(2.5),
+                  borderRadius: wp(1.25),
+                  backgroundColor: "#c5baff",
+                }}
+              />
             </TouchableOpacity>
           ))}
         </View>
       </View>
     </ScrollView>
+    </LinearGradient>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#c5baff",
-    padding: 20,
-  },
-  card: {
-    backgroundColor: "#fbfbfb",
-    borderRadius: 24,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    padding: 20,
-    width: "100%",
-    maxWidth: 700,
-  },
-  heading: {
-    fontSize: 32,
-    fontWeight: "bold",
-    textAlign: "center",
-    marginBottom: 10,
-  },
-  subheading: {
-    fontSize: 16,
-    textAlign: "center",
-    color: "#555",
-    marginBottom: 30,
-  },
-  grid: {
-    flexDirection: "column", // stacked in RN (can adjust to row if you want)
-    gap: 20,
-  },
-  button: {
-    backgroundColor: "#e8f9ff",
-    borderRadius: 20,
-    padding: 25,
-    alignItems: "center",
-    marginBottom: 20,
-    shadowColor: "#000",
-    shadowOpacity: 0.15,
-    shadowRadius: 6,
-    elevation: 4,
-  },
-  buttonTitle: {
-    fontSize: 22,
-    fontWeight: "bold",
-    textAlign: "center",
-    color: "#333",
-  },
-  buttonDesc: {
-    marginTop: 10,
-    fontSize: 16,
-    textAlign: "center",
-    color: "#666",
-  },
-  circle: {
-    position: "absolute",
-    top: -10,
-    right: -10,
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    backgroundColor: "#c5baff",
-  },
-});

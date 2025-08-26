@@ -1,7 +1,20 @@
 // QuizType.js
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  Dimensions,
+} from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
+
+const { width, height } = Dimensions.get("window");
+
+// helpers for responsiveness
+const wp = (perc) => (width * perc) / 100;
+const hp = (perc) => (height * perc) / 100;
 
 const questionTypes = [
   { key: "mcq", label: "Multiple Choice", emoji: "📝", desc: "Pick the correct option" },
@@ -27,107 +40,135 @@ export default function QuizType() {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.card}>
-        {/* Heading */}
-        <Text style={styles.heading}>Select Question Type</Text>
-        <Text style={styles.subText}>
-          Choose how you want to test your knowledge.
-        </Text>
+    <LinearGradient
+      colors={["#c5baff", "#c4d9ff", "#e8f9ff"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={{ flex: 1 }}
+    >
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          padding: wp(3),
+        }}
+      >
+        {/* Outer card */}
+        <View
+          style={{
+            backgroundColor: "#fff",
+            borderRadius: wp(3),
+            padding: wp(2),
+            width: "80%",
+            maxWidth: wp(90),
+            shadowColor: "#000",
+            shadowOpacity: 0.15,
+            shadowRadius: wp(1),
+            elevation: 8,
+    
+          }}
+        >
+          {/* Heading */}
+          <Text
+            style={{
+              fontSize: wp(2.75),
+              fontWeight: "800",
+              textAlign: "center",
+              marginBottom: hp(1.5),
+              color: "#000",
+            }}
+          >
+            Select Question Type
+          </Text>
+          <Text
+            style={{
+              fontSize: wp(1.5),
+              color: "#555",
+              textAlign: "center",
+              marginBottom: hp(5),
+            }}
+          >
+            Choose how you want to test your knowledge.
+          </Text>
 
-        {/* Cards Grid */}
-        <ScrollView contentContainerStyle={styles.grid}>
-          {questionTypes.map((q) => (
-            <TouchableOpacity
-              key={q.key}
-              onPress={() => goNext(q.key)}
-              style={styles.typeButton}
-              activeOpacity={0.8}
-            >
-              <Text style={styles.emoji}>{q.emoji}</Text>
-              <Text style={styles.label}>{q.label}</Text>
-              <Text style={styles.desc}>{q.desc}</Text>
-              <View style={styles.glowCircle} />
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
-      </View>
-    </View>
+          {/* Grid Layout */}
+          <View
+            style={{
+              flexDirection: width > 1000 ? "row" : "row", // row wrap always
+              flexWrap: "wrap",
+              justifyContent: "space-around",
+              gap: wp(1),
+            }}
+          >
+            {questionTypes.map((q) => (
+              <TouchableOpacity
+                key={q.key}
+                onPress={() => goNext(q.key)}
+                activeOpacity={0.85}
+                style={{
+                  backgroundColor: "#f0f7ff",
+                  borderRadius: wp(2),
+                  paddingVertical: hp(3),
+                  paddingHorizontal: wp(2),
+                  width: width > 1000 ? "30%" : "47%", // 3 columns on big screens, 2 columns otherwise
+                  marginBottom: hp(2),
+                  alignItems: "center",
+                  justifyContent: "center",
+                  shadowColor: "#000",
+                  shadowOpacity: 0.15,
+                  shadowRadius: wp(1),
+                  elevation: 5,
+                  position: "relative",
+                }}
+              >
+                {/* Emoji */}
+                <Text style={{ fontSize: wp(3), marginBottom: hp(1.5) }}>
+                  {q.emoji}
+                </Text>
+
+                {/* Label */}
+                <Text
+                  style={{
+                    fontSize: wp(1.75),
+                    fontWeight: "700",
+                    color: "#111",
+                    textAlign: "center",
+                  }}
+                >
+                  {q.label}
+                </Text>
+
+                {/* Description */}
+                <Text
+                  style={{
+                    fontSize: wp(1.2),
+                    color: "#555",
+                    textAlign: "center",
+                    marginTop: hp(1),
+                  }}
+                >
+                  {q.desc}
+                </Text>
+
+                {/* Decorative glowing circle */}
+                <View
+                  style={{
+                    position: "absolute",
+                    top: -hp(1.5),
+                    right: -wp(1.5),
+                    width: wp(3),
+                    height: wp(3),
+                    borderRadius: wp(1.5),
+                    backgroundColor: "#c5baff",
+                    opacity: 0.7,
+                  }}
+                />
+              </TouchableOpacity>
+            ))}
+          </View>
+        </View>
+      </ScrollView>
+    </LinearGradient>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "linear-gradient(135deg, #c5baff, #c4d9ff, #e8f9ff)", // Use expo-linear-gradient if you want gradient
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 20,
-  },
-  card: {
-    backgroundColor: "#fbfbfb",
-    borderRadius: 24,
-    padding: 20,
-    width: "100%",
-    maxWidth: 800,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
-    elevation: 5,
-  },
-  heading: {
-    fontSize: 28,
-    fontWeight: "800",
-    textAlign: "center",
-    marginBottom: 8,
-    color: "#000",
-  },
-  subText: {
-    fontSize: 16,
-    textAlign: "center",
-    color: "#555",
-    marginBottom: 20,
-  },
-  grid: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
-  },
-  typeButton: {
-    backgroundColor: "#e8f9ff",
-    borderRadius: 16,
-    padding: 20,
-    marginBottom: 15,
-    width: "48%",
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOpacity: 0.15,
-    shadowRadius: 6,
-    elevation: 3,
-  },
-  emoji: {
-    fontSize: 40,
-    marginBottom: 10,
-  },
-  label: {
-    fontSize: 18,
-    fontWeight: "700",
-    color: "#333",
-  },
-  desc: {
-    fontSize: 14,
-    color: "#666",
-    marginTop: 5,
-    textAlign: "center",
-  },
-  glowCircle: {
-    position: "absolute",
-    top: -6,
-    right: -6,
-    width: 16,
-    height: 16,
-    borderRadius: 8,
-    backgroundColor: "#c5baff",
-    opacity: 0.7,
-  },
-});

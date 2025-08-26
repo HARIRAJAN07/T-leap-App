@@ -1,15 +1,33 @@
 // src/screens/Subjects/SubjectSelectionPage.js
-import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
+import React, { useRef, useState } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  Animated,
+  Dimensions,
+} from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
+
+const { width, height } = Dimensions.get("window");
+
+// helpers for responsiveness
+const wp = (perc) => (width * perc) / 100;
+const hp = (perc) => (height * perc) / 100;
 
 const subjects = [
-  { name: "Science", icon: "🔬", color: "#4ade80" },
-  { name: "Math", icon: "➗", color: "#a78bfa" },
-  { name: "Social Studies", icon: "📜", color: "#facc15" },
+  { name: "Science", icon: "🔬", color: "#22c55e" },
+  { name: "Math", icon: "➗", color: "#8b5cf6" },
+  { name: "Social Studies", icon: "📜", color: "#f59e0b" },
   { name: "Tamil", icon: "📖", color: "#3b82f6" },
-  { name: "English", icon: "🗣️", color: "#ef4444" },
+  { name: "English", icon: "🗣", color: "#ef4444" },
 ];
+
+// adjust so all 5 fit in one row
+const CARD_WIDTH = width / 5.8;
+const CARD_HEIGHT = CARD_WIDTH * 1.3;
 
 const SubjectSelectionPage = () => {
   const navigation = useNavigation();
@@ -17,9 +35,21 @@ const SubjectSelectionPage = () => {
   const { classId } = route.params;
 
   const [flipped, setFlipped] = useState({});
+  const animations = useRef(
+    subjects.reduce((acc, subj) => {
+      acc[subj.name] = new Animated.Value(0);
+      return acc;
+    }, {})
+  ).current;
 
   const toggleFlip = (subjectName) => {
-    setFlipped((prev) => ({ ...prev, [subjectName]: !prev[subjectName] }));
+    const isFlipped = flipped[subjectName];
+    Animated.timing(animations[subjectName], {
+      toValue: isFlipped ? 0 : 180,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+    setFlipped((prev) => ({ ...prev, [subjectName]: !isFlipped }));
   };
 
   const handleSelectSubject = (subjectName) => {
@@ -27,76 +57,185 @@ const SubjectSelectionPage = () => {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.heading}>Choose Your Subject</Text>
-      <Text style={styles.subheading}>
-        Select a subject to test your knowledge and begin your quiz!
-      </Text>
+    <LinearGradient
+          colors={["#c5baff", "#c4d9ff", "#e8f9ff"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={{ flex: 1 }}
+        >
+    <ScrollView
+      contentContainerStyle={{
+        flexGrow: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: wp(3.5),
+    
+      }}
+    >
+      {/* Title + Subtitle */}
+      <View style={{ alignItems: "center", marginBottom: hp(2) ,paddingBottom:"3.5%",}}>
+        <Text
+          style={{
+            fontSize: wp(2.5),
+            fontWeight: "800",
+            textAlign: "center",
+            color: "#333",
+            
+          }}
+        >
+          Choose Your Subject
+        </Text>
+        <Text
+          style={{
+            fontSize: wp(1.7),
+            textAlign: "center",
+            color: "#666",
+            marginTop: hp(1),
+          }}
+        >
+          Select a subject to test your knowledge and begin your quiz!
+        </Text>
+      </View>
 
-      <View style={styles.grid}>
-        {subjects.map((subject) => (
-          <TouchableOpacity
-            key={subject.name}
-            style={[styles.card, { backgroundColor: flipped[subject.name] ? "#e0f7fa" : subject.color }]}
-            onPress={() => toggleFlip(subject.name)}
-          >
-            {!flipped[subject.name] ? (
-              <>
-                <Text style={styles.icon}>{subject.icon}</Text>
-                <Text style={styles.cardText}>{subject.name}</Text>
-              </>
-            ) : (
-              <>
-                <Text style={styles.backTitle}>Go to {subject.name}</Text>
-                <Text style={styles.backText}>Click below to continue with {subject.name}</Text>
-                <TouchableOpacity
-                  style={styles.chooseButton}
-                  onPress={() => handleSelectSubject(subject.name)}
+      {/* Single row of subjects */}
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexWrap: "nowrap",
+          width: "100%",
+        }}  
+      >
+        {subjects.map((subject) => {
+          const rotateY = animations[subject.name].interpolate({
+            inputRange: [0, 180],
+            outputRange: ["0deg", "180deg"],
+          });
+
+          return (
+            <TouchableOpacity
+              key={subject.name}
+              activeOpacity={0.9}
+              onPress={() => toggleFlip(subject.name)}
+              style={{
+                width: CARD_WIDTH,
+                height: CARD_HEIGHT,
+                perspective: 1000,
+                
+              }}
+              
+            >
+              {/* Front side */}
+              <Animated.View
+                style={{
+                  position: "absolute",
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: wp(2),
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backfaceVisibility: "hidden",
+                  backgroundColor: subject.color,
+                  transform: [{ rotateY }],
+                  elevation: 3, // shadow for Android
+                shadowColor: "#000", // shadow for iOS
+                shadowOpacity: 0.4,
+                shadowOffset: { width: 0, height: 0 },
+                shadowRadius: 8,
+                }}
+              >
+                <Text
+                  style={{
+                    fontSize: wp(5),
+                    marginBottom: hp(1),
+                  }}
                 >
-                  <Text style={styles.chooseText}>Choose Topic</Text>
+                  {subject.icon}
+                </Text>
+                <Text
+                  style={{
+                    fontSize: wp(2),
+                    fontWeight: "700",
+                    color: "#fff",
+                  }}
+                >
+                  {subject.name}
+                </Text>
+              </Animated.View>
+
+              {/* Back side */}
+              <Animated.View
+                style={{
+                  position: "absolute",
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: wp(2),
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backfaceVisibility: "hidden",
+                  backgroundColor: "#c4d9ff",
+                  padding: wp(2),
+                  elevation: 3, // shadow for Android
+                shadowColor: "#000", // shadow for iOS
+                shadowOpacity: 0.3,
+                shadowOffset: { width: 0, height: 0},
+                shadowRadius: 6,
+                  transform: [
+                    {
+                      rotateY: animations[subject.name].interpolate({
+                        inputRange: [0, 180],
+                        outputRange: ["180deg", "360deg"],
+                      }),
+                    },
+                  ],
+                }}
+              >
+                <Text
+                  style={{
+                    fontSize: wp(1.5),
+                    fontWeight: "700",
+                    marginBottom: hp(1),
+                    textAlign: "center",
+                  }}
+                >
+                  Go to {subject.name}
+                </Text>
+                <Text
+                  style={{
+                    fontSize: wp(1.2),
+                    textAlign: "center",
+                    color: "#555",
+                    marginBottom: hp(1.5),
+                  }}
+                >
+                  Click below to continue with {subject.name}.
+                </Text>
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: "#fff",
+                    paddingVertical: hp(1),
+                    paddingHorizontal: wp(2.5),
+                    borderRadius: wp(4),
+                    elevation: 3,
+                  }}
+                  onPress={(e) => {
+                    e.stopPropagation();
+                    handleSelectSubject(subject.name);
+                  }}
+                >
+                  <Text style={{ fontWeight: "700", color: "#333" ,fontSize:"2.5vh"}}>
+                    Choose Topic
+                  </Text>
                 </TouchableOpacity>
-              </>
-            )}
-          </TouchableOpacity>
-        ))}
+              </Animated.View>
+            </TouchableOpacity>
+          );
+        })}
       </View>
     </ScrollView>
+    </LinearGradient>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-    alignItems: "center",
-    backgroundColor: "#e8f9ff",
-  },
-  heading: { fontSize: 28, fontWeight: "bold", textAlign: "center", marginBottom: 10 },
-  subheading: { fontSize: 16, textAlign: "center", marginBottom: 20 },
-  grid: { flexDirection: "row", flexWrap: "wrap", justifyContent: "center", gap: 15 },
-  card: {
-    width: 140,
-    height: 180,
-    borderRadius: 20,
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 10,
-    padding: 10,
-    shadowColor: "#000",
-    shadowOpacity: 0.15,
-    shadowRadius: 6,
-    elevation: 3,
-  },
-  icon: { fontSize: 50, marginBottom: 10 },
-  cardText: { fontSize: 18, fontWeight: "bold", color: "#fff", textAlign: "center" },
-  backTitle: { fontSize: 18, fontWeight: "bold", marginBottom: 5, textAlign: "center" },
-  backText: { fontSize: 14, textAlign: "center", marginBottom: 10 },
-  chooseButton: {
-    backgroundColor: "#fff",
-    paddingVertical: 8,
-    paddingHorizontal: 15,
-    borderRadius: 20,
-  },
-  chooseText: { color: "#2c2c2c", fontWeight: "bold", textAlign: "center" },
-});
 
 export default SubjectSelectionPage;

@@ -15,6 +15,9 @@
     "dotenv": "^16.6.1",
     "express": "^5.1.0",
     "groq-sdk": "^0.23.0",
-    "readline-sync": "^1.4.10"
+    "ollama": "^0.5.17",
+    "readline-sync": "^1.4.10",
+    "zod": "^3.24.1",
+    "zod-to-json-schema": "^3.24.6"
   }
 }
