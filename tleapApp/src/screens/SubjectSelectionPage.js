@@ -1,15 +1,27 @@
 // src/screens/Subjects/SubjectSelectionPage.js
-import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
+import React, { useRef, useState } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+  Animated,
+  Dimensions,
+} from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
+const { width } = Dimensions.get("window");
+
 const subjects = [
-  { name: "Science", icon: "🔬", color: "#4ade80" },
-  { name: "Math", icon: "➗", color: "#a78bfa" },
-  { name: "Social Studies", icon: "📜", color: "#facc15" },
+  { name: "Science", icon: "🔬", color: "#22c55e" },
+  { name: "Math", icon: "➗", color: "#8b5cf6" },
+  { name: "Social Studies", icon: "📜", color: "#f59e0b" },
   { name: "Tamil", icon: "📖", color: "#3b82f6" },
   { name: "English", icon: "🗣️", color: "#ef4444" },
 ];
+
+const CARD_SIZE = width * 0.2;
 
 const SubjectSelectionPage = () => {
   const navigation = useNavigation();
@@ -17,9 +29,21 @@ const SubjectSelectionPage = () => {
   const { classId } = route.params;
 
   const [flipped, setFlipped] = useState({});
+  const animations = useRef(
+    subjects.reduce((acc, subj) => {
+      acc[subj.name] = new Animated.Value(0);
+      return acc;
+    }, {})
+  ).current;
 
   const toggleFlip = (subjectName) => {
-    setFlipped((prev) => ({ ...prev, [subjectName]: !prev[subjectName] }));
+    const isFlipped = flipped[subjectName];
+    Animated.timing(animations[subjectName], {
+      toValue: isFlipped ? 0 : 180,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+    setFlipped((prev) => ({ ...prev, [subjectName]: !isFlipped }));
   };
 
   const handleSelectSubject = (subjectName) => {
@@ -27,76 +51,174 @@ const SubjectSelectionPage = () => {
   };
 
   return (
+  <View style={{ flex: 1, backgroundColor: "#c5baff" }}>
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.heading}>Choose Your Subject</Text>
-      <Text style={styles.subheading}>
-        Select a subject to test your knowledge and begin your quiz!
-      </Text>
+      
+      {/* Title + Subtitle */}
+      <View style={{ alignItems: "center", marginBottom: 20 }}>
+        <Text style={styles.heading}>Choose Your Subject</Text>
+        <Text style={styles.subtitle}>
+          Select a subject to test your knowledge and begin your quiz!
+        </Text>
+      </View>
 
       <View style={styles.grid}>
-        {subjects.map((subject) => (
-          <TouchableOpacity
-            key={subject.name}
-            style={[styles.card, { backgroundColor: flipped[subject.name] ? "#e0f7fa" : subject.color }]}
-            onPress={() => toggleFlip(subject.name)}
-          >
-            {!flipped[subject.name] ? (
-              <>
+        {subjects.map((subject) => {
+          const rotateY = animations[subject.name].interpolate({
+            inputRange: [0, 180],
+            outputRange: ["0deg", "180deg"],
+          });
+
+          return (
+            <TouchableOpacity
+              key={subject.name}
+              activeOpacity={0.9}
+              onPress={() => toggleFlip(subject.name)}
+              style={styles.cardWrapper}
+            >
+              {/* Front side */}
+              <Animated.View
+                style={[
+                  styles.card,
+                  {
+                    backgroundColor: subject.color,
+                    transform: [{ rotateY }],
+                  },
+                ]}
+              >
                 <Text style={styles.icon}>{subject.icon}</Text>
                 <Text style={styles.cardText}>{subject.name}</Text>
-              </>
-            ) : (
-              <>
+              </Animated.View>
+
+              {/* Back side */}
+              <Animated.View
+                style={[
+                  styles.card,
+                  styles.cardBack,
+                  {
+                    transform: [
+                      {
+                        rotateY: animations[subject.name].interpolate({
+                          inputRange: [0, 180],
+                          outputRange: ["180deg", "360deg"],
+                        }),
+                      },
+                    ],
+                  },
+                ]}
+              >
                 <Text style={styles.backTitle}>Go to {subject.name}</Text>
-                <Text style={styles.backText}>Click below to continue with {subject.name}</Text>
+                <Text style={styles.backSubtitle}>
+                  Click below to continue with {subject.name}.
+                </Text>
                 <TouchableOpacity
                   style={styles.chooseButton}
-                  onPress={() => handleSelectSubject(subject.name)}
+                  onPress={(e) => {
+                    e.stopPropagation();
+                    handleSelectSubject(subject.name);
+                  }}
                 >
                   <Text style={styles.chooseText}>Choose Topic</Text>
                 </TouchableOpacity>
-              </>
-            )}
-          </TouchableOpacity>
-        ))}
+              </Animated.View>
+            </TouchableOpacity>
+          );
+        })}
       </View>
     </ScrollView>
-  );
+  </View>
+);
+
+
 };
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-    alignItems: "center",
-    backgroundColor: "#e8f9ff",
-  },
-  heading: { fontSize: 28, fontWeight: "bold", textAlign: "center", marginBottom: 10 },
-  subheading: { fontSize: 16, textAlign: "center", marginBottom: 20 },
-  grid: { flexDirection: "row", flexWrap: "wrap", justifyContent: "center", gap: 15 },
+container: {
+  flex: 1,
+  backgroundColor: "#c5baff", // full background color
+  padding: 20,
+},
+
+cardContainer: {
+  width: CARD_SIZE,
+  height: CARD_SIZE,
+  backfaceVisibility: "hidden",
+},
+
+  heading: {
+  fontSize: 35,
+  fontWeight: "bold",
+  textAlign: "center",
+  color: "#333",
+},
+subtitle: {
+  fontSize: 26,
+  textAlign: "center",
+  color: "#666",
+  marginTop: 5,
+},
+backSubtitle: {
+  fontSize: 14,
+  textAlign: "center",
+  color: "#555",
+  marginVertical: 8,
+},
+grid: {
+  flexDirection: "row",
+  flexWrap: "wrap",
+  justifyContent: "space-around",
+    paddingHorizontal: 20, 
+},
+
+cardWrapper: {
+  width: "30%",        // 👈 makes 3 fit per row (with some spacing)
+  aspectRatio: 1,      // 👈 keeps them square (optional)
+  marginBottom: 15,
+},
+
   card: {
-    width: 140,
-    height: 180,
-    borderRadius: 20,
-    justifyContent: "center",
+    position: "absolute",
+
+    height: "100%",
+    borderRadius: 16,
     alignItems: "center",
-    margin: 10,
-    padding: 10,
-    shadowColor: "#000",
-    shadowOpacity: 0.15,
-    shadowRadius: 6,
-    elevation: 3,
+    justifyContent: "center",
+    backfaceVisibility: "hidden",
+      width: "90%",   // 👈 about 1/3 of row (with gaps)
+  aspectRatio: 1, // 👈 makes it a square (optional)
+  marginVertical: 10,
+
+
   },
-  icon: { fontSize: 50, marginBottom: 10 },
-  cardText: { fontSize: 18, fontWeight: "bold", color: "#fff", textAlign: "center" },
-  backTitle: { fontSize: 18, fontWeight: "bold", marginBottom: 5, textAlign: "center" },
-  backText: { fontSize: 14, textAlign: "center", marginBottom: 10 },
+icon: {
+  fontSize: 100,  // try 50 or 60 depending on your design
+  marginBottom: 10,
+},
+
+  cardText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#fff",
+  },
+  cardBack: {
+    backgroundColor: "#c4d9ff",
+    padding: 12,
+    justifyContent: "center",
+  },
+  backTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 12,
+    textAlign: "center",
+  },
   chooseButton: {
     backgroundColor: "#fff",
     paddingVertical: 8,
-    paddingHorizontal: 15,
+    paddingHorizontal: 14,
     borderRadius: 20,
+    elevation: 3,
   },
-  chooseText: { color: "#2c2c2c", fontWeight: "bold", textAlign: "center" },
+  chooseText: { fontWeight: "600", color: "#333" },
 });
 
 export default SubjectSelectionPage;

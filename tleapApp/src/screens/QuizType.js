@@ -59,7 +59,7 @@ export default function QuizType() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "linear-gradient(135deg, #c5baff, #c4d9ff, #e8f9ff)", // Use expo-linear-gradient if you want gradient
+    backgroundColor: "#c5baff", // Use expo-linear-gradient if you want gradient
     alignItems: "center",
     justifyContent: "center",
     padding: 20,

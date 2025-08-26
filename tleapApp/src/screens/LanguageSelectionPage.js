@@ -57,66 +57,75 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#c4d9ff",
+    backgroundColor: "#c5baff",
     padding: 16,
   },
-  card: {
-    backgroundColor: "#fbfbfb",
-    borderRadius: 24,
-    padding: 24,
-    width: "100%",
-    maxWidth: 500,
-    elevation: 5, // shadow for Android
-    shadowColor: "#000", // shadow for iOS
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-  },
-  heading: {
-    fontSize: 28,
-    fontWeight: "bold",
-    textAlign: "center",
-    marginBottom: 8,
-    color: "#000",
-  },
-  subHeading: {
-    fontSize: 16,
-    textAlign: "center",
-    marginBottom: 24,
-    color: "#555",
-  },
-  grid: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  button: {
-    flex: 1,
-    marginHorizontal: 8,
-    paddingVertical: 24,
-    paddingHorizontal: 12,
-    borderRadius: 16,
-    backgroundColor: "#e8f9ff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  langTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#333",
-  },
-  langDesc: {
-    marginTop: 8,
-    fontSize: 14,
-    color: "#666",
-    textAlign: "center",
-  },
-  circle: {
-    position: "absolute",
-    top: 8,
-    right: 8,
-    width: 12,
-    height: 12,
-    borderRadius: 6,
-    backgroundColor: "#c5baff",
-  },
+card: {
+  backgroundColor: "#fbfbfb",
+  borderRadius: 24,
+  padding: 32,        // more padding
+  width: "100%",
+  maxWidth: 700,      // make card wider
+  elevation: 5,
+  shadowColor: "#000",
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.2,
+  shadowRadius: 4,
+},
+heading: {
+  fontSize: 36,       // much bigger
+  fontWeight: "bold",
+  textAlign: "center",
+  marginBottom: 12,
+  color: "#000",
+},
+subHeading: {
+  fontSize: 18,       // slightly bigger
+  textAlign: "center",
+  marginBottom: 36,   // more spacing
+  color: "#555",
+},
+
+grid: {
+  flexDirection: "row",
+  justifyContent: "space-evenly", // spread evenly
+},
+button: {
+  width: "40%",       // larger card buttons
+  paddingVertical: 40, // taller
+  paddingHorizontal: 20,
+  borderRadius: 20,
+  backgroundColor: "#e8f9ff",
+  alignItems: "center",
+  justifyContent: "center",
+  shadowColor: "#000",
+  shadowOpacity: 0.1,
+  shadowRadius: 8,
+  elevation: 3,
+},
+
+langTitle: {
+  fontSize: 26,       // bigger text + emoji
+  fontWeight: "bold",
+  color: "#333",
+},
+
+langDesc: {
+  marginTop: 12,
+  fontSize: 16,
+  color: "#666",
+  textAlign: "center",
+},
+circle: {
+  position: "absolute",
+  top: 10,
+  right: 10,
+  width: 16,
+  height: 16,
+  borderRadius: 8,
+  backgroundColor: "#c5baff",
+  borderWidth: 2,
+  borderColor: "#fff",
+},
+
 });
