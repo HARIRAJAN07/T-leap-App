@@ -19,7 +19,7 @@ const wp = (perc) => (width * perc) / 100;
 const hp = (perc) => (height * perc) / 100;
 
 // Card size for 3 per row
-const CARD_WIDTH = width / 4.5;
+const CARD_WIDTH = width / 4;
 const CARD_HEIGHT = CARD_WIDTH * 0.2;
 
 const TopicSelectionPage = () => {

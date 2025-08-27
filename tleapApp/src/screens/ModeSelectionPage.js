@@ -62,7 +62,7 @@ const ModeSelectionPage = () => {
           shadowOpacity: 0.15,
           shadowRadius: wp(2),
           elevation: 8,
-          width: "80%",
+          width: "70%",
           maxWidth: wp(80),
         }}
       >
@@ -103,10 +103,10 @@ const ModeSelectionPage = () => {
               activeOpacity={0.85}
               style={{
                 backgroundColor: "#e8f9ff",
-                paddingVertical: hp(2),
-                paddingHorizontal: wp(2),
+                paddingVertical: hp(6),
+                paddingHorizontal: wp(1),
                 borderRadius: wp(2),
-                width: width > 1000 ? "45%" : "100%",
+                width: "45%",
                 alignItems: "center",
                 justifyContent: "center",
                 shadowColor: "#000",
