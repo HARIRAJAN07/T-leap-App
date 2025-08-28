@@ -8,10 +8,18 @@ import {
   ScrollView,
   StyleSheet,
   ActivityIndicator,
+  Modal,
+  Dimensions,
 } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
 
 const API_BASE = "http://localhost:5000"; // 🔧 replace with your server or env variable
+
+// Responsive helpers
+const { width, height } = Dimensions.get("window");
+const wp = (perc) => (width * perc) / 100;
+const hp = (perc) => (height * perc) / 100;
 
 export default function QuestionPage() {
   const route = useRoute();
@@ -28,6 +36,8 @@ export default function QuestionPage() {
 
   const [history, setHistory] = useState([]);
   const [showReport, setShowReport] = useState(false);
+
+  const [modalVisible, setModalVisible] = useState(false);
 
   const payload = useMemo(
     () => ({
@@ -88,6 +98,7 @@ export default function QuestionPage() {
         isCorrect,
       },
     ]);
+    setModalVisible(true); // show popup
   };
 
   const onNext = () => {
@@ -105,7 +116,7 @@ export default function QuestionPage() {
 
   const correctCount = history.filter((h) => h.isCorrect).length;
 
-  // ================== Renders ==================
+  // ================== Render Question Types ==================
   const renderMCQ = () => (
     <View style={styles.optionsContainer}>
       {(question?.options || []).map((opt, i) => (
@@ -262,65 +273,85 @@ export default function QuestionPage() {
 
   // ================== Main Screen ==================
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.card}>
-        <Text style={styles.title}>
-          {isPractice ? "📖 Practice Mode" : "📝 Test Mode"}
-        </Text>
-        <Text style={styles.subtitle}>
-          Class {classId} · {subject} · {decodeURIComponent(topic)} ·{" "}
-          {difficulty} · {questionType.toUpperCase()}
-        </Text>
+    <LinearGradient
+      colors={["#c5baff", "#c4d9ff", "#e8f9ff"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={{ flex: 1 }}
+    >
+      <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.card}>
+          <Text style={styles.title}>
+            {isPractice ? "📖 Practice Mode" : "📝 Test Mode"}
+          </Text>
+          <Text style={styles.subtitle}>
+            Class {classId} · {subject} · {decodeURIComponent(topic)} ·{" "}
+            {difficulty} · {questionType.toUpperCase()}
+          </Text>
 
-        {loading && <ActivityIndicator size="large" color="#000" />}
-        {error !== "" && <Text style={{ color: "red" }}>{error}</Text>}
+          {loading && <ActivityIndicator size="large" color="#000" />}
+          {error !== "" && <Text style={{ color: "red" }}>{error}</Text>}
 
-        {question && (
-          <>
-            <Text style={styles.question}>{question.question}</Text>
+          {question && (
+            <>
+              <Text style={styles.question}>{question.question}</Text>
 
-            {question.type === "mcq" && renderMCQ()}
-            {question.type === "fill" && renderFill()}
-            {question.type === "truefalse" && renderTrueFalse()}
-            {question.type === "assertion" && renderAssertion()}
-            {question.type === "match" && renderMatch()}
+              {question.type === "mcq" && renderMCQ()}
+              {question.type === "fill" && renderFill()}
+              {question.type === "truefalse" && renderTrueFalse()}
+              {question.type === "assertion" && renderAssertion()}
+              {question.type === "match" && renderMatch()}
 
-            {/* Buttons */}
-            <View style={styles.actionsRow}>
-              {!submitted && (
-                <TouchableOpacity style={styles.submitBtn} onPress={onSubmit}>
-                  <Text style={styles.btnText}>Submit</Text>
+              <View style={styles.actionsRow}>
+                {!submitted && (
+                  <TouchableOpacity style={styles.submitBtn} onPress={onSubmit}>
+                    <Text style={styles.btnText}>Submit</Text>
+                  </TouchableOpacity>
+                )}
+                <TouchableOpacity style={styles.nextBtn} onPress={onNext}>
+                  <Text style={styles.btnText}>Next</Text>
                 </TouchableOpacity>
-              )}
-              <TouchableOpacity style={styles.nextBtn} onPress={onNext}>
-                <Text style={styles.btnText}>Next</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.endBtn} onPress={onEnd}>
-                <Text style={styles.btnText}>End Test</Text>
-              </TouchableOpacity>
-            </View>
-
-            {/* Feedback */}
-            {submitted && (
-              <View style={styles.feedbackBox}>
-                {checkCorrect(userAnswer, question) ? (
-                  <Text style={{ color: "green", fontWeight: "bold" }}>
-                    ✅ Correct!
-                  </Text>
-                ) : (
-                  <Text style={{ color: "red", fontWeight: "bold" }}>
-                    ❌ Incorrect. Correct: {question.answer}
-                  </Text>
-                )}
-                {isPractice && question.explanation && (
-                  <Text>💡 {question.explanation}</Text>
-                )}
+                <TouchableOpacity style={styles.endBtn} onPress={onEnd}>
+                  <Text style={styles.btnText}>End Test</Text>
+                </TouchableOpacity>
               </View>
+            </>
+          )}
+        </View>
+      </ScrollView>
+
+      {/* Feedback Popup Modal */}
+      <Modal
+        visible={modalVisible}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalBox}>
+            {checkCorrect(userAnswer, question) ? (
+              <Text style={styles.correctText}>✅ Correct!</Text>
+            ) : (
+              <Text style={styles.incorrectText}>
+                ❌ Incorrect. Correct: {question?.answer}
+              </Text>
             )}
-          </>
-        )}
-      </View>
-    </ScrollView>
+            {isPractice && question?.explanation && (
+              <Text style={styles.explanation}>💡 {question.explanation}</Text>
+            )}
+            <TouchableOpacity
+              style={styles.nextBtnPopup}
+              onPress={() => {
+                setModalVisible(false);
+                fetchQuestion();
+              }}
+            >
+              <Text style={styles.btnText}>Next</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+    </LinearGradient>
   );
 }
 
@@ -329,111 +360,235 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     justifyContent: "center",
-    padding: 16,
-    backgroundColor: "#c5baff",
+    padding: wp(4),
   },
+
+  // Main card
   card: {
     backgroundColor: "#fff",
-    borderRadius: 20,
-    padding: 16,
+    borderRadius: wp(3),
+    padding: wp(4),
     shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
-    elevation: 5,
+    shadowOpacity: 0.15,
+    shadowRadius: wp(2),
+    elevation: 8,
+    width: "85%",
+    maxWidth: wp(80),
+    alignSelf: "center",
   },
-  title: { fontSize: 24, fontWeight: "bold", marginBottom: 10 },
-  subtitle: { fontSize: 14, color: "#555", marginBottom: 16 },
-  question: { fontSize: 18, fontWeight: "600", marginBottom: 16 },
-  optionsContainer: { gap: 10 },
+
+  // Headers
+  title: {
+    fontSize: wp(4),
+    fontWeight: "800",
+    marginBottom: hp(1),
+    color: "#000",
+    textAlign: "center",
+  },
+  subtitle: {
+    fontSize: wp(2),
+    color: "#555",
+    marginBottom: hp(2),
+    fontWeight: "500",
+    textAlign: "center",
+  },
+  question: {
+    fontSize: wp(3),
+    fontWeight: "600",
+    marginBottom: hp(2),
+    color: "#111",
+    textAlign: "center",
+  },
+
+  // Options
+  optionsContainer: {
+    marginBottom: hp(2),
+  },
   optionButton: {
     backgroundColor: "#e8f9ff",
-    padding: 12,
-    borderRadius: 10,
-    marginBottom: 10,
+    paddingVertical: hp(2),
+    paddingHorizontal: wp(3),
+    borderRadius: wp(2),
+    marginBottom: hp(1.5),
+    alignItems: "center",
+    borderWidth: 2,
+    borderColor: "transparent",
   },
   optionButtonSelected: {
     backgroundColor: "#4f46e5",
+    borderColor: "#4f46e5",
+    transform: [{ scale: 1.05 }],
+    shadowColor: "#4f46e5",
+    shadowOpacity: 0.3,
+    shadowRadius: wp(2),
+    elevation: 5,
   },
-  optionText: { textAlign: "center", fontSize: 16, color: "#333" },
-  optionTextSelected: { color: "#fff" },
+  optionText: {
+    fontSize: wp(2.5),
+    fontWeight: "600",
+    color: "#333",
+  },
+  optionTextSelected: {
+    color: "#fff",
+  },
+
+  // Input
   input: {
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: "#ccc",
-    borderRadius: 10,
-    padding: 12,
-    marginBottom: 12,
+    borderRadius: wp(2),
+    padding: wp(3),
+    marginBottom: hp(2),
     backgroundColor: "#fff",
+    fontSize: wp(2.2),
   },
-  row: { flexDirection: "row", gap: 10 },
+
+  // True/False row
+  row: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    gap: wp(2),
+  },
   rowBetween: {
     flexDirection: "row",
     justifyContent: "space-between",
   },
+
+  // Match section
   matchBox: {
     backgroundColor: "#f0f0ff",
-    padding: 10,
-    borderRadius: 10,
-    marginBottom: 10,
+    padding: wp(3),
+    borderRadius: wp(2),
+    marginBottom: hp(2),
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowRadius: wp(1.5),
+    elevation: 2,
   },
+
+  // Actions row
   actionsRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 16,
+    marginTop: hp(2),
     flexWrap: "wrap",
-    gap: 10,
+    gap: wp(2),
   },
+
+  // Buttons
   submitBtn: {
-    backgroundColor: "green",
-    padding: 12,
-    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: "#16a34a",
+    paddingVertical: hp(1.2),
+    paddingHorizontal: wp(4),
+    borderRadius: wp(2),
   },
   nextBtn: {
-    backgroundColor: "blue",
-    padding: 12,
-    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: "#2563eb",
+    paddingVertical: hp(1.2),
+    paddingHorizontal: wp(4),
+    borderRadius: wp(2),
   },
   endBtn: {
-    backgroundColor: "red",
-    padding: 12,
-    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: "#dc2626",
+    paddingVertical: hp(1.2),
+    paddingHorizontal: wp(4),
+    borderRadius: wp(2),
   },
-  btnText: { color: "#fff", fontWeight: "bold" },
-  feedbackBox: {
-    marginTop: 16,
-    padding: 12,
-    borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 10,
-    backgroundColor: "#f9f9f9",
+  btnText: {
+    fontSize: wp(2),
+    fontWeight: "600",
+    color: "#111",
   },
+
+  // Report
   reportCard: {
     backgroundColor: "#fff",
-    borderRadius: 20,
-    padding: 16,
+    borderRadius: wp(3),
+    padding: wp(4),
     shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
-    elevation: 5,
+    shadowOpacity: 0.15,
+    shadowRadius: wp(2),
+    elevation: 8,
+    width: "85%",
+    maxWidth: wp(80),
+    alignSelf: "center",
   },
   statsRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginVertical: 16,
+    marginVertical: hp(2),
   },
   statBox: {
     flex: 1,
-    margin: 5,
+    margin: wp(1),
     alignItems: "center",
-    padding: 12,
-    borderRadius: 10,
+    padding: wp(3),
+    borderRadius: wp(2),
     backgroundColor: "#e8f9ff",
   },
-  statNumber: { fontSize: 22, fontWeight: "bold" },
-  historyBox: {
-    marginBottom: 10,
-    padding: 10,
-    backgroundColor: "#f9f9f9",
-    borderRadius: 10,
+  statNumber: {
+    fontSize: wp(4),
+    fontWeight: "bold",
+    marginBottom: hp(0.5),
   },
-  bold: { fontWeight: "bold" },
+  historyBox: {
+    marginBottom: hp(2),
+    padding: wp(3),
+    backgroundColor: "#f9f9f9",
+    borderRadius: wp(2),
+  },
+
+  bold: {
+    fontWeight: "bold",
+  },
+
+  // Popup Modal
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.5)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalBox: {
+    backgroundColor: "#fff",
+    borderRadius: wp(3),
+    padding: wp(4),
+    width: "80%",
+    maxWidth: wp(70),
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOpacity: 0.25,
+    shadowRadius: wp(2),
+    elevation: 6,
+  },
+  correctText: {
+    color: "green",
+    fontSize: wp(3),
+    fontWeight: "bold",
+    marginBottom: hp(1),
+    textAlign: "center",
+  },
+  incorrectText: {
+    color: "red",
+    fontSize: wp(3),
+    fontWeight: "bold",
+    marginBottom: hp(1),
+    textAlign: "center",
+  },
+  explanation: {
+    marginTop: hp(1),
+    fontSize: wp(2),
+    color: "#333",
+    textAlign: "center",
+  },
+  nextBtnPopup: {
+    marginTop: hp(2),
+    backgroundColor: "#2563eb",
+    paddingVertical: hp(1.5),
+    paddingHorizontal: wp(5),
+    borderRadius: wp(2),
+  },
 });
