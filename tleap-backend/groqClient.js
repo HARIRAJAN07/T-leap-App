@@ -12,7 +12,10 @@ function normalizeDifficulty(d) {
 }
 
 /** Call Groq and parse strict JSON safely */
-async function askGROQ(prompt, { model = "llama3-8b-8192", temperature = 0.6, max_tokens = 700 } = {}) {
+async function askGROQ(
+  prompt,
+  { model = "llama3-8b-8192", temperature = 0.6, max_tokens = 700 } = {}
+) {
   try {
     const response = await groq.chat.completions.create({
       model,
@@ -28,18 +31,14 @@ async function askGROQ(prompt, { model = "llama3-8b-8192", temperature = 0.6, ma
     if (!jsonMatch) throw new Error("No JSON found in response");
 
     let cleanJson = jsonMatch[0].trim();
-    // Remove any trailing commas (common LLM quirk)
     cleanJson = cleanJson.replace(/,\s*}/g, '}').replace(/,\s*]/g, ']');
 
     const parsed = JSON.parse(cleanJson);
-    // ---- END SAFER JSON EXTRACTION ----
 
-    // Validate base structure
     if (!parsed.question || !parsed.type) {
       throw new Error("Missing question or type in parsed JSON");
     }
 
-    // Normalize MCQ
     if (parsed.type === "mcq") {
       if (!Array.isArray(parsed.options) || parsed.options.length !== 4 || !parsed.answer) {
         throw new Error("MCQ missing options or answer");
@@ -62,15 +61,17 @@ async function askGROQ(prompt, { model = "llama3-8b-8192", temperature = 0.6, ma
 
 /**
  * Generate ONE question (MCQ, Fill, Assertion, True/False, Match)
- * @param {Object} cfg
- * @param {string|number} cfg.stdClass
- * @param {string} cfg.subject
- * @param {string} cfg.difficulty
- * @param {string} [cfg.topicHint]
- * @param {"Tamil"|"English"} cfg.language
- * @param {string|string[]} cfg.questionType
  */
-async function generateQuestion({ stdClass, subject, difficulty, topicHint = "", language = "English", questionType = "mcq" }) {
+async function generateQuestion({
+  stdClass,
+  subject,
+  difficulty,
+  topicHint = "",
+  subtopicHint = "",
+  language = "English",
+  questionType = "mcq",
+  askedQuestions = []
+}) {
   const lvl = normalizeDifficulty(difficulty);
   const lang = (language || "English").toLowerCase().startsWith("tam") ? "Tamil" : "English";
 
@@ -78,7 +79,8 @@ async function generateQuestion({ stdClass, subject, difficulty, topicHint = "",
   if (Array.isArray(questionType)) {
     typeInstruction = `Choose randomly from these types: ${questionType.join(", ")}.`;
   } else if (questionType === "mix") {
-    typeInstruction = "Choose randomly from MCQ, Fill in the Blank, Assertion & Reasoning, True/False, or Match the Following.";
+    typeInstruction =
+      "Choose randomly from MCQ, Fill in the Blank, Assertion & Reasoning, True/False, or Match the Following.";
   } else {
     const map = {
       mcq: "Multiple Choice Question with 4 options",
@@ -92,11 +94,16 @@ async function generateQuestion({ stdClass, subject, difficulty, topicHint = "",
 
   const topicLine = topicHint?.trim()
     ? `- Topic: "${topicHint}".`
-    : `- If topic is not given, choose a relevant sub-topic.`;
+    : `- If topic is not given, choose a relevant topic.`;
 
-  const languageRule = lang === "Tamil"
-    ? `- Write the entire question, options, and explanation in Tamil.`
-    : `- Write everything in English.`;
+  const subtopicLine = subtopicHint?.trim()
+    ? `- Subtopic: "${subtopicHint}". Generate questions specifically from this subtopic.`
+    : `- If subtopic is not given, generate from the entire topic or lesson.`;
+
+  const languageRule =
+    lang === "Tamil"
+      ? `- Write the entire question, options, and explanation in Tamil.`
+      : `- Write everything in English.`;
 
   const subjectGuard = `
 - Subject: ${subject}.
@@ -106,6 +113,11 @@ async function generateQuestion({ stdClass, subject, difficulty, topicHint = "",
 - For languages: focus on grammar, vocabulary, and comprehension.
 `;
 
+  const uniquenessRule =
+    askedQuestions.length > 0
+      ? `- Do NOT repeat any of these previously generated questions: ${askedQuestions.map(q => `"${q}"`).join(", ")}`
+      : `- Ensure all questions are unique and never repeated.`;
+
   const prompt = `
 You are a strict quiz generator.
 
@@ -114,8 +126,10 @@ Requirements:
 ${subjectGuard}
 - Difficulty: ${lvl}
 ${topicLine}
+${subtopicLine}
 ${languageRule}
 - Question Type: ${typeInstruction}
+- ${uniquenessRule}
 - Output format: STRICT JSON, no extra text.
 
 JSON structure by type:

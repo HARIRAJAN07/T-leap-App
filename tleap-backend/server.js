@@ -17,9 +17,9 @@ app.get('/', (req, res) => {
 // Generate Question API
 app.post('/generate-question', async (req, res) => {
   try {
-    const { stdClass, subject, difficulty, topicHint, language, questionType } = req.body;
+    const { stdClass, subject, difficulty, topicHint, subtopicHint,language, questionType } = req.body;
 
-    const q = await generateQuestion({ stdClass, subject, difficulty, topicHint, language, questionType });
+    const q = await generateQuestion({ stdClass, subject, difficulty, topicHint,subtopicHint,language, questionType });
 
     if (!q) {
       return res.status(500).json({ error: 'Failed to generate question' });

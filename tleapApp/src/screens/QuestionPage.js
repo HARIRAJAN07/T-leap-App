@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
+import topicsData from "../data/topics.json";
 
 const API_BASE = "http://localhost:5000"; // 🔧 replace with your server or env variable
 
@@ -33,45 +34,54 @@ export default function QuestionPage() {
   const [question, setQuestion] = useState(null);
   const [userAnswer, setUserAnswer] = useState("");
   const [submitted, setSubmitted] = useState(false);
-
   const [history, setHistory] = useState([]);
   const [showReport, setShowReport] = useState(false);
-
   const [modalVisible, setModalVisible] = useState(false);
 
-  const payload = useMemo(
-    () => ({
-      stdClass: classId,
-      subject,
-      difficulty,
-      topicHint: decodeURIComponent(topic),
-      language,
-      questionType,
-    }),
-    [classId, subject, difficulty, topic, questionType, language]
-  );
+  // Topic hints
+  const classKey = `class${classId}`;
+  const topics = topicsData[classKey]?.[subject.toLowerCase()] || [];
+  const topicObj = topics.find((t) => t.topic === topic);
+  const payload = (subtopicHint) => ({
+  stdClass: classId,
+  subject,
+  difficulty,
+  topicHint: decodeURIComponent(topic),
+  subtopicHint: decodeURIComponent(subtopicHint || ""),
+  language,
+  questionType,
+});
 
-  const fetchQuestion = useCallback(async () => {
-    try {
-      setLoading(true);
-      setError("");
-      setSubmitted(false);
-      setUserAnswer("");
 
-      const res = await fetch(`${API_BASE}/generate-question`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) throw new Error(`API ${res.status}`);
-      const data = await res.json();
-      setQuestion(data);
-    } catch (e) {
-      setError(e.message || "Failed to load");
-    } finally {
-      setLoading(false);
-    }
-  }, [payload]);
+ const fetchQuestion = useCallback(async () => {
+  try {
+    setLoading(true);
+    setError("");
+    setSubmitted(false);
+    setUserAnswer("");
+
+    const randomHint =
+      topicObj?.topichint[
+        Math.floor(Math.random() * topicObj.topichint.length)
+      ];
+
+    const res = await fetch(`${API_BASE}/generate-question`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload(randomHint)),
+    });
+    console.log("TOPIC HINT:", randomHint);
+
+    if (!res.ok) throw new Error(`API ${res.status}`);
+    const data = await res.json();
+    setQuestion(data);
+  } catch (e) {
+    setError(e.message || "Failed to load");
+  } finally {
+    setLoading(false);
+  }
+}, [classId, subject, difficulty, topic, questionType, language, topicObj]);
+
 
   useEffect(() => {
     fetchQuestion();
@@ -98,7 +108,8 @@ export default function QuestionPage() {
         isCorrect,
       },
     ]);
-    setModalVisible(true); // show popup
+   // console.log("TOPIC HINT:", randomHint);
+    setModalVisible(true);
   };
 
   const onNext = () => {
@@ -116,24 +127,16 @@ export default function QuestionPage() {
 
   const correctCount = history.filter((h) => h.isCorrect).length;
 
-  // ================== Render Question Types ==================
+  // ========== Render Question Types ==========
   const renderMCQ = () => (
     <View style={styles.optionsContainer}>
       {(question?.options || []).map((opt, i) => (
         <TouchableOpacity
           key={i}
-          style={[
-            styles.optionButton,
-            userAnswer === opt && styles.optionButtonSelected,
-          ]}
+          style={[styles.optionButton, userAnswer === opt && styles.optionButtonSelected]}
           onPress={() => setUserAnswer(opt)}
         >
-          <Text
-            style={[
-              styles.optionText,
-              userAnswer === opt && styles.optionTextSelected,
-            ]}
-          >
+          <Text style={[styles.optionText, userAnswer === opt && styles.optionTextSelected]}>
             {opt}
           </Text>
         </TouchableOpacity>
@@ -155,18 +158,10 @@ export default function QuestionPage() {
       {["True", "False"].map((t) => (
         <TouchableOpacity
           key={t}
-          style={[
-            styles.optionButton,
-            userAnswer === t && styles.optionButtonSelected,
-          ]}
+          style={[styles.optionButton, userAnswer === t && styles.optionButtonSelected]}
           onPress={() => setUserAnswer(t)}
         >
-          <Text
-            style={[
-              styles.optionText,
-              userAnswer === t && styles.optionTextSelected,
-            ]}
-          >
+          <Text style={[styles.optionText, userAnswer === t && styles.optionTextSelected]}>
             {t}
           </Text>
         </TouchableOpacity>
@@ -186,18 +181,10 @@ export default function QuestionPage() {
         {opts.map((o, i) => (
           <TouchableOpacity
             key={i}
-            style={[
-              styles.optionButton,
-              userAnswer === o && styles.optionButtonSelected,
-            ]}
+            style={[styles.optionButton, userAnswer === o && styles.optionButtonSelected]}
             onPress={() => setUserAnswer(o)}
           >
-            <Text
-              style={[
-                styles.optionText,
-                userAnswer === o && styles.optionTextSelected,
-              ]}
-            >
+            <Text style={[styles.optionText, userAnswer === o && styles.optionTextSelected]}>
               {i + 1}. {o}
             </Text>
           </TouchableOpacity>
@@ -226,7 +213,7 @@ export default function QuestionPage() {
     </View>
   );
 
-  // ================== Report ==================
+  // ========== Report Screen ==========
   if (showReport && !isPractice) {
     const total = history.length;
     const wrong = total - correctCount;
@@ -235,8 +222,8 @@ export default function QuestionPage() {
         <View style={styles.reportCard}>
           <Text style={styles.title}>📊 Test Report</Text>
           <Text style={styles.subtitle}>
-            Class {classId} · {subject} · {decodeURIComponent(topic)} ·{" "}
-            {difficulty} · {questionType.toUpperCase()}
+            Class {classId} · {subject} · {decodeURIComponent(topic)} · {difficulty} ·{" "}
+            {questionType.toUpperCase()}
           </Text>
 
           <View style={styles.statsRow}>
@@ -245,9 +232,7 @@ export default function QuestionPage() {
               <Text>Total Questions</Text>
             </View>
             <View style={[styles.statBox, { backgroundColor: "#e0ffe0" }]}>
-              <Text style={[styles.statNumber, { color: "green" }]}>
-                {correctCount}
-              </Text>
+              <Text style={[styles.statNumber, { color: "green" }]}>{correctCount}</Text>
               <Text>Correct</Text>
             </View>
             <View style={[styles.statBox, { backgroundColor: "#ffe0e0" }]}>
@@ -271,7 +256,7 @@ export default function QuestionPage() {
     );
   }
 
-  // ================== Main Screen ==================
+  // ========== Main Screen ==========
   return (
     <LinearGradient
       colors={["#c5baff", "#c4d9ff", "#e8f9ff"]}
@@ -281,12 +266,10 @@ export default function QuestionPage() {
     >
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.card}>
-          <Text style={styles.title}>
-            {isPractice ? "📖 Practice Mode" : "📝 Test Mode"}
-          </Text>
+          <Text style={styles.title}>{isPractice ? "📖 Practice Mode" : "📝 Test Mode"}</Text>
           <Text style={styles.subtitle}>
-            Class {classId} · {subject} · {decodeURIComponent(topic)} ·{" "}
-            {difficulty} · {questionType.toUpperCase()}
+            Class {classId} · {subject} · {decodeURIComponent(topic)} · {difficulty} ·{" "}
+            {questionType.toUpperCase()}
           </Text>
 
           {loading && <ActivityIndicator size="large" color="#000" />}
@@ -308,7 +291,7 @@ export default function QuestionPage() {
                     <Text style={styles.btnText}>Submit</Text>
                   </TouchableOpacity>
                 )}
-                <TouchableOpacity style={styles.nextBtn} onPress={onNext}>
+                <TouchableOpacity style={styles.nextBtn} onPress={fetchQuestion}>
                   <Text style={styles.btnText}>Next</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.endBtn} onPress={onEnd}>
@@ -332,9 +315,7 @@ export default function QuestionPage() {
             {checkCorrect(userAnswer, question) ? (
               <Text style={styles.correctText}>✅ Correct!</Text>
             ) : (
-              <Text style={styles.incorrectText}>
-                ❌ Incorrect. Correct: {question?.answer}
-              </Text>
+              <Text style={styles.incorrectText}>❌ Incorrect. Correct: {question?.answer}</Text>
             )}
             {isPractice && question?.explanation && (
               <Text style={styles.explanation}>💡 {question.explanation}</Text>
@@ -362,8 +343,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: wp(4),
   },
-
-  // Main card
   card: {
     backgroundColor: "#fff",
     borderRadius: wp(3),
@@ -376,34 +355,10 @@ const styles = StyleSheet.create({
     maxWidth: wp(80),
     alignSelf: "center",
   },
-
-  // Headers
-  title: {
-    fontSize: wp(4),
-    fontWeight: "800",
-    marginBottom: hp(1),
-    color: "#000",
-    textAlign: "center",
-  },
-  subtitle: {
-    fontSize: wp(2),
-    color: "#555",
-    marginBottom: hp(2),
-    fontWeight: "500",
-    textAlign: "center",
-  },
-  question: {
-    fontSize: wp(3),
-    fontWeight: "600",
-    marginBottom: hp(2),
-    color: "#111",
-    textAlign: "center",
-  },
-
-  // Options
-  optionsContainer: {
-    marginBottom: hp(2),
-  },
+  title: { fontSize: wp(4), fontWeight: "800", marginBottom: hp(1), color: "#000", textAlign: "center" },
+  subtitle: { fontSize: wp(2), color: "#555", marginBottom: hp(2), fontWeight: "500", textAlign: "center" },
+  question: { fontSize: wp(3), fontWeight: "600", marginBottom: hp(2), color: "#111", textAlign: "center" },
+  optionsContainer: { marginBottom: hp(2) },
   optionButton: {
     backgroundColor: "#e8f9ff",
     paddingVertical: hp(2),
@@ -423,172 +378,27 @@ const styles = StyleSheet.create({
     shadowRadius: wp(2),
     elevation: 5,
   },
-  optionText: {
-    fontSize: wp(2.5),
-    fontWeight: "600",
-    color: "#333",
-  },
-  optionTextSelected: {
-    color: "#fff",
-  },
-
-  // Input
-  input: {
-    borderWidth: 2,
-    borderColor: "#ccc",
-    borderRadius: wp(2),
-    padding: wp(3),
-    marginBottom: hp(2),
-    backgroundColor: "#fff",
-    fontSize: wp(2.2),
-  },
-
-  // True/False row
-  row: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    gap: wp(2),
-  },
-  rowBetween: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-
-  // Match section
-  matchBox: {
-    backgroundColor: "#f0f0ff",
-    padding: wp(3),
-    borderRadius: wp(2),
-    marginBottom: hp(2),
-    shadowColor: "#000",
-    shadowOpacity: 0.05,
-    shadowRadius: wp(1.5),
-    elevation: 2,
-  },
-
-  // Actions row
-  actionsRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: hp(2),
-    flexWrap: "wrap",
-    gap: wp(2),
-  },
-
-  // Buttons
-  submitBtn: {
-    borderWidth: 2,
-    borderColor: "#16a34a",
-    paddingVertical: hp(1.2),
-    paddingHorizontal: wp(4),
-    borderRadius: wp(2),
-  },
-  nextBtn: {
-    borderWidth: 2,
-    borderColor: "#2563eb",
-    paddingVertical: hp(1.2),
-    paddingHorizontal: wp(4),
-    borderRadius: wp(2),
-  },
-  endBtn: {
-    borderWidth: 2,
-    borderColor: "#dc2626",
-    paddingVertical: hp(1.2),
-    paddingHorizontal: wp(4),
-    borderRadius: wp(2),
-  },
-  btnText: {
-    fontSize: wp(2),
-    fontWeight: "600",
-    color: "#111",
-  },
-
-  // Report
-  reportCard: {
-    backgroundColor: "#fff",
-    borderRadius: wp(3),
-    padding: wp(4),
-    shadowColor: "#000",
-    shadowOpacity: 0.15,
-    shadowRadius: wp(2),
-    elevation: 8,
-    width: "85%",
-    maxWidth: wp(80),
-    alignSelf: "center",
-  },
-  statsRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginVertical: hp(2),
-  },
-  statBox: {
-    flex: 1,
-    margin: wp(1),
-    alignItems: "center",
-    padding: wp(3),
-    borderRadius: wp(2),
-    backgroundColor: "#e8f9ff",
-  },
-  statNumber: {
-    fontSize: wp(4),
-    fontWeight: "bold",
-    marginBottom: hp(0.5),
-  },
-  historyBox: {
-    marginBottom: hp(2),
-    padding: wp(3),
-    backgroundColor: "#f9f9f9",
-    borderRadius: wp(2),
-  },
-
-  bold: {
-    fontWeight: "bold",
-  },
-
-  // Popup Modal
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: "rgba(0,0,0,0.5)",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  modalBox: {
-    backgroundColor: "#fff",
-    borderRadius: wp(3),
-    padding: wp(4),
-    width: "80%",
-    maxWidth: wp(70),
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOpacity: 0.25,
-    shadowRadius: wp(2),
-    elevation: 6,
-  },
-  correctText: {
-    color: "green",
-    fontSize: wp(3),
-    fontWeight: "bold",
-    marginBottom: hp(1),
-    textAlign: "center",
-  },
-  incorrectText: {
-    color: "red",
-    fontSize: wp(3),
-    fontWeight: "bold",
-    marginBottom: hp(1),
-    textAlign: "center",
-  },
-  explanation: {
-    marginTop: hp(1),
-    fontSize: wp(2),
-    color: "#333",
-    textAlign: "center",
-  },
-  nextBtnPopup: {
-    marginTop: hp(2),
-    backgroundColor: "#2563eb",
-    paddingVertical: hp(1.5),
-    paddingHorizontal: wp(5),
-    borderRadius: wp(2),
-  },
+  optionText: { fontSize: wp(2.5), fontWeight: "600", color: "#333" },
+  optionTextSelected: { color: "#fff" },
+  input: { borderWidth: 2, borderColor: "#ccc", borderRadius: wp(2), padding: wp(3), marginBottom: hp(2), backgroundColor: "#fff", fontSize: wp(2.2) },
+  row: { flexDirection: "row", justifyContent: "space-between", gap: wp(2) },
+  rowBetween: { flexDirection: "row", justifyContent: "space-between" },
+  matchBox: { backgroundColor: "#f0f0ff", padding: wp(3), borderRadius: wp(2), marginBottom: hp(2), shadowColor: "#000", shadowOpacity: 0.05, shadowRadius: wp(1.5), elevation: 2 },
+  actionsRow: { flexDirection: "row", justifyContent: "space-between", marginTop: hp(2), flexWrap: "wrap", gap: wp(2) },
+  submitBtn: { borderWidth: 2, borderColor: "#16a34a", paddingVertical: hp(1.2), paddingHorizontal: wp(4), borderRadius: wp(2) },
+  nextBtn: { borderWidth: 2, borderColor: "#2563eb", paddingVertical: hp(1.2), paddingHorizontal: wp(4), borderRadius: wp(2) },
+  endBtn: { borderWidth: 2, borderColor: "#dc2626", paddingVertical: hp(1.2), paddingHorizontal: wp(4), borderRadius: wp(2) },
+  btnText: { fontSize: wp(2), fontWeight: "600", color: "#111" },
+  reportCard: { backgroundColor: "#fff", borderRadius: wp(3), padding: wp(4), shadowColor: "#000", shadowOpacity: 0.15, shadowRadius: wp(2), elevation: 8, width: "85%", maxWidth: wp(80), alignSelf: "center" },
+  statsRow: { flexDirection: "row", justifyContent: "space-between", marginVertical: hp(2) },
+  statBox: { flex: 1, margin: wp(1), alignItems: "center", padding: wp(3), borderRadius: wp(2), backgroundColor: "#e8f9ff" },
+  statNumber: { fontSize: wp(4), fontWeight: "bold", marginBottom: hp(0.5) },
+  historyBox: { marginBottom: hp(2), padding: wp(3), backgroundColor: "#f9f9f9", borderRadius: wp(2) },
+  bold: { fontWeight: "bold" },
+  modalOverlay: { flex: 1, backgroundColor: "rgba(0,0,0,0.5)", justifyContent: "center", alignItems: "center" },
+  modalBox: { backgroundColor: "#fff", borderRadius: wp(3), padding: wp(4), width: "80%", maxWidth: wp(70), alignItems: "center", shadowColor: "#000", shadowOpacity: 0.25, shadowRadius: wp(2), elevation: 6 },
+  correctText: { color: "green", fontSize: wp(3), fontWeight: "bold", marginBottom: hp(1), textAlign: "center" },
+  incorrectText: { color: "red", fontSize: wp(3), fontWeight: "bold", marginBottom: hp(1), textAlign: "center" },
+  explanation: { marginTop: hp(1), fontSize: wp(2), color: "#333", textAlign: "center" },
+  nextBtnPopup: { marginTop: hp(2), backgroundColor: "#2563eb", paddingVertical: hp(1.5), paddingHorizontal: wp(5), borderRadius: wp(2) },
 });

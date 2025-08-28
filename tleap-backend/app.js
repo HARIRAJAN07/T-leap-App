@@ -17,7 +17,10 @@ function askChoice(prompt, choices, allowMultiple = false) {
   if (allowMultiple) {
     const ans = readline.question('Enter choice numbers separated by commas (or "mix" for all): ').trim();
     if (ans.toLowerCase() === 'mix') return 'mix';
-    const indexes = ans.split(',').map(x => parseInt(x.trim(), 10)).filter(n => n > 0 && n <= choices.length);
+    const indexes = ans
+      .split(',')
+      .map(x => parseInt(x.trim(), 10))
+      .filter(n => n > 0 && n <= choices.length);
     return indexes.map(i => choices[i - 1]);
   } else {
     const idx = readline.questionInt('Enter choice number: ');
@@ -38,12 +41,20 @@ async function main() {
   const difficulty = askChoice("Choose Difficulty:", difficulties);
 
   const topicHint = readline.question("Enter Topic (optional, press Enter to skip): ").trim();
+  const subtopicHint = readline.question("Enter Subtopic (optional, press Enter to skip): ").trim();
 
   const languages = ["English", "Tamil"];
   const language = askChoice("Choose Language:", languages);
 
-  const questionTypes = ["MCQ", "Fill in the Blank", "Assertion & Reasoning", "True/False", "Match the Following"];
+  const questionTypes = [
+    "MCQ",
+    "Fill in the Blank",
+    "Assertion & Reasoning",
+    "True/False",
+    "Match the Following"
+  ];
   let questionType = askChoice("Choose Question Type(s):", questionTypes, true);
+
   if (Array.isArray(questionType)) {
     questionType = questionType.map(q => {
       switch (q.toLowerCase()) {
@@ -69,6 +80,7 @@ Class: ${stdClass}
 Subject: ${subject}
 Difficulty: ${difficulty}
 Topic: ${topicHint || "Auto"}
+Subtopic: ${subtopicHint || "Auto"}
 Language: ${language}
 Question Type: ${Array.isArray(questionType) ? questionType.join(", ") : questionType}
 Mode: ${mode}\n`);
@@ -100,14 +112,34 @@ Mode: ${mode}\n`);
   let totalQ = 0, correctCount = 0;
   const isPractice = mode.startsWith("Practice");
 
+  // Track previously asked questions
+  const askedQuestions = new Set();
+
   while (true) {
     totalQ++;
-    const q = await generateQuestion({ stdClass, subject, difficulty, topicHint, language, questionType });
+    const q = await generateQuestion({
+      stdClass,
+      subject,
+      difficulty,
+      topicHint,
+      subtopicHint,
+      language,
+      questionType,
+      askedQuestions: Array.from(askedQuestions)
+    });
 
     if (!q) {
-      console.log(`⚠️ Skipping Q${totalQ}: generation error.`);
+      console.log(`⚠ Skipping Q${totalQ}: generation error.`);
       continue;
     }
+
+    // Prevent repeats
+    if (askedQuestions.has(q.question)) {
+      console.log("⚠ Duplicate detected. Retrying...");
+      totalQ--;
+      continue;
+    }
+    askedQuestions.add(q.question);
 
     console.log(`\nQ${totalQ}: ${q.question}`);
     let userAnswer = "";
@@ -117,7 +149,7 @@ Mode: ${mode}\n`);
       console.log(`A) ${A}\nB) ${B}\nC) ${C}\nD) ${D}`);
       const ans = readline.question("Your answer (A/B/C/D or text): ").trim();
       const letter = ans.toUpperCase();
-      userAnswer = ['A', 'B', 'C', 'D'].includes(letter) ? { A, B, C, D }[letter] : ans;
+      userAnswer = { A, B, C, D }[letter] || ans;
     } else if (q.type === "fill") {
       userAnswer = readline.question("Fill in the blank: ").trim();
     } else if (q.type === "assertion") {
@@ -159,7 +191,7 @@ Mode: ${mode}\n`);
       topic: topicHint || "",
       language,
       questionType: q.type,
-      subtopic: q.subtopic || "",
+      subtopic: subtopicHint || "",
       question: q.question,
       optionsOrPairs: q.options ? q.options.join(" | ") : JSON.stringify(q.pairs || {}),
       correctAnswer: correct,
@@ -173,7 +205,12 @@ Mode: ${mode}\n`);
       console.log(`📝 Progress saved to ${CSV_PATH}`);
     }
 
-    const more = readline.question(isPractice ? "Press Enter for next question or type 'exit' to stop practice: " : "Press Enter for next question or type 'end' to finish test: ").trim();
+    const more = readline.question(
+      isPractice
+        ? "Press Enter for next question or type 'exit' to stop practice: "
+        : "Press Enter for next question or type 'end' to finish test: "
+    ).trim();
+
     if ((!isPractice && more.toLowerCase() === 'end') || (isPractice && more.toLowerCase() === 'exit')) break;
   }
 

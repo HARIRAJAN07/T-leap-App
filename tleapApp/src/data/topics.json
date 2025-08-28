@@ -1,338 +1,926 @@
 {
-  "class6": {
-    "tamil": [
-      "செய்யுள் – இன்பத்தமிழ், தமிழ்க்கும்மி",
-      "உரைநடை – வளர்தமிழ்",
-      "இலக்கணம் – தமிழ் எழுத்துகளின் வகையும் தொகையும்",
-      "செய்யுள் – காணி நிலம், திருக்குறள்",
-      "துணைப்பாடம் – கிழவனும் கடலும்",
-      "இலக்கணம் – முதலெழுத்தும் சார்பெழுத்தும்",
-      "துணைப்பாடம் – ஒளி பிறந்தது",
-      "இலக்கணம் – மொொழிமுதல், இறுதி எழுத்துகள்",
-      "செய்யுள் – மூதுரை",
-      "உரைநடை – கல்விக்கண் திறந்தவர்",
-      "துணைப்பாடம் – நூலகம் நோக்கி ..",
-      "இலக்கணம் – இன எழுத்துகள்"
-    ],
-    "english": [
-      "Prose : Sea Turtles",
-      "Supplementary : Owlie",
-      "Grammar : Subject and Predicate",
-      "Prose : When the trees walked",
-      "Poem : Trees",
-      "Grammar : Sentence",
-      "Poem : Team Work",
-      "Grammar : Adjective",
-      "Prose : Trip to Ooty",
-      "Supplementary : Gulliver’s Travels",
-      "Grammar : Tense"
-    ],
-    "math": [
-      "Place Value Chart",
-      "Indian Method",
-      "International Method",
-      "Place Value of Digits in Large Numbers",
-      "Comparison of Numbers",
-      "Arranging the numbers in ascending and descending order",
-      "Use of Large Numbers in Daily Life",
-      "Order of Operations",
-      "Estimation of Numbers",
-      "Whole Numbers",
-      "Properties of Whole Numbers"
-    ],
-    "science": [
-      "Length - SI Units, Corrective measures for measurement",
-      "Mass- Beam Balance",
-      "Motion and Rest- Contact force, Non – contact forces",
-      "Types of motion",
-      "Six types of motion",
-      "Periodic and non-periodic motion",
-      "Uniform and Non-Uniform motion",
-      "Physical nature of matter",
-      "Compressibility of gases compared to liquids and solids",
-      "Pure Substances and mixtures",
-      "Separation mixtures –Filtering, Sedimentation"
-    ],
-    "social studies": [
-      "Stages of Human Evolution (Infographics) Hunting and food gathering",
-      "Stone Tools and Weapons",
-      "The planets at a glance (Infographics)",
-      "Motions of the earth",
-      "Diversity in India",
-      "Social diversity",
-      "Consumer goods",
-      "Barter System"
+  
+"class7": 
+{
+  "tamil": [
+    {
+      "topic": "மொழி அமுதத்தமிழ்",
+      "topichint": [
+        "எங்கள் தமிழ் *",
+        "ஒன்றல்ல இரண்டல்ல",
+        "பேச்சுமொழியும் எழுதுமொழியும்",
+        "சொல்வடைகள்",
+        "குறிப்புகுறும்",
+        "குறிப்பியிறம்"
+      ]
+    },
+    {
+      "topic": "இயற்கை அணிநிழல் காடு",
+      "topichint": [
+        "காடு",
+        "அப்படியே நிற்கடும் அந்த மரம்",
+        "விலங்குகள் உலகம்",
+        "இந்திய வானகம்",
+        "நல்லவுக்கு குறிகள்கள்",
+        "திருக்குறள் *"
+      ]
+    },
+    {
+      "topic": "நாடு, சமூகம் நாடு, அதை நாடு",
+      "topichint": [
+        "புதிய தங்கிய கலை*",
+        "பாஞ்சை வலம்",
+        "தேசியம் காத்த செம்மல் பவமொன்",
+        "முத்துமாமிக்கத்தேரே",
+        "கம்பனோடுமிவை",
+        "வழக்கு",
+        "திருக்குறள்"
+      ]
+    },
+    {
+      "topic": "அறிவியல், தொழில்நுட்பம் ,அறிவியல் ஆக்கம்",
+      "topichint": [
+        "கலங்கரை விளக்கம்*",
+        "கவின்மிகு கப்பல்",
+        "தமிழரின் கப்பற்கலை",
+        "ஆழ்கடலின் அடியில்",
+        "இலக்கியவகைச் சொற்கள்"
+      ]
+    },
+    {
+      "topic": "கல்வி ,ஓதுவது ஒழியேல்",
+      "topichint": [
+        "இன்பத்தமிழ்க் கல்வி",
+        "அழியாச் செல்வம்*",
+        "வாழ்விக்கும் கல்வி",
+        "பள்ளி மறுதிறப்பு",
+        "ஓரெழுத்து ஒருமொழி, பகுபதம், பகாப்பதம்"
+      ]
+    },
+    {
+      "topic": "கலை, அழகியல் ,கலை வண்ணம்",
+      "topichint": [
+        "ஒரு வேண்டுகோள்",
+        "கீரைப்பாத்தியும் குதிரையும்*",
+        "பேசும் ஓவியங்கள்",
+        "தமிழ் ஒளிர் இடங்கள்",
+        "தொழிற்பெயர்",
+        "திருக்குறள்"
+      ]
+    },
+    {
+      "topic": "நாகரிகம், தொழில், வணிகம் ,நயத்தகு நாகரிகம்",
+      "topichint": [
+        "விருந்தோம்பல் *",
+        "வயலும் வாழ்வும்",
+        "திக்கெல்லாம் புகழுறும் திருநெல்வேலி",
+        "திருநெல்வேலிச் சீமையும் கவிகளும்",
+        "அணி இலக்கணம்",
+        "புதுமை விளக்கு *"
+      ]
+    },
+    {
+      "topic": "அறம், தத்துவம், சிந்தனை ,ஒப்புரவு ஒழுகு",
+      "topichint": [
+        "அறம் என்னும் கதிர்",
+        "ஒப்புரவு நெறி",
+        "உண்மை ஒளி",
+        "அணி இலக்கணம்",
+        "திருக்குறள் *"
+      ]
+    },
+    {
+      "topic": "மனிதம், ஆளுமை ,மானுடம் வெல்லும்",
+      "topichint": [
+        "மலைப்பொழிவு",
+        "தன்னை அறிதல்",
+        "கண்ணியமிகு தலைவர்",
+        "பயணம்",
+        "ஆகுபெயர்",
+        "திருக்குறள்"
+      ]
+    }
+  ],
+  "english": [
+    {
+      "topic": "unit-1",
+      "topichint": [
+        "prose eidgah",
+        "poem the computer swallowed grandma",
+        "supplementary on monday morning"
+      ]
+    },
+    {
+      "topic": "unit-2",
+      "topichint": [
+        "prose the wind on haunted hill",
+        "poem the listeners",
+        "supplementary the red-headed league"
+      ]
+    },
+    {
+      "topic": "unit-3",
+      "topichint": [
+        "prose a prayer to the teacher",
+        "poem your space",
+        "supplementary taking the bully by the horns"
+      ]
+    },
+    {
+      "topic": "unit-4",
+      "topichint": [
+        "prose adventures of don quixote",
+        "poem the age of chivalry",
+        "supplementary alice in wonderland"
+      ]
+    },
+    {
+      "topic": "unit-5",
+      "topichint": [
+        "prose the last stone carver",
+        "poem wandering singers",
+        "supplementary naya – the home of chitrakaars"
+      ]
+    },
+    {
+      "topic": "unit-6",
+      "topichint": [
+        "prose journey by train",
+        "poem sea fever",
+        "supplementary sindbad – my first voyage"
+      ]
+    },
+    {
+      "topic": "unit-7",
+      "topichint": [
+        "prose a story of self sacrifice and bravery",
+        "poem courage",
+        "supplementary man overboard"
+      ]
+    }
+  ],
+  "math": [
+    {
+      "topic": "number system",
+      "topichint": [
+        "addition of integers",
+        "subtraction of integers",
+        "multiplication of integers",
+        "division of integers",
+        "statement problems on integers using all fundamental",
+        "operations",
+        "rounding of decimals",
+        "operations on decimal numbers",
+        "representing a decimal number",
+        "fractions and decimals",
+        "comparison of decimals",
+        "representing decimal numbers on the number line"
+      ]
+    },
+    {
+      "topic": "measurements",
+      "topichint": [
+        "parallelogram",
+        "rhombus",
+        "trapezium",
+        "circle",
+        "circumference of a circle",
+        "area of the circle",
+        "area of pathways"
+      ]
+    },
+    {
+      "topic": "algebra",
+      "topichint": [
+        "terms and co-efficients",
+        "like and unlike terms",
+        "value of an algebraic expression",
+        "addition and subtraction of algebraic expressions",
+        "simple linear equations",
+        "exponents and powers",
+        "laws of exponents",
+        "unit digit of numbers in exponential form",
+        "degree of expression",
+        "geometrical approach to multiplication of monomials",
+        "geometrical proof of identities",
+        "factorisation using identities"
+      ]
+    },
+    {
+      "topic": "direct and inverse proportion",
+      "topichint": [
+        "direct proportion",
+        "inverse proportion"
+      ]
+    },
+    {
+      "topic": "geometry",
+      "topichint": [
+        "pair of angles formed by intersecting lines",
+        "transversal",
+        "construction",
+        "application of angle sum property of triangle",
+        "exterior angles",
+        "congruency of triangles",
+        "symmetry through transformations",
+        "construction of circles and concentric circles"
+      ]
+    },
+    {
+      "topic": "information processing",
+      "topichint": [
+        "tetromino",
+        "route map",
+        "tables and patterns leading to linear functions",
+        "pascal’s triangle",
+        "scheduling",
+        "flowchart"
+      ]
+    },
+    {
+      "topic": "statistics",
+      "topichint": [
+        "collection of data",
+        "organisation of data",
+        "representative values",
+        "arithmetic mean",
+        "mode",
+        "median"
+      ]
+    },
+    {
+      "topic": "percentage and simple interest",
+      "topichint": [
+        "percentage in real life",
+        "simple interest"
+      ]
+    }
+  ],
+  "science": [
+    {
+      "topic": "measurement",
+      "topichint": [
+        "fundamental quantities",
+        "derived quantities",
+        "area",
+        "volume",
+        "density",
+        "measuring larger distances",
+        "astronomical unit",
+        "light year"
+      ]
+    },
+    {
+      "topic": "force and motion",
+      "topichint": [
+        "distance",
+        "displacement",
+        "speed",
+        "velocity",
+        "uniform speed",
+        "non-uniform speed",
+        "uniform velocity",
+        "non-uniform velocity",
+        "average velocity",
+        "acceleration",
+        "time graphs",
+        "centre of gravity",
+        "stability"
+      ]
+    },
+    {
+      "topic": "matter around us",
+      "topichint": [
+        "atoms",
+        "molecules",
+        "molecules of elements",
+        "molecules of compounds",
+        "elements",
+        "compounds",
+        "chemical formulae",
+        "atomicity",
+        "solid",
+        "liquid",
+        "gas"
+      ]
+    },
+    {
+      "topic": "atomic structure",
+      "topichint": [
+        "structure of an atom",
+        "sub-atomic particles and its properties",
+        "molecules",
+        "compounds mixture and its types",
+        "symbols"
+      ]
+    },
+    {
+      "topic": "wastes and its management",
+      "topichint": [
+        "synthetic fibers-types and uses",
+        "polymers",
+        "plastics-types and uses-hazardness of plastics",
+        "pla plastics",
+        "various methods of disposing plastics",
+        "biodegradable plastics",
+        "plastic eating bacteria",
+        "glass-types and uses"
+      ]
+    },
+    {
+      "topic": "chemistry in everyday life",
+      "topichint": [
+        "medicines –antibiotics-analgesics-antipyretic-antiseptics-antihistamine-antacids/o rs",
+        "combustion and its types",
+        "flame and its structure",
+        "fire control",
+        "fire extinguishers"
+      ]
+    },
+    {
+      "topic": "living world of plants",
+      "topichint": [
+        "characteristics of living things",
+        "habitat – aquatic and terrestrial plants",
+        "herbs, shrubs and trees",
+        "parts of plants – root, stem, leaves and flowers",
+        "reproduction in plants",
+        "pollination",
+        "types of pollination",
+        "pollinators",
+        "fertilization",
+        "modification of roots, stems, leaves",
+        "kinds of stems"
+      ]
+    },
+    {
+      "topic": "living world of animals",
+      "topichint": [
+        "need for classification",
+        "the 5 kingdom classification",
+        "binomial nomenclature (introduction)"
+      ]
+    },
+    {
+      "topic": "health and hygiene",
+      "topichint": [
+        "test for starch, protein and fat",
+        "taking care of our body",
+        "taking care of our teeth",
+        "taking care of our eyes",
+        "taking care of our hair",
+        "hygienic habits",
+        "communicable diseases (bacteria and virus) any 3",
+        "safety and first aid (cuts and burns)"
+      ]
+    },
+    {
+      "topic": "organization in organisms",
+      "topichint": [
+        "introduction of human organ systems and functions",
+        "the body and health as understood in the indian system health care"
+      ]
+    },
+    {
+      "topic": "life process",
+      "topichint": [
+        "plant and animal cell comparison",
+        "cell as a fundamental unit of life",
+        "human cells related to functions",
+        "structure and function of all cell organelles (in brief)"
+      ]
+    },
+    {
+      "topic": "environmental science – resource use and management",
+      "topichint": [
+        "availability of water",
+        "sources of water",
+        "forms of water",
+        "ground water",
+        "depletion of water",
+        "distribution of water",
+        "scarcity of water",
+        "water management-rain water harvesting-desalination of sea water (r.o)"
+      ]
+    },
+    {
+      "topic": "economic biology",
+      "topichint": [
+        "animal products (food, clothing)",
+        "animal fibers (wool, silk)",
+        "hazards in silk and wool industries (anthrax)",
+        "sericulture and ahimsha/peace silk",
+        "poultry farming",
+        "animal protection and maintenance"
+      ]
+    }
+  ],
+  "social studies": [
+    {
+      "topic": "sources of medieval india",
+      "topichint": [
+        "sources",
+        "inscriptions",
+        "monuments",
+        "coins",
+        "religious literature",
+        "books, biographies and autobiographies",
+        "secular literature",
+        "travellers and travelogues"
+      ]
+    },
+    {
+      "topic": "emergence of new kingdoms in north india",
+      "topichint": [
+        "origin of the rajputs",
+        "pratiharas",
+        "palas",
+        "dharmapala (a.d. (ce) 770 - 810)",
+        "contribution of rajputs to art and architecture",
+        "the chauhans",
+        "advent of islam",
+        "contribution of palas to culture",
+        "mahmud of ghazni (a.d. (ce) 997 -1030)"
+      ]
+    },
+    {
+      "topic": "emergence of new kingdoms in south india: later cholas and pandyas",
+      "topichint": [
+        "the later cholas",
+        "revival of the chola rule",
+        "decline of the chola empire",
+        "administration",
+        "local governance",
+        "revenue",
+        "social structure based on land relations",
+        "irrigation",
+        "cholas as patrons of learning",
+        "religion",
+        "temples",
+        "trade"
+      ]
+    },
+    {
+      "topic": "the delhi sultanate",
+      "topichint": [
+        "mamluk dynasty (1206 - 1290)",
+        "qutb-ud-din-aibak (1206 - 1210)",
+        "iltutmish (1210 - 1236)",
+        "razia (1236 - 1240)",
+        "ghiyas-ud-din balban (1266 - 1287)",
+        "khalji dynasty (1290 - 1320)",
+        "jalal-ud-din khalji (1290 - 1296)",
+        "ala-ud-din khalji (1296 - 1316)",
+        "tughluq dynasty (1320 - 1414)",
+        "ghiyas-ud-din (1320 - 1324)",
+        "muhammad-bin-tughluq (1325 - 1351)",
+        "firoz shah tughluq (1351 - 1388)",
+        "sayyid dynasty (1414 - 1451)",
+        "lodi dynasty (1451 - 1526)"
+      ]
+    },
+    {
+      "topic": "interior of the earth",
+      "topichint": [
+        "the crust",
+        "the mantle",
+        "the core",
+        "the earth movements",
+        "earthquake",
+        "causes of earthquake",
+        "effects of earthquakes",
+        "distribution of earthquakes",
+        "volcanoes",
+        "causes of volcanic activity",
+        "nature of volcanic eruptions",
+        "types of volcanoes",
+        "distribution of volcanoes in the world",
+        "circum pacific belt",
+        "mid continental belt",
+        "mid atlantic belt"
+      ]
+    },
+    {
+      "topic": "landforms",
+      "topichint": [
+        "river",
+        "glacier",
+        "wind",
+        "sea waves",
+        "the endogenic process",
+        "the exogenic process",
+        "‘v’ shaped valley",
+        "meanders",
+        "delta",
+        "u’ shaped valley",
+        "sea cave",
+        "sea cliff"
+      ]
+    },
+    {
+      "topic": "population and settlement",
+      "topichint": [
+        "the races",
+        "caucasoid",
+        "negroid",
+        "mongoloids",
+        "australoids",
+        "races of india",
+        "religion",
+        "classification of religion",
+        "universalizing religions",
+        "ethnic religions",
+        "tribal or traditional religions",
+        "language",
+        "languages of india",
+        "settlement",
+        "old house types",
+        "patterns of settlements",
+        "compact settlements"
+      ]
+    },
+    {
+      "topic": "equality",
+      "topichint": [
+        "what is equality?",
+        "importance of equality",
+        "civil equality",
+        "kinds of equality",
+        "political equality",
+        "human dignity",
+        "gender equality",
+        "equality of opportunity and education",
+        "equality in indian constitution",
+        "we can promote equality by"
+      ]
+    },
+    {
+      "topic": "political parties",
+      "topichint": [
+        "what are political parties?",
+        "importance of political parties",
+        "characteristics of political parties",
+        "types of party system",
+        "party system in india",
+        "single party system",
+        "bi – party system",
+        "multi – party system",
+        "election commission – statutory body",
+        "criteria for recognition",
+        "majority party",
+        "minority party",
+        "opposition party",
+        "electoral symbols and its importance",
+        "coalition government"
+      ]
+    },
+    {
+      "topic": "production",
+      "topichint": [
+        "meaning of production",
+        "types of production",
+        "primary production",
+        "secondary production",
+        "tertiary production",
+        "factors of production",
+        "land",
+        "characteristics of land",
+        "labour",
+        "characteristics of labour",
+        "division of labour",
+        "merits of division of labour",
+        "capital",
+        "forms of capital",
+        "characteristics of capital"
+      ]
+    },
+    {
+      "topic": "vijayanagar and bahmani kingdoms",
+      "topichint": [
+        "foundation of vijayanagar empire",
+        "end of sangama dynasty",
+        "rise of saluva dynasty",
+        "krishnadevaraya",
+        "a great builder",
+        "patron of literature, art and architecture",
+        "battle of talikota and the decline of vijayanagar",
+        "aravidu dynasty",
+        "structure of governance",
+        "vijayanagar administration",
+        "economic condition",
+        "agriculture",
+        "cottage industries",
+        "trade",
+        "bahmani kingdom",
+        "foundation and consolidation of the bahmani kingdom",
+        "ala-ud-din hasan bahman shah(1347–1358)"
+      ]
+    },
+    {
+      "topic": "the mughal empire",
+      "topichint": [
+        "babur (1526–1530)",
+        "ancestry and his early career",
+        "foundation of the mughal empire",
+        "babur’s military conquests",
+        "humayun (1530–1540 and 1555–1556)",
+        "sher shah (1540–1545)",
+        "akbar (1556–1605)",
+        "conquests of women rulers",
+        "commercial access to arabia",
+        "southeast asia and china",
+        "battle of haldighati",
+        "military campaigns in the north-west (1585–1605)",
+        "akbar’s religious policy",
+        "jahangir (1605–1627)"
+      ]
+    },
+    {
+      "topic": "rise of marathas and peshwas",
+      "topichint": [
+        "factors responsible for the rise of marathas",
+        "bhakti movement and the marathas",
+        "shivaji",
+        "shivaji’s confrontation with sultan of bijapur",
+        "consolidation of maratha power",
+        "shivaji and aurangzeb",
+        "maratha administration under shivaji",
+        "army",
+        "ashtapradhan",
+        "shambhuji",
+        "peshwas",
+        "bajirao (1720–1740)",
+        "balaji bajirao (1740–1761)",
+        "the fall of marathas"
+      ]
+    },
+    {
+      "topic": "resources",
+      "topichint": [
+        "importance of resource",
+        "biotic resources",
+        "abiotic resources",
+        "renewable resources",
+        "solar energy",
+        "wind energy",
+        "hydropower",
+        "non-metallic resources",
+        "fossil fuel resources",
+        "petroleum"
+      ]
+    },
+    {
+      "topic": "tourism",
+      "topichint": [
+        "the basic components of tourism",
+        "attractions",
+        "amenities",
+        "historical tourism",
+        "eco-tourism",
+        "adventure tourism",
+        "recreational tourism",
+        "international tourism",
+        "tourism attractions in india",
+        "water falls in india",
+        "wild life and bird sanctuaries",
+        "beaches",
+        "beaches in tamil nadu",
+        "national parks in tamil nadu",
+        "environmental impact of tourism"
+      ]
+    },
+    {
+      "topic": "state government",
+      "topichint": [
+        "role and functions of the legislative assembly",
+        "federal system of government in india",
+        "structure of state government – governor, chief minister, and council of ministers",
+        "election process of mlas and role of election commission",
+        "ruling party and opposition party in state legislature",
+        "powers and functions of the governor",
+        "powers and functions of the chief minister",
+        "unicameral and bicameral legislature in states",
+        "difference between mlas and mlcs",
+        "role of the judiciary at the state level – high court and district courts",
+        "lok adalat and family courts in india",
+        "relationship between legislative, executive, and judiciary at the state level"
+      ]
+    },
+    {
+      "topic": "media and democracy",
+      "topichint": [
+        "what is media?",
+        "personal communication",
+        "mass communication",
+        "importance of the media",
+        "fourth pillar of democracy",
+        "media and public opinion",
+        "role of media in democracy",
+        "ethic and responsibility",
+        "local media",
+        "all india radio (air)",
+        "classification of media"
+      ]
+    },
+    {
+      "topic": "new religious ideas and movements",
+      "topichint": [
+        "new religious ideas and movements",
+        "devotional movement in tamizhakam",
+        "adi shankara",
+        "ramanuja",
+        "bhakti movement in north india",
+        "sufism in india",
+        "guru nanak’s teachings"
+      ]
+    },
+    {
+      "topic": "art and architecture of india",
+      "topichint": [
+        "evolution of dravidian architecture in tamil nadu",
+        "pallava architecture – rock-cut to structural transition",
+        "mahendravarman and the mandagapattu rock-cut temple",
+        "narasimhavarman ii and the shore temple at mahabalipuram",
+        "kanchi kailasanatha and vaikuntha perumal temples",
+        "pancha pandava rathas and arjuna’s penance at mamallapuram",
+        "pandya rock-cut and structural temples",
+        "kazhugumalai vettuvankoil and monolithic temples",
+        "early pandya paintings at sittanavasal and tirumalapuram",
+        "early chola architecture and sembiyan style",
+        "later chola architecture – thanjavur big temple and gangaikonda cholapuram",
+        "dharasuram iravatheswara temple and later chola legacy",
+        "later pandyas and pillayarpatti karpaka vinayagar temple",
+        "vijayanagara / nayak mandapam architecture and 1000-pillar mandapam",
+        "modern period temples – ramanathaswamy temple, rameswaram"
+      ]
+    },
+    {
+      "topic": "jainism , buddhism and ajivika philosophy in tamil nadu",
+      "topichint": [
+        "rise of jainism and role of mahavira",
+        "five great vows of jainism (ahimsa, satya, achaurya, brahmacharya, aparigraha)",
+        "jain councils at pataliputra and vallabhi",
+        "major sects – digambaras and swetambaras",
+        "jain literature – agama sutras and non-agama works",
+        "contribution of tamil jains – jivaka chintamani, naladiyar, thirukkural",
+        "spread of jainism in tamil nadu (kongu region, pudukkottai, madurai, etc.)",
+        "sittanavasal cave temple & fresco paintings",
+        "jain centres in kanchipuram and pallava patronage",
+        "kazhugumalai jain rock-cut temple and sculptures",
+        "other jain centres: vellore, tirumalai, madurai",
+        "life of buddha and the middle path (eight-fold path)",
+        "four noble truths of buddhism",
+        "buddhist literature – tripitaka, jatakas, milindapanha, buddhacharita",
+        "spread of buddhism in tamil nadu – nagapattinam, thiyaganur, manimekalai",
+        "role of buddhist viharas in education (nalanda, vikramashila, kaveripoompattinam)",
+        "ajivika philosophy – karma, determinism, asceticism",
+        "role of makkali gosala and his association with mahavira",
+        "patronage of ajivikas under ashoka and dasaratha",
+        "decline and survival of ajivikas in south india"
+      ]
+    },
+    {
+      "topic": "exploring continents - north america and south america",
+      "topichint": [
+        "amazon river and drainage system",
+        "natural vegetation zones of south america",
+        "amazon rainforest (selvas) and its importance",
+        "eastern highlands vegetation – yerba mate and other trees",
+        "gran chaco forests – quebracho tree and economic uses",
+        "andean slopes – montana forests and conifers",
+        "wildlife of south america – birds, animals, reptiles, fish",
+        "types of forests, flora and fauna in south america",
+        "agriculture – subsistence and commercial farming",
+        "major crops – wheat, maize, coffee, cocoa, cotton, sugarcane",
+        "animal rearing – cattle ranching, estancias, sheep grazing",
+        "fisheries of south america – peru and amazon river",
+        "mineral resources – iron, manganese, petroleum, copper, bauxite",
+        "industries of south america – brazil, argentina, chile, peru, venezuela",
+        "trade, transport, and population of south america"
+      ]
+    },
+    {
+      "topic": "map reading",
+      "topichint": [
+        "introduction – importance of maps in geography",
+        "definition of a map",
+        "early materials used for making maps",
+        "science of map-making – cartography and cartographer",
+        "classification of maps on the basis of scale",
+        "large scale maps – cadastral and topographical maps",
+        "small scale maps – wall maps and atlases",
+        "types of atlases – school, advanced, regional, national",
+        "classification of maps on the basis of content",
+        "physical maps – relief, geological, climatic, soil maps",
+        "cultural maps – political, population, economic, transportation, thematic maps",
+        "digital maps – web-based mapping services",
+        "essential elements of a map – title, direction, scale, legend/key",
+        "conventional signs and symbols used in maps",
+        "uses of maps & comparison of maps and globes"
+      ]
+    },
+    {
+      "topic": "natural hazards, disasters and disaster management",
+      "topichint": [
+        "introduction – natural hazards, disasters and disaster management",
+        "definition of hazard and types – geophysical & biological",
+        "definition of disaster and difference between hazard and disaster",
+        "examples of hazard vs disaster (hurricane example)",
+        "types of disasters – natural and man-made",
+        "natural disasters – earthquake: causes and effects",
+        "tsunami – causes, effects, and origin of the world",
+        "floods – causes and effects",
+        "cyclones – causes and effects (with cyclone gaja example)",
+        "man-made disasters – stampede, fire, industrial disasters",
+        "disaster management – definition and importance",
+        "disaster management cycle – pre-disaster, during, and post-disaster phases",
+        "pre-disaster phase – prevention, mitigation, preparedness, early warning",
+        "during & post-disaster phases – response, recovery, rehabilitation, reconstruction",
+        "disaster management in india and tamil nadu (ndma, ndrf, nidm, tnsdma, sdrf, ddma)"
+      ]
+    },
+    {
+      "topic": "women empowerment",
+      "topichint": [
+        "introduction – importance of women’s empowerment and gender equality",
+        "concept of gender – difference between sex and gender",
+        "social aspects of gender – roles, norms, and identities",
+        "essential factors for women’s empowerment",
+        "women’s education – role in empowerment and development",
+        "global importance of female education",
+        "benefits of female education – literacy, human trafficking, political representation, health, and marriage",
+        "women’s education as a key to sustainable development",
+        "additional benefits of women’s education (income, gdp growth, poverty reduction)",
+        "savitribai phule – pioneer of women’s education in india",
+        "first women achievers in the world",
+        "first women achievers in india",
+        "factors responsible for poor female literacy in india",
+        "role of women in economic development",
+        "need and benefits of women’s economic empowerment"
+      ]
+    },
+    {
+      "topic": "market and consumer protection",
+      "topichint": [
+        "introduction – meaning of market in economics",
+        "features of a market",
+        "classification of markets",
+        "markets on the basis of geographic location (local, regional, national, international)",
+        "markets on the basis of time (very short, short, long period markets)",
+        "markets on the basis of nature of transaction (spot and future markets)",
+        "markets on the basis of regulation (regulated and unregulated markets)",
+        "markets on the basis of competition (perfect and imperfect competition)",
+        "types of imperfect competition – monopoly, monopolistic competition, oligopoly",
+        "consumer – definition and who is not a consumer",
+        "unfair trade practices – meaning and examples",
+        "consumer protection – concept, need, and importance",
+        "consumer rights – the eight basic rights",
+        "consumer protection act 1986 & 2019 – features and highlights",
+        "consumer disputes redressal agencies and important acts"
+      ]
+    },
+    {
+      "topic": "road safety",
+      "topichint": [
+        "introduction – invention of wheel and importance of road safety",
+        "need for road safety in india",
+        "causes for road accidents – distracted driving, reckless driving, night driving",
+        "causes for road accidents – tailgating, heavy traffic, poor road conditions",
+        "other causes for road accidents – avoiding safety gears, pedestrian impatience, drunken driving",
+        "road safety rules in india – driving license, use of mobile, horn restrictions",
+        "10 golden rules for road safety",
+        "preventive measures by government – road engineering, signals, cctv, pedestrian ways",
+        "role of individuals – documents, vehicle maintenance, raksha safe drive device",
+        "carpooling – importance and benefits",
+        "role of parents and teachers in road safety education",
+        "road safety education in schools – curriculum, competitions, activities",
+        "role of media in creating road safety awareness",
+        "traffic signs – mandatory, cautionary, informative signs",
+        "road safety week and suggestions for safer roads"
+      ]
+    },
+    {
+      "topic": "tax and its importance",
+      "topichint": [
+        "introduction – need for government revenue and sources",
+        "meaning of taxation",
+        "definition and nature of taxes",
+        "why taxes are imposed?",
+        "adam smith’s four canons of taxation",
+        "types of taxation – proportional, progressive, regressive",
+        "importance of taxes for social projects – health, education, governance",
+        "other uses of taxes – infrastructure, security, research, environment",
+        "types of taxes – direct and indirect",
+        "direct taxes – income tax, corporate tax, wealth tax, gift tax, estate duty",
+        "indirect taxes – service tax, sales tax, excise duty, entertainment tax",
+        "goods and services tax (gst) – concept, structure, and slabs",
+        "other cesses – swachh bharat cess and toll tax",
+        "distinction between direct and indirect taxes",
+        "need for tax and people’s welfare – public services, welfare schemes, fiscal capacity"
+      ]
+    }
     ]
-  },
-  "class7": {
-    "tamil": [
-      "செய்யுள் – எங்கள் தமிழ்",
-      "உரைநடை – பேச்சுமொழியும் எழுத்துமொழியும்",
-      "இலக்கணம் – குற்றியலுகரம், குற்றியலிகரம்",
-      "செய்யுள் – காடு, திருக்குறள்",
-      "துணைப்பாடம் – இந்திய வனமகன்",
-      "இலக்கணம் – நால்வகைக் குறுக்கங்கள்",
-      "செய்யுள் – புலி தங்கிய குகை, பாஞ்சை வளம்",
-      "உரைநடை – தேசியம் காத்த செம்மல் பசும்பொன் உ.முத்துராமலிங்கத்தேவர்",
-      "துணைப்பாடம் – கப்பலோட்டிய தமிழர்",
-      "இலக்கணம் – வழக்கு"
-    ],
-    "english": [
-      "Prose : Edigah",
-      "Poem : The Computer Swallowed Grandma",
-      "Grammar : Determiner",
-      "Grammar : Present and Perfect Tense",
-      "Prose : A Prayer to the Teacher",
-      "Supplementary : Taking the bully by the horns",
-      "Grammar : Preposition",
-      "Prose : Adventures of Don Quixote",
-      "Poem : The Poem of adventure",
-      "Grammar : Adjectives"
-    ],
-    "math": [
-      "Addition of Integers",
-      "Properties of Addition",
-      "Subtraction of Integers",
-      "Properties of Subtraction",
-      "Multiplication of Integers",
-      "Properties of Multiplication",
-      "Distributive Property on Multiplication over Addition",
-      "Division of Integers",
-      "Properties of Division",
-      "Problem on integers using all Fundamental Operations"
-    ],
-    "science": [
-      "Fundamental quantities",
-      "Derived quantities",
-      "Area",
-      "Volume",
-      "Density",
-      "Measuring larger distances",
-      "Astronomical Unit",
-      "Light year",
-      "Force and Motion",
-      "Speed",
-      "Velocity",
-      "Acceleration and its types",
-      "Stability",
-      "Condition for stability"
-    ],
-    "social studies": [
-      "Inscription",
-      "Religious Literature",
-      "Secular Literature",
-      "Earth Movements",
-      "Earthquake",
-      "Causes of Earthquake",
-      "Importance of Equality",
-      "Human Dignity",
-      "Equality in Indian Constitution",
-      "Meaning of Production",
-      "Types of Production"
-    ]
-  },
-  "class8": {
-    "tamil": [
-      "செய்யுள் – தமிழ்மொழி வாழ்த்து",
-      "உரைநடை – தமிழ் வரிவடிவ வளர்ச்சி",
-      "துணைப்பாடம் - சொற்பூங்கா",
-      "இலக்கணம் – எழுத்துகளின் பிறப்பு",
-      "செய்யுள் – ஓடை, திருக்குறள்",
-      "இலக்கணம் – வினைமுற்று",
-      "செய்யுள் – வருமுன் காப்போம்",
-      "உரைநடை – தமிழர் மருத்துவம்",
-      "இலக்கணம் – எச்சம்",
-      "செய்யுள் – கல்வி அழகே அழகு",
-      "உரைநடை – பல்துறைக்கல்வி",
-      "இலக்கணம் – வேற்றுமை"
-    ],
-    "english": [
-      "Poem : Special Hero",
-      "Supplementary : The Woman on Platform 8",
-      "Grammar : Parts of Speech",
-      "Prose : My Hobby turns into a successful career",
-      "Supplementary : Jim Corbett, A Hunter Turned Naturalist",
-      "Grammar : Adjective",
-      "Grammar : Prepositions",
-      "Prose : My Reminiscence",
-      "Poem : A Thing of Beauty",
-      "Grammar : Conjunctions/Connectors"
-    ],
-    "math": [
-      "Parts of a circle",
-      "Length of the Arc and Area of the Sector",
-      "Perimeter of a Sector",
-      "Combined Shapes",
-      "Perimeter of Combined Shapes",
-      "Area of combined shapes",
-      "Nets for building Three Dimensional (3–D) shapes",
-      "Drawing 3–D Shape using Isometric dot Sheets and Grid Sheets",
-      "Multiplication of Algebraic Expressions",
-      "Multiplication of two or more Monomials",
-      "Multiplication of a Polynomial by a Monomial",
-      "Multiplication of Two Polynomials",
-      "Identities"
-    ],
-    "science": [
-      "Unit systems",
-      "International system of units",
-      "Temperature",
-      "Electric current (I)",
-      "Types of clock based on display",
-      "Analog clocks",
-      "Digital clocks",
-      "Types of clock based on working mechanism",
-      "Effect of force",
-      "Pressure",
-      "Pressure exerted by Air"
-    ],
-    "social studies": [
-      "Sources of Modern India",
-      "Kinds of sources",
-      "Advent of the Europeans",
-      "Rainfall",
-      "Air pressure",
-      "Wind",
-      "Humidity",
-      "Human Rights Organisations",
-      "Child Rights",
-      "Evolution of Money",
-      "History of Metallic Money"
-    ]
-  },
-  "class9": {
-    "tamil": [
-      "உரைநடை உலகம் - திராவிட மொழிக் குடும்பம்",
-      "கவிதைப் பேழை - தமிழோவியம், தமிழ்விடு தூது",
-      "கற்கண்டு - தொடர் இலக்கணம்",
-      "கவிதைப் பேழை - பெரியபுராணம், புறநானூறு",
-      "உரைநடை உலகம் - ஏறுதழுவுதல்",
-      "கவிதைப் பேழை - மணிமேகலை",
-      "விரிவானம் - அகழாய்வுகள்",
-      "கற்கண்டு - வல்லினம் மிகும்இடங்கள்",
-      "வாழ்வியல் - திருக்குறள்"
-    ],
-    "english": [
-      "Prose : Learning the Game",
-      "Poem : Stopping by Woods on a Snowy Evening",
-      "Grammar : Preposition and Prepositional verbs",
-      "Prose : I can’t Climb Trees Anymore",
-      "Supplementary : The Fun they Had",
-      "Grammar : Degrees of Comparison",
-      "Grammar : Clauses and Phrases",
-      "Prose : Seventeen Oranges",
-      "Poem  : The Spider and the Fly",
-      "Grammar : Phrasal Verbs"
-    ],
-    "math": [
-      "Set",
-      "Representation of a set",
-      "Types of sets",
-      "Rational Numbers",
-      "Irrational Numbers",
-      "Real Numbers",
-      "Radical Notation",
-      "Polynomials",
-      "Remainder Theorem",
-      "Algebraic Identities",
-      "Factorization",
-      "Division of Polynomials",
-      "Greatest Common Divisor"
-    ],
-    "science": [
-      "Plant Tissues",
-      "Meristematic Tissues",
-      "Permanent Tissues",
-      "Animal Tissues",
-      "Epithelial Tissue",
-      "Connective tissue",
-      "Muscular tissue",
-      "Nerves tissue",
-      "Tropism in plants",
-      "Types of tropism",
-      "Nastic movements"
-    ],
-    "social studies": [
-      "Origin of the earth and geological ages",
-      "Human enquiries into the past and origin of the world",
-      "Pre-Historic Tamilagam",
-      "Spheres of Earth",
-      "Structure of Earth",
-      "Earthquakes and Volcanoes",
-      "Human Rights",
-      "Forms of Government",
-      "Different Perspectives About Development",
-      "Indicators of Economic Development"
-    ]
-  },
-  "class10": {
-    "tamil": [
-      "அன்்னனை மொொழியே",
-      "அமுதஊற்று",
-      "தமிழ்்சச்்சசொல் வளம்",
-      "இரட்டுற மொொழிதல்",
-      "உரைநடையின் அணிநலன்்கள்",
-      "எழுத்து, சொொல்",
-      "கேட்கிறதா என்குரல்!",
-      "உயிரின் ஓசை",
-      "காற்்றறே வா!",
-      "முல்்லலைப்்பபாட்டு*",
-      "புயலிலே ஒரு தோோணி",
-      "தொொகைநிலைத் தொொடர்்கள்",
-      "பண்்பபாடு விருந்து போோற்றுதும்!",
-      "கூட்்டடாஞ்சோறு",
-      "காசிக்்ககாண்்டம்",
-      "மலைபடுகடாம்",
-      "கோோபல்்லபுரத்து மக்்கள்"
-    ],
-    "english": [
-      "Prose : His First Flight",
-      "Poem : Life",
-      "Supplementary : The Tempest",
-      "Grammar : Modals",
-      "Grammar: Active & Passive Voice",
-      "Supplementary : Zigzag",
-      "Grammar : Articles ,Prepositional Phrases",
-      "Prose : Empowered Women Navigating the World",
-      "Poem : I am Every woman",
-      "Grammar : Tense"
-    ],
-    "math": [
-      "Ordered Pair",
-      "Cartesian Product",
-      "Relations",
-      "Euclid’s Division Lemma",
-      "Euclid’s Division Algorithm",
-      "Fundamental Theorem of Arithmetic",
-      "Sequences",
-      "Arithmetic Progression",
-      "Simultaneous Linear Equations in three Variables",
-      "GCD and LCM of Polynomials"
-    ],
-    "science": [
-      "Inertia",
-      "Types of Inertia",
-      "Examples of Inertia",
-      "Linear Momentum",
-      "Newton’s Laws of Motion",
-      "Newton’s First Law",
-      "Force",
-      "Types of forces",
-      "Resultant Force",
-      "Newton’s Second Law of Motion",
-      "Newton’s Third Law of Motion",
-      "Rocket propulsion"
-    ],
-    "social studies": [
-      "Scramble for colonies",
-      "Rivalry of Great Powers",
-      "Causes, Course and Result of World War I",
-      "Location and Extent",
-      "Major Physiographic Divisions of India",
-      "India and its Neighbours",
-      "National Income",
-      "Gross Domestic Product (GDP)",
-      "Composition of Gross Domestic Product (GDP)"
-    ]
-  }
+
+}
+
 }
