@@ -1,7 +1,22 @@
-// DifficultySelectionPage.js
+// screens/DifficultySelectionPage.js
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  Dimensions,
+  StyleSheet,
+} from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
+import { Ionicons } from "@expo/vector-icons"; // ✅ back icon
+
+const { width, height } = Dimensions.get("window");
+
+// scale helpers
+const wp = (perc) => (width * perc) / 100;
+const hp = (perc) => (height * perc) / 100;
 
 const levels = [
   { key: "Beginner 🐣", desc: "Start easy and warm up" },
@@ -15,7 +30,6 @@ export default function DifficultySelectionPage() {
   const { classId, subject, topic } = route.params;
 
   const goNext = (difficulty) => {
-    console.log("Navigating with params:", { classId, subject, topic, difficulty });
     navigation.navigate("QuizType", {
       classId,
       subject,
@@ -25,99 +39,152 @@ export default function DifficultySelectionPage() {
   };
 
   return (
-    <ScrollView
-      contentContainerStyle={styles.container}
-      showsVerticalScrollIndicator={false}
+    <LinearGradient
+      colors={["#c5baff", "#c4d9ff", "#e8f9ff"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={{ flex: 1 }}
     >
-      <View style={styles.card}>
-        <Text style={styles.heading}>Select Difficulty</Text>
-        <Text style={styles.subheading}>
-          Choose your challenge level and test your knowledge at your own pace.
-        </Text>
+      <ScrollView contentContainerStyle={styles.container}>
+        {/* ✅ Styled Back Button */}
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={styles.backButton}
+        >
+          <Ionicons name="arrow-back" size={20} color="#333" />
+          <Text style={styles.backText}>Back</Text>
+        </TouchableOpacity>
 
-        <View style={styles.grid}>
-          {levels.map((l) => (
-            <TouchableOpacity
-              key={l.key}
-              style={styles.button}
-              onPress={() => goNext(l.key)}
-              activeOpacity={0.8}
-            >
-              <Text style={styles.buttonTitle}>{l.key}</Text>
-              <Text style={styles.buttonDesc}>{l.desc}</Text>
-              <View style={styles.circle} />
-            </TouchableOpacity>
-          ))}
+        {/* Box wrapper */}
+        <View style={styles.box}>
+          {/* Heading */}
+          <Text style={styles.heading}>🎯 Select Difficulty</Text>
+
+          {/* Subtitle */}
+          <Text style={styles.subtitle}>
+            Choose your challenge level and test your knowledge at your own pace.
+          </Text>
+
+          {/* Difficulty Cards */}
+          <View
+            style={[
+              styles.grid,
+              { flexDirection: width > 1200 ? "row" : "column" },
+            ]}
+          >
+            {levels.map((l) => (
+              <TouchableOpacity
+                key={l.key}
+                onPress={() => goNext(l.key)}
+                activeOpacity={0.85}
+                style={[
+                  styles.card,
+                  { width: width > 1200 ? wp(28) : "100%" },
+                ]}
+              >
+                <Text style={styles.cardTitle}>{l.key}</Text>
+                <Text style={styles.cardDesc}>{l.desc}</Text>
+
+                {/* Decorative glowing circle */}
+                <View
+                  style={{
+                    position: "absolute",
+                    top: -hp(1.5),
+                    right: -wp(1.5),
+                    width: wp(3),
+                    height: wp(3),
+                    borderRadius: wp(1.5),
+                    backgroundColor: "#c5baff",
+                    opacity: 0.7,
+                  }}
+                />
+              </TouchableOpacity>
+            ))}
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
-    backgroundColor: "#c5baff",
-    padding: 20,
+    padding: wp(3),
   },
-  card: {
-    backgroundColor: "#fbfbfb",
-    borderRadius: 24,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    padding: 20,
-    width: "100%",
-    maxWidth: 700,
-  },
-  heading: {
-    fontSize: 32,
-    fontWeight: "bold",
-    textAlign: "center",
-    marginBottom: 10,
-  },
-  subheading: {
-    fontSize: 16,
-    textAlign: "center",
-    color: "#555",
-    marginBottom: 30,
-  },
-  grid: {
-    flexDirection: "column", // stacked in RN (can adjust to row if you want)
-    gap: 20,
-  },
-  button: {
-    backgroundColor: "#e8f9ff",
-    borderRadius: 20,
-    padding: 25,
+  backButton: {
+    flexDirection: "row",
     alignItems: "center",
-    marginBottom: 20,
-    shadowColor: "#000",
-    shadowOpacity: 0.15,
-    shadowRadius: 6,
-    elevation: 4,
+    backgroundColor: "rgba(255,255,255,0.7)",
+    paddingVertical: hp(0.8),
+    paddingHorizontal: wp(3),
+    borderRadius: wp(5),
+    alignSelf: "flex-start",
+    marginTop: hp(4),
+    marginBottom: hp(2),
+    marginLeft: wp(2),
+    elevation: 3,
   },
-  buttonTitle: {
-    fontSize: 22,
-    fontWeight: "bold",
-    textAlign: "center",
+  backText: {
+    marginLeft: wp(1.5),
+    fontSize: wp(2.2),
+    fontWeight: "600",
     color: "#333",
   },
-  buttonDesc: {
-    marginTop: 10,
-    fontSize: 16,
-    textAlign: "center",
-    color: "#666",
+  box: {
+    backgroundColor: "#fbfbfb",
+    borderRadius: wp(2),
+    shadowColor: "#000",
+    shadowOpacity: 0.15,
+    shadowRadius: wp(1.5),
+    paddingVertical: hp(5),
+    paddingHorizontal: wp(3),
+    width: "100%",
+    maxWidth: wp(90),
   },
-  circle: {
-    position: "absolute",
-    top: -10,
-    right: -10,
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    backgroundColor: "#c5baff",
+  heading: {
+    fontSize: wp(4),
+    fontWeight: "bold",
+    textAlign: "center",
+    marginBottom: hp(2),
+    color: "#000",
+  },
+  subtitle: {
+    fontSize: wp(2),
+    textAlign: "center",
+    color: "#555",
+    marginBottom: hp(5),
+  },
+  grid: {
+    justifyContent: "center",
+    alignItems: "center",
+    gap: wp(3),
+    flexWrap: "wrap",
+  },
+  card: {
+    borderRadius: wp(2),
+    paddingVertical: hp(4),
+    paddingHorizontal: wp(2),
+    backgroundColor: "#e8f9ff",
+    alignItems: "center",
+    marginBottom: hp(3),
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowRadius: wp(1),
+    elevation: 8,
+  },
+  cardTitle: {
+    fontSize: wp(2.2),
+    fontWeight: "bold",
+    color: "#333",
+    textAlign: "center",
+  },
+  cardDesc: {
+    marginTop: hp(1.5),
+    fontSize: wp(1.6),
+    color: "#666",
+    textAlign: "center",
   },
 });
