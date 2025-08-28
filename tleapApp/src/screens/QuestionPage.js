@@ -10,6 +10,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
 
 const API_BASE = "http://localhost:5000"; // 🔧 replace with your server or env variable
 
@@ -48,12 +49,12 @@ export default function QuestionPage() {
       setSubmitted(false);
       setUserAnswer("");
 
-      const res = await fetch(`${API_BASE}/generate-question`, {
+      const res = await fetch('${API_BASE}/generate-question', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error(`API ${res.status}`);
+      if (!res.ok) throw new Error('API ${res.status}');
       const data = await res.json();
       setQuestion(data);
     } catch (e) {
@@ -135,7 +136,7 @@ export default function QuestionPage() {
       value={userAnswer}
       onChangeText={setUserAnswer}
       style={styles.input}
-      placeholder="✍️ Type your answer here"
+      placeholder="✍ Type your answer here"
     />
   );
 
@@ -262,6 +263,12 @@ export default function QuestionPage() {
 
   // ================== Main Screen ==================
   return (
+    <LinearGradient
+          colors={["#c5baff", "#c4d9ff", "#e8f9ff"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={{ flex: 1 }}
+        >
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.card}>
         <Text style={styles.title}>
@@ -321,6 +328,7 @@ export default function QuestionPage() {
         )}
       </View>
     </ScrollView>
+    </LinearGradient>
   );
 }
 
@@ -330,7 +338,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: "center",
     padding: 16,
-    backgroundColor: "#c5baff",
+
   },
   card: {
     backgroundColor: "#fff",
