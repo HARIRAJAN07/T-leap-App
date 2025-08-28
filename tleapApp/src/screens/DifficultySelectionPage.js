@@ -4,13 +4,13 @@ import {
   View,
   Text,
   TouchableOpacity,
-  ScrollView,
   Dimensions,
   StyleSheet,
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
-import { Ionicons } from "@expo/vector-icons"; // ✅ back icon
+import Logo from "../components/logo";
+import BackButton from "../components/BackButton";
 
 const { width, height } = Dimensions.get("window");
 
@@ -45,17 +45,10 @@ export default function DifficultySelectionPage() {
       end={{ x: 1, y: 1 }}
       style={{ flex: 1 }}
     >
-      <ScrollView contentContainerStyle={styles.container}>
-        {/* ✅ Styled Back Button */}
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          style={styles.backButton}
-        >
-          <Ionicons name="arrow-back" size={20} color="#333" />
-          <Text style={styles.backText}>Back</Text>
-        </TouchableOpacity>
+      <Logo />
+      <BackButton />
 
-        {/* Box wrapper */}
+      <View style={styles.container}>
         <View style={styles.box}>
           {/* Heading */}
           <Text style={styles.heading}>🎯 Select Difficulty</Text>
@@ -66,21 +59,13 @@ export default function DifficultySelectionPage() {
           </Text>
 
           {/* Difficulty Cards */}
-          <View
-            style={[
-              styles.grid,
-              { flexDirection: width > 1200 ? "row" : "column" },
-            ]}
-          >
+          <View style={styles.grid}>
             {levels.map((l) => (
               <TouchableOpacity
                 key={l.key}
                 onPress={() => goNext(l.key)}
                 activeOpacity={0.85}
-                style={[
-                  styles.card,
-                  { width: width > 1200 ? wp(28) : "100%" },
-                ]}
+                style={styles.card}
               >
                 <Text style={styles.cardTitle}>{l.key}</Text>
                 <Text style={styles.cardDesc}>{l.desc}</Text>
@@ -102,36 +87,17 @@ export default function DifficultySelectionPage() {
             ))}
           </View>
         </View>
-      </ScrollView>
+      </View>
     </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    justifyContent: "flex-start",
+    flex: 1,
     alignItems: "center",
+    justifyContent: "center",
     padding: wp(3),
-  },
-  backButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "rgba(255,255,255,0.7)",
-    paddingVertical: hp(0.8),
-    paddingHorizontal: wp(3),
-    borderRadius: wp(5),
-    alignSelf: "flex-start",
-    marginTop: hp(4),
-    marginBottom: hp(2),
-    marginLeft: wp(2),
-    elevation: 3,
-  },
-  backText: {
-    marginLeft: wp(1.5),
-    fontSize: wp(2.2),
-    fontWeight: "600",
-    color: "#333",
   },
   box: {
     backgroundColor: "#fbfbfb",
@@ -158,18 +124,19 @@ const styles = StyleSheet.create({
     marginBottom: hp(5),
   },
   grid: {
-    justifyContent: "center",
+    flexDirection: "row",   // ✅ always horizontal
+    justifyContent: "space-between",
     alignItems: "center",
-    gap: wp(3),
-    flexWrap: "wrap",
+    flexWrap: "nowrap",     // ✅ prevent wrapping
   },
   card: {
+    flex: 1,                        // ✅ equal width
+    marginHorizontal: wp(1),        // ✅ small gap
     borderRadius: wp(2),
-    paddingVertical: hp(4),
-    paddingHorizontal: wp(2),
+    paddingVertical: hp(8),         // 🔥 taller cards
+    paddingHorizontal: wp(3),
     backgroundColor: "#e8f9ff",
     alignItems: "center",
-    marginBottom: hp(3),
     shadowColor: "#000",
     shadowOpacity: 0.2,
     shadowRadius: wp(1),
@@ -182,8 +149,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   cardDesc: {
-    marginTop: hp(1.5),
-    fontSize: wp(1.6),
+    marginTop: hp(2),
+    fontSize: wp(1.8),
     color: "#666",
     textAlign: "center",
   },
