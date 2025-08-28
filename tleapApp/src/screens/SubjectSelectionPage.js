@@ -11,7 +11,7 @@ import {
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons"; // back icon
-
+import Logo from "../components/logo";
 const { width, height } = Dimensions.get("window");
 
 // helpers for responsiveness
@@ -64,6 +64,8 @@ const SubjectSelectionPage = () => {
       end={{ x: 1, y: 1 }}
       style={{ flex: 1 }}
     >
+       {/* ✅ Reusable Logo (top-right corner) */}
+      <Logo size={120} position="top-right" />
       {/* Back Button */}
       <View style={{ paddingTop: hp(5), paddingLeft: wp(3) }}>
         <TouchableOpacity

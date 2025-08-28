@@ -10,7 +10,7 @@ import {
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons"; // ✅ back icon
-
+import Logo from "../../components/Logo";
 const { width, height } = Dimensions.get("window");
 
 // helpers for responsiveness
@@ -48,6 +48,8 @@ export default function LanguageSelectionScreen() {
       end={{ x: 1, y: 1 }}
       style={{ flex: 1 }}
     >
+             {/* ✅ Reusable Logo (top-right corner) */}
+      <Logo size={120} position="top-right" />
       {/* ✅ Back Button */}
       <TouchableOpacity
         onPress={() => navigation.goBack()}

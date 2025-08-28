@@ -1,135 +1,235 @@
-// src/screens/Dashboard.js
-import React, { useEffect, useState } from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
+import React, { useState, useMemo, useRef } from "react";
+import {
+  View,
+  Text,
+  Dimensions,
+  TouchableOpacity,
+  ScrollView,
+  StyleSheet,
+} from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import { BlurView } from "expo-blur";
+import Animated, {
+  useAnimatedStyle,
+  withSpring,
+} from "react-native-reanimated";
+import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/native";
-import Boy from "../../assets/human_vector.png"; // move image to assets
 
-const Dashboard = () => {
-  const navigation = useNavigation();
-  const [language, setLanguage] = useState("en");
-  const [displayText, setDisplayText] = useState("");
+// ✅ Import the shared Logo component
+import Logo from "../components/logo";
 
-  const texts = {
-    en: { welcome: "Hii Champs", chooseClass: "Choose Your Class 🚀" },
-    ta: { welcome: "வவணக்கம் தோழா", chooseClass: "உங்கள் வகுப்பைத் தேர்ந்தெடுக்கவும் 🚀" },
-  };
+const { width, height } = Dimensions.get("window");
+const classes = ["VI", "VII", "VIII", "IX", "X", "XI", "XII"];
 
-  useEffect(() => {
-    let index = 0;
-    setDisplayText("");
-    const interval = setInterval(() => {
-      if (index < texts[language].welcome.length) {
-        setDisplayText((prev) => prev + texts[language].welcome.charAt(index));
-        index++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 150);
-    return () => clearInterval(interval);
-  }, [language]);
+// 🎯 Emoji map for each class
+const emojiMap = {
+  VI: "📐",
+  VII: "📙",
+  VIII: "🧪",
+  IX: "📘",
+  X: "📗",
+  XI: "🧬",
+  XII: "🎓",
+};
 
-  const handleSelectClass = (cls) => {
-    navigation.navigate("SubjectSelection", { classId: cls });
-  };
-
-  const classNumbers1 = ["6", "7", "8", "9"];
-  const classNumbers2 = ["10", "11", "12"];
+// ---------- INDIVIDUAL CLASS CARD ----------
+const ClassCard = ({ cls, isSelected, onPress }) => {
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [
+      {
+        scale: withSpring(isSelected ? 1.15 : 1, {
+          damping: 15,
+          stiffness: 150,
+        }),
+      },
+      {
+        translateY: withSpring(isSelected ? -15 : 0, {
+          damping: 15,
+          stiffness: 150,
+        }),
+      },
+    ],
+  }));
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      {/* Language Toggle */}
-      <TouchableOpacity
-        style={styles.langButton}
-        onPress={() => setLanguage(language === "en" ? "ta" : "en")}
+    <TouchableOpacity activeOpacity={0.9} onPress={onPress}>
+      <Animated.View
+        style={[
+          styles.cardShadow,
+          animatedStyle,
+          isSelected && styles.cardSelected,
+        ]}
       >
-        <Text style={styles.langText}>{language === "en" ? "தமிழ்" : "English"}</Text>
-      </TouchableOpacity>
-
-      {/* Top Section */}
-      <View style={styles.topSection}>
-        <View style={{ flex: 1 }}>
-          <Text style={styles.welcomeText}>{displayText}|</Text>
-          <Text style={styles.chooseClass}>{texts[language].chooseClass}</Text>
-        </View>
-        <Image source={Boy} style={styles.image} resizeMode="contain" />
-      </View>
-
-      {/* First Row */}
-      <View style={styles.row}>
-        {classNumbers1.map((num) => (
-          <TouchableOpacity
-            key={num}
-            style={styles.card}
-            onPress={() => handleSelectClass(num)}
-          >
-            <Text style={styles.cardText}>{num}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-
-      {/* Second Row */}
-      <View style={styles.row}>
-        {classNumbers2.map((num) => (
-          <TouchableOpacity
-            key={num}
-            style={styles.card}
-            onPress={() => handleSelectClass(num)}
-          >
-            <Text style={styles.cardText}>{num}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-    </ScrollView>
+        <LinearGradient
+          colors={["#ffffffcc", "#dcd6ff"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.cardClip}
+        >
+          <BlurView intensity={50} tint="light" style={styles.blur}>
+            {/* Emoji */}
+            <Text style={styles.cardEmoji}>{emojiMap[cls]}</Text>
+            {/* Class Name */}
+            <Text style={styles.cardText}>Class {cls}</Text>
+          </BlurView>
+        </LinearGradient>
+      </Animated.View>
+    </TouchableOpacity>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    alignItems: "center",
-    padding: "5%",
-    backgroundColor: "#f5f7fa",
-  },
-  langButton: {
-    position: "absolute",
-    top: 20,
-    right: 20,
-    backgroundColor: "black",
-    paddingVertical: 8,
-    paddingHorizontal: 14,
-    borderRadius: 10,
-    zIndex: 10,
-  },
-  langText: { color: "white", fontWeight: "bold", fontSize: 14 },
-  topSection: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 20,
-    width: "100%",
-  },
-  welcomeText: { fontSize: 28, fontWeight: "bold", color: "black", marginBottom: 10 },
-  chooseClass: { fontSize: 20, color: "black", fontWeight: "500" },
-  image: { width: 100, height: 100 },
-  row: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: "90%",
-    marginBottom: 20,
-  },
-  card: {
-    flex: 1,
-    marginHorizontal: 5,
-    backgroundColor: "#ebedee",
-    borderRadius: 22,
-    height: 100,
-    justifyContent: "center",
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOpacity: 0.12,
-    shadowRadius: 6,
-    elevation: 4,
-  },
-  cardText: { fontSize: 28, fontWeight: "bold", color: "black" },
-});
+// ---------- CLASS CAROUSEL ----------
+const ClassCarousel = ({ selected, setSelected, onSelect }) => {
+  const CARD_MARGIN = 25;
+  const CARD_WIDTH = Math.round(width * 0.35);
+  const SNAP_INTERVAL = CARD_WIDTH + CARD_MARGIN * 2;
+  const SIDE_PADDING = Math.max(0, (width - CARD_WIDTH) / 2 - CARD_MARGIN);
+
+  const scrollRef = useRef(null);
+
+  const offsets = useMemo(
+    () => classes.map((_, i) => i * SNAP_INTERVAL),
+    [SNAP_INTERVAL]
+  );
+
+  const scrollToIndex = (i) => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTo({ x: i * SNAP_INTERVAL, animated: true });
+    }
+    setSelected(classes[i]);
+    // Small delay for animation before navigation
+    setTimeout(() => {
+      onSelect(classes[i]);
+    }, 300);
+  };
+
+  return (
+    <View style={styles.carouselWrapper}>
+      {/* ✅ Use shared Logo here */}
+      <Logo />
+
+      <ScrollView
+        ref={scrollRef}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={[
+          styles.carouselContainer,
+          { paddingHorizontal: SIDE_PADDING },
+        ]}
+        decelerationRate="fast"
+        snapToOffsets={offsets}
+        snapToAlignment="start"
+        disableIntervalMomentum
+        onMomentumScrollEnd={(e) => {
+          const i = Math.round(e.nativeEvent.contentOffset.x / SNAP_INTERVAL);
+          if (classes[i]) {
+            setSelected(classes[i]);
+          }
+        }}
+      >
+        {classes.map((cls, i) => (
+          <ClassCard
+            key={cls}
+            cls={cls}
+            isSelected={selected === cls}
+            onPress={() => scrollToIndex(i)}
+          />
+        ))}
+      </ScrollView>
+    </View>
+  );
+};
+
+// ---------- MAIN DASHBOARD ----------
+const Dashboard = () => {
+  const navigation = useNavigation();
+  const [selected, setSelected] = useState(null);
+
+  const handleSelectClass = (cls) => {
+    const classMap = {
+      VI: "6",
+      VII: "7",
+      VIII: "8",
+      IX: "9",
+      X: "10",
+      XI: "11",
+      XII: "12",
+    };
+    navigation.navigate("SubjectSelection", { classId: classMap[cls] });
+  };
+
+  return (
+    <View style={styles.container}>
+      <StatusBar style="dark" />
+      <LinearGradient colors={["#C4D9FF", "#C5BAFF"]} style={styles.gradient} />
+
+      <ClassCarousel
+        selected={selected}
+        setSelected={setSelected}
+        onSelect={handleSelectClass}
+      />
+    </View>
+  );
+};
 
 export default Dashboard;
+
+// ---------- STYLES ----------
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#FBFBFB",
+  },
+  gradient: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  carouselWrapper: {
+    flex: 1,
+    justifyContent: "center",
+  },
+  carouselContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    flexGrow: 1,
+  },
+  cardShadow: {
+    borderRadius: 200,
+    marginHorizontal: width * 0.05,
+    shadowColor: "#9B7BFF",
+    shadowOpacity: 0.3,
+    shadowRadius: 25,
+    elevation: 10,
+  },
+  cardClip: {
+    width: width * 0.35,
+    height: height * 0.55,
+    borderRadius: 200,
+    overflow: "hidden",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  blur: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 10,
+  },
+  cardEmoji: {
+    fontSize: 90,
+    marginBottom: 12,
+  },
+  cardText: {
+    fontSize: Math.min(70, width * 0.12),
+    fontWeight: "800",
+    color: "#333",
+    letterSpacing: 1,
+  },
+  cardSelected: {
+    borderWidth: 4,
+    borderColor: "#9B7BFF",
+    shadowColor: "#9B7BFF",
+    shadowRadius: 40,
+    shadowOpacity: 0.5,
+  },
+});

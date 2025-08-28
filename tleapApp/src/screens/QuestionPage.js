@@ -13,7 +13,7 @@ import {
 } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
-
+import Logo from "../../components/Logo";
 const API_BASE = "http://localhost:5000"; // 🔧 replace with your server or env variable
 
 // Responsive helpers
@@ -192,6 +192,8 @@ export default function QuestionPage() {
             ]}
             onPress={() => setUserAnswer(o)}
           >
+                   {/* ✅ Reusable Logo (top-right corner) */}
+      <Logo size={120} position="top-right" />
             <Text
               style={[
                 styles.optionText,
