@@ -26,8 +26,6 @@ import { Feather } from "@expo/vector-icons";
 import LogoImage from '../../assets/logo.png';
 
 const { width, height } = Dimensions.get("window");
-const wp = (perc) => (width * perc) / 100;
-const hp = (perc) => (height * perc) / 100;
 const classes = ["VI", "VII", "VIII", "IX", "X"];
 
 // Logo component using your local image
@@ -170,7 +168,7 @@ const ClassCarousel = ({ selected, setSelected, onSelect }) => {
       
       <View style={styles.instructions}>
         <Text style={styles.instructionsText}>
-          Swipe left or right to browse classes
+          Swipe left or right to browse classes 
         </Text>
         <Feather name="arrow-left" size={16} color="#666" />
         <Feather name="arrow-right" size={16} color="#666" />
@@ -186,7 +184,7 @@ const Dashboard = () => {
 
   const handleSelectClass = (cls) => {
     const classMap = {
-      VI: "6", VII: "7", VIII: "8", IX: "9", X: "10", XI: "11", XII: "12",
+      VI: "6", VII: "7", VIII: "8", IX: "9", X: "10",
     };
     navigation.navigate("SubjectSelection", { classId: classMap[cls] });
   };
@@ -257,39 +255,38 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center',
-    marginBottom: 40,
+    marginBottom: 50,
     paddingHorizontal: 20,
   },
   logo: {
-    width: 300,
-    height: 200,
-    marginBottom: 16,
+    width: 260,
+    height: 220,
+    marginBottom: 20,
   },
   title: {
-    fontSize: 80,
+    fontSize: 84,
     fontWeight: '700',
     color: '#333',
-    marginBottom: 8,
+    marginBottom: 28,
     textAlign: 'center',
   },
   subtitle: {
-    fontSize: 40,
+    fontSize: 62,
     color: '#666',
     textAlign: 'center',
     lineHeight: 22,
+    marginBottom: 28,
   },
   card: {
-    width: width * 0.3,
-    height: height * 0.8,
+    width: width * 0.2,
+    height: height * 0.35,
     marginHorizontal: 8,
-    borderRadius: 50,
+    borderRadius: 24,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 10,
     },
-
-    
     shadowOpacity: 0.1,
     shadowRadius: 20,
     elevation: 10,
@@ -301,35 +298,32 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-cardContent: {
-  flex: 1,
-  justifyContent: 'center',  // centers vertically
-  alignItems: 'center',      // centers horizontally
-},
-classBadge: {
-  backgroundColor: 'rgba(255, 255, 255, 0.7)',
-  paddingHorizontal: 20,     // reduce padding to balance
-  paddingVertical: 6,
-  borderRadius: 16,
-  marginBottom: 12,          // spacing between badge and class letter
-},
-cardText: {
-  fontSize: 72,
-  fontWeight: 'bold',
-  color: '#444',
-  textAlign: 'center',       // center text horizontally
-},
-
+  cardContent: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  classBadge: {
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+    paddingHorizontal: 16,
+    paddingVertical: 6,
+    borderRadius: 16,
+    marginBottom: 16,
+  },
   classBadgeSelected: {
     backgroundColor: 'rgba(255, 255, 255, 0.9)',
   },
   classText: {
-    fontSize: 80,
+    fontSize: 34,
     fontWeight: '600',
     color: '#8E7FD9',
   },
   classTextSelected: {
     color: '#8E7FD9',
+  },
+  cardText: {
+    fontSize: 102,
+    fontWeight: 'bold',
+    color: '#444',
   },
   cardTextSelected: {
     color: 'white',
@@ -368,6 +362,6 @@ cardText: {
   instructionsText: {
     marginRight: 8,
     color: '#666',
-    fontSize: 14,
+    fontSize: 50,
   },
 });

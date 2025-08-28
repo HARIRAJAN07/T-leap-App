@@ -14,7 +14,7 @@ import {
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import Logo from "../components/logo"; // ✅ make sure file name is capital L
-
+import topicsData from "../data/topics.json";
 const API_BASE = "http://localhost:5000"; // 🔧 replace with your server or env variable
 
 // Responsive helpers
@@ -39,40 +39,48 @@ export default function QuestionPage() {
   const [showReport, setShowReport] = useState(false);
 
   const [modalVisible, setModalVisible] = useState(false);
+  const classKey = `class${classId}`;
+  const topics = topicsData[classKey]?.[subject.toLowerCase()] || [];
+  const topicObj = topics.find((t) => t.topic === topic);
 
-  const payload = useMemo(
-    () => ({
-      stdClass: classId,
-      subject,
-      difficulty,
-      topicHint: decodeURIComponent(topic),
-      language,
-      questionType,
-    }),
-    [classId, subject, difficulty, topic, questionType, language]
-  );
+  const payload = (subtopicHint) => ({
+  stdClass: classId,
+  subject,
+  difficulty,
+  topicHint: decodeURIComponent(topic),
+  subtopicHint: decodeURIComponent(subtopicHint || ""),
+  language,
+  questionType,
+});
 
   const fetchQuestion = useCallback(async () => {
-    try {
-      setLoading(true);
-      setError("");
-      setSubmitted(false);
-      setUserAnswer("");
+  try {
+    setLoading(true);
+    setError("");
+    setSubmitted(false);
+    setUserAnswer("");
 
-      const res = await fetch(`${API_BASE}/generate-question`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) throw new Error(`API ${res.status}`);
-      const data = await res.json();
-      setQuestion(data);
-    } catch (e) {
-      setError(e.message || "Failed to load");
-    } finally {
-      setLoading(false);
-    }
-  }, [payload]);
+    const randomHint =
+      topicObj?.topichint[
+        Math.floor(Math.random() * topicObj.topichint.length)
+      ];
+
+    const res = await fetch(`${API_BASE}/generate-question`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload(randomHint)),
+    });
+    console.log("TOPIC HINT:", randomHint);
+
+    if (!res.ok) throw new Error(`API ${res.status}`);
+    const data = await res.json();
+    setQuestion(data);
+  } catch (e) {
+    setError(e.message || "Failed to load");
+  } finally {
+    setLoading(false);
+  }
+}, [classId, subject, difficulty, topic, questionType, language, topicObj]);
 
   useEffect(() => {
     fetchQuestion();
@@ -99,7 +107,8 @@ export default function QuestionPage() {
         isCorrect,
       },
     ]);
-    setModalVisible(true); // show popup
+   // console.log("TOPIC HINT:", randomHint);
+    setModalVisible(true);
   };
 
   const onNext = () => {

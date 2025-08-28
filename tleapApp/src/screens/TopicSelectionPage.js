@@ -115,7 +115,7 @@ const TopicSelectionPage = () => {
                   shadowOffset: { width: 0, height: 2 },
                   shadowRadius: 5,
                 }}
-                onPress={() => goNext(item)}
+                onPress={() => goNext(item.topic)}
                 activeOpacity={0.85}
               >
                 <Text
@@ -125,7 +125,7 @@ const TopicSelectionPage = () => {
                     textAlign: "center",
                   }}
                 >
-                  {item}
+                  {item.topic}
                 </Text>
               </TouchableOpacity>
             )}
