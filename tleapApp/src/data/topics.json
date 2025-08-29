@@ -2,14 +2,14 @@
  "class6": {
     "tamil": [
       { "topic": "ேமிழ்த்தேன்", "topichint": ["இன்பத்ேமிழ்","ேமிழ்க்கும்மி","வளர்ேமிழ்","கனவு பலித்ேது","ேமிழ் எழுத்துகளின் வரகயும் தொேகாரகயும்"] },
-      { "topic": "இயற்ரக இன்பம்", "topic-hint": ["சி்லப்பதிககாைம்","ககாணி நி்லம்","சிைகின் ஓரெ","கிைவனும் கடலும்","முேதொ்லழுத்தும் ெகார்தொபழுத்தும்","திருக்குைள"] },
-      { "topic": "எந்திை உ்லகம்", "topic-hint": ["அறிவியல் ஆத்திசூடி","அறிவிய்லகால் ஆளதவகாம்","கணியனின் நண்பன்","கணியனின் நண்பன்","ஒளி பிைந்ேது","தொமகாழிமுேல், இறுதி எழுத்துகள"] },
-      { "topic": "கண்ணெனத் தகும்", "topic-hint": ["மூதுரை","துன்பம் வெல்லும் கல்வி","கல்விக்கண் திறந்தவர்", "நூலகம் நோக்கி","இன எழுத்துகள்"] },
-      { "topic": "பாடறிந்து ஒழுகுதல்", "topic-hint": ["ஆசாரக்கோவை","கண்மணியே கண்ணுறங்கு","தமிழர் பெருவிழா","மனம் கவரும் மாமல்லபுரம்","மயங்கொலிகள்","திருக்குறள்"] },
-      { "topic": "கூடித் தொழில் செய்", "topic-hint": ["நானிலம் படைத்தவன்","நானிலம் படைத்தவன்","கடலோடு விளையாடு","வளரும் வணிகம்","உழைப்பே மூலதனம்","சுட்டு எழுத்துகள், வினா எழுத்துகள்"] },
-      { "topic": "புதுமைகள் செய்யும் தேசமிது", "topic-hint": ["பாரதம் அன்றைய நாற்றங்கால்","தமிழ்நாட்டில் காந்தி","புதுமைகள் செய்யும் தேசமிது வேலுநாச்சியார்","நால்வகைச் சொற்கள்"] },
-      { "topic": "எல்லாரும் இன்புற", "topic-hint": ["பராபரக் கண்ணி","நீங்கள் நல்லவர்","பசிப்பிணி போக்கிய பாவை","பாதம்","பெயர்ச்சொல்","திருக்குறள்"] },
-      { "topic": "இன்னுயிர் காப்போம்", "topic-hint": ["ஆசிய ஜோதி", "ஆசிய ஜோதி","மனிதநேயம்","முடிவில் ஒரு தொடக்கம்","அணி இலக்கணம்","திருக்குறள்"]}
+      { "topic": "இயற்ரக இன்பம்", "topichint": ["சி்லப்பதிககாைம்","ககாணி நி்லம்","சிைகின் ஓரெ","கிைவனும் கடலும்","முேதொ்லழுத்தும் ெகார்தொபழுத்தும்","திருக்குைள"] },
+      { "topic": "எந்திை உ்லகம்", "topichint": ["அறிவியல் ஆத்திசூடி","அறிவிய்லகால் ஆளதவகாம்","கணியனின் நண்பன்","கணியனின் நண்பன்","ஒளி பிைந்ேது","தொமகாழிமுேல், இறுதி எழுத்துகள"] },
+      { "topic": "கண்ணெனத் தகும்", "topichint": ["மூதுரை","துன்பம் வெல்லும் கல்வி","கல்விக்கண் திறந்தவர்", "நூலகம் நோக்கி","இன எழுத்துகள்"] },
+      { "topic": "பாடறிந்து ஒழுகுதல்", "topichint": ["ஆசாரக்கோவை","கண்மணியே கண்ணுறங்கு","தமிழர் பெருவிழா","மனம் கவரும் மாமல்லபுரம்","மயங்கொலிகள்","திருக்குறள்"] },
+      { "topic": "கூடித் தொழில் செய்", "topichint": ["நானிலம் படைத்தவன்","நானிலம் படைத்தவன்","கடலோடு விளையாடு","வளரும் வணிகம்","உழைப்பே மூலதனம்","சுட்டு எழுத்துகள், வினா எழுத்துகள்"] },
+      { "topic": "புதுமைகள் செய்யும் தேசமிது", "topichint": ["பாரதம் அன்றைய நாற்றங்கால்","தமிழ்நாட்டில் காந்தி","புதுமைகள் செய்யும் தேசமிது வேலுநாச்சியார்","நால்வகைச் சொற்கள்"] },
+      { "topic": "எல்லாரும் இன்புற", "topichint": ["பராபரக் கண்ணி","நீங்கள் நல்லவர்","பசிப்பிணி போக்கிய பாவை","பாதம்","பெயர்ச்சொல்","திருக்குறள்"] },
+      { "topic": "இன்னுயிர் காப்போம்", "topichint": ["ஆசிய ஜோதி", "ஆசிய ஜோதி","மனிதநேயம்","முடிவில் ஒரு தொடக்கம்","அணி இலக்கணம்","திருக்குறள்"]}
     ],
     "english": [
       {"topic": "Prose", "topichint": "Stories, comprehension, and summaries"},
@@ -20,7 +20,7 @@
     "math": [
       {
           "topic": "NUMBERS",
-          "topic-hint": [
+          "topichint": [
             "Formation of large numbers",
             "Place Value Chart",
             "Comparison of Numbers",
@@ -34,7 +34,7 @@
         },
         {
           "topic": "INTRODUCTION TO ALGEBRA",
-          "topic-hint": [
+          "topichint": [
             "Patterns",
             "Understanding operations on Variables",
             "Framing Algebraic Statements",
@@ -43,15 +43,15 @@
         },
         {
           "topic": "RATIO AND PROPORTION",
-          "topic-hint": ["Ratio", "Proportion", "Unitary Method"]
+          "topichint": ["Ratio", "Proportion", "Unitary Method"]
         },
         {
           "topic": "GEOMETRY",
-          "topic-hint": ["Describing lines", "Angles", "Points and lines"]
+          "topichint": ["Describing lines", "Angles", "Points and lines"]
         },
         {
           "topic": "STATISTICS",
-          "topic-hint": [
+          "topichint": [
             "Data",
             "Representation of data using Pictograph",
             "Representation of data using Bar Graph"
@@ -59,11 +59,11 @@
         },
         {
           "topic": "INFORMATION PROCESSING",
-          "topic-hint": ["Systematic listing", "Systematic completion of lists"]
+          "topichint": ["Systematic listing", "Systematic completion of lists"]
         },
         {
           "topic": "NUMBERS 1",
-          "topic-hint": [
+          "topichint": [
             "Prime and Composite Numbers",
             "Rules for Test of Divisibility of Numbers",
             "Prime Factorisation",
@@ -75,7 +75,7 @@
         },
         {
           "topic": "MEASUREMENTS",
-          "topic-hint": [
+          "topichint": [
             "Conversions within the Metric System",
             "Fundamental Operations on Quantities with Different Units",
             "Measures of Time"
@@ -83,11 +83,11 @@
         },
         {
           "topic": "BILL, PROFIT AND LOSS",
-          "topic-hint": ["Bill", "Profit and Loss"]
+          "topichint": ["Bill", "Profit and Loss"]
         },
         {
           "topic": "GEOMETRY",
-          "topic-hint": [
+          "topichint": [
             "Basic Elements of a Triangle",
             "Types and Properties of Triangles",
             "Construction of Perpendicular Lines",
@@ -96,14 +96,14 @@
         },
         {
           "topic": "INFORMATION PROCESSING",
-          "topic-hint": [
+          "topichint": [
             "Conversion of Tree Diagrams into Numerical Expressions",
             "Conversion of Algebraic Expressions into Tree Diagrams"
           ]
         },
         {
           "topic": "FRACTIONS",
-          "topic-hint": [
+          "topichint": [
             "Equivalent Fractions",
             "Comparison of Unlike Fractions",
             "Addition and Subtraction of Unlike Fractions",
@@ -115,7 +115,7 @@
         },
         {
           "topic": "INTEGERS",
-          "topic-hint": [
+          "topichint": [
             "Introduction of Integers and its representation on a number line",
             "Opposite of a number",
             "Ordering of Integers",
@@ -125,7 +125,7 @@
         },
         {
           "topic": "PERIMETER AND AREA",
-          "topic-hint": [
+          "topichint": [
             "Perimeter of a Rectangle",
             "Perimeter of a Square",
             "Perimeter of a Triangle",
@@ -138,7 +138,7 @@
         },
         {
           "topic": "SYMMETRY",
-          "topic-hint": [
+          "topichint": [
             "Line of Symmetry",
             "Reflection Symmetry",
             "Rotational Symmetry",
@@ -147,7 +147,7 @@
         },
         {
           "topic": "INFORMATION PROCESSING",
-          "topic-hint": [
+          "topichint": [
             "Iterative Process in Numbers",
             "Euclid’s game",
             "Following and Devising Algorithms",
@@ -160,7 +160,7 @@
     "science": [
        {
     "topic": "Measurements",
-    "topic-hint": [
+    "topichint": [
       "Measuring tools",
       "Length",
       "Corrective measures of length",
@@ -173,7 +173,7 @@
   },
   {
     "topic": "Force and Motion",
-    "topic-hint": [
+    "topichint": [
       "Motion",
       "Rest",
       "Force",
@@ -188,7 +188,7 @@
   },
   {
     "topic": "Matter around Us",
-    "topic-hint": [
+    "topichint": [
       "Physical nature of matter",
       "Characteristic of particles",
       "Mass, Shape and Volume of Solids, Liquids and Gases",
@@ -203,7 +203,7 @@
   },
   {
     "topic": "The World of Plants",
-    "topic-hint": [
+    "topichint": [
       "Plant forms and functions",
       "Root System",
       "Shoot system",
@@ -216,7 +216,7 @@
   },
   {
     "topic": "The World of Animals",
-    "topic-hint": [
+    "topichint": [
       "Biodiversity",
       "Habitat",
       "Unicellular (Amoeba,Paramecium,Euglena)",
@@ -226,7 +226,7 @@
   },
   {
     "topic": "Health and Hygiene",
-    "topic-hint": [
+    "topichint": [
       "Components of Food(Carbohydrate ,Proteins, Fats , Vitamins ,Minerals ,Water)",
       "Sources of fat",
       "Deficiency diseases",
@@ -241,7 +241,7 @@
   },
   {
     "topic": "Computer - An Introduction",
-    "topic-hint": [
+    "topichint": [
       "Invention computer",
       "data",
       "Software",
@@ -251,7 +251,7 @@
   },
   {
     "topic": "Heat",
-    "topic-hint": [
+    "topichint": [
       "Sources of heat  - Sun,Combustion,Friction,Electricity",
       "Heat",
       "Hot and cold objects",
@@ -267,7 +267,7 @@
   },
   {
     "topic": "Electricity",
-    "topic-hint": [
+    "topichint": [
       "Sources of Electricity",
       "Thermal Power stations",
       "Hydel power stations",
@@ -291,7 +291,7 @@
   },
   {
     "topic": "Changes Around Us",
-    "topic-hint": [
+    "topichint": [
       "What is a change",
       "Classification of Changes",
       "Slow and Fast changes",
@@ -304,7 +304,7 @@
   },
   {
     "topic": "Air",
-    "topic-hint": [
+    "topichint": [
       "Atmosphere",
       "Layers of atmosphere",
       "Test for Carbon-di-oxide in air",
@@ -320,7 +320,7 @@
   },
   {
     "topic": "The Cell",
-    "topic-hint": [
+    "topichint": [
       "Introduction to cell",
       "Discovery of the cell",
       "The Structural Organization Of The Cell",
@@ -337,7 +337,7 @@
   },
   {
     "topic": "Human Organ systems",
-    "topic-hint": [
+    "topichint": [
       "Skeletal System",
       "Skull",
       "Vertebral column",
@@ -363,7 +363,7 @@
   },
   {
     "topic": "Parts of Computer",
-    "topic-hint": [
+    "topichint": [
       "Parts of a Computer",
       "Classification of Computer",
       "Personal computer and its types",
@@ -381,7 +381,7 @@
   },
   {
     "topic": "Magnetism",
-    "topic-hint": [
+    "topichint": [
       "Discovery of Magnets",
       "Magnet of different shapes",
       "Magnetic and Non Magnetic Materials",
@@ -399,7 +399,7 @@
   },
   {
     "topic": "Water",
-    "topic-hint": [
+    "topichint": [
       "Sources of water",
       "Availability of water",
       "Forms of water",
@@ -414,7 +414,7 @@
   },
   {
     "topic": "Chemistry in Everyday Life",
-    "topic-hint": [
+    "topichint": [
       "Soaps and Detergents",
       "Fertilizers",
       "Organic fertilizers",
@@ -432,7 +432,7 @@
   },
   {
     "topic": "Our Environment",
-    "topic-hint": [
+    "topichint": [
       "The Ecosystem",
       "Types of ecosystem",
       "Components of ecosystem",
@@ -458,7 +458,7 @@
   },
   {
     "topic": "Plants in Daily Life",
-    "topic-hint": [
+    "topichint": [
       "Plants as Food",
       "Vegetables",
       "Cereals",
@@ -478,7 +478,7 @@
   },
   {
     "topic": "Hardware and Software",
-    "topic-hint": [
+    "topichint": [
       "Hardware",
       "Software",
       "Types of Software",
@@ -495,7 +495,7 @@
     "social studies": [
        {
     "topic": "What is History?",
-    "topic-hint": [
+    "topichint": [
       "Introduction to History",
       "Sources of History",
       "Pre-historic tools",
@@ -505,7 +505,7 @@
   },
   {
     "topic": "Human Evolution",
-    "topic-hint": [
+    "topichint": [
       "Archaeology",
       "Stages of Human evolution",
       "Anthropology",
@@ -521,7 +521,7 @@
   },
   {
     "topic": "Indus Civilisation",
-    "topic-hint": [
+    "topichint": [
       "Discovery of a lost city – Harappa",
       "Sites in Indian borders",
       "Time Span of Indus Civilisation",
@@ -542,7 +542,7 @@
   },
   {
     "topic": "Ancient Cities of Tamilagam",
-    "topic-hint": [
+    "topichint": [
       "Poompuhar",
       "Poompuhar Port",
       "Madurai",
@@ -552,7 +552,7 @@
   },
   {
     "topic": "The Universe and Solar System",
-    "topic-hint": [
+    "topichint": [
       "Universe",
       "Galaxy",
       "History of Universe",
@@ -572,7 +572,7 @@
   },
   {
     "topic": "Land and Oceans",
-    "topic-hint": [
+    "topichint": [
       "Classification of Landforms",
       "First order landforms",
       "Second order landforms",
@@ -585,7 +585,7 @@
   },
   {
     "topic": "Understanding Diversity",
-    "topic-hint": [
+    "topichint": [
       "Understanding diversity",
       "Diversity in India",
       "Land Forms and Lifestyle Diversity",
@@ -601,7 +601,7 @@
   },
   {
     "topic": "Achieving Equality",
-    "topic-hint": [
+    "topichint": [
       "Prejudice",
       "Causes for Prejudice",
       "Stereotypes",
@@ -616,7 +616,7 @@
   },
   {
     "topic": "Vedic Culture in North India and Megalithic Culture in South India",
-    "topic-hint": [
+    "topichint": [
       "Vedic Age",
       "Aryans",
       "Aryans and their Home in India",
@@ -638,7 +638,7 @@
   },
   {
     "topic": "Great Thinkers and New Faiths",
-    "topic-hint": [
+    "topichint": [
       "Intellectual Awakening",
       "Literary sources",
       "Origin of Jainism",
@@ -656,7 +656,7 @@
   },
   {
     "topic": "From Chiefdoms to Empires Geography",
-    "topic-hint": [
+    "topichint": [
       "Importance of Sixth Century BC (BCE)",
       "Role of iron in a changing society",
       "Gana - sanghas and Kingdoms",
@@ -679,7 +679,7 @@
   },
   {
     "topic": "Resources",
-    "topic-hint": [
+    "topichint": [
       "Types of resources",
       "NATURAL RESOURCES",
       "CLASSIFICATION OF NATURAL RESOURCES",
@@ -691,7 +691,7 @@
   },
   {
     "topic": "National Symbols",
-    "topic-hint": [
+    "topichint": [
       "NATURAL NATIONAL SYMBOLS",
       "Other Symbols of our Country",
       "National flag",
@@ -711,7 +711,7 @@
   },
   {
     "topic": "The Constitution of India",
-    "topic-hint": [
+    "topichint": [
       "Fundamental rights",
       "formation of the constitution of India",
       "Preamble",
@@ -722,7 +722,7 @@
   },
   {
     "topic": "Economics-An Introduction",
-    "topic-hint": [
+    "topichint": [
       "Barter system",
       "Consumer goods",
       "Primary activity",
@@ -732,7 +732,7 @@
   },
   {
     "topic": "Society and Culture in Ancient Tamizhagam:The Sangam Age",
-    "topic-hint": [
+    "topichint": [
       "The Sangam Age",
       "Sources",
       "Chera,Chola,Pandya",
@@ -750,7 +750,7 @@
   },
   {
     "topic": "The Post-Mauryan India",
-    "topic-hint": [
+    "topichint": [
       "Archaeological Sources - Inscriptions / Copper Plates",
       "The Sungas and Kanvas in the North",
       "The Sungas",
@@ -766,7 +766,7 @@
   },
   {
     "topic": "The Age of Empires: Guptas and Vardhanas",
-    "topic-hint": [
+    "topichint": [
       "Archaeological Sources",
       "Literary Sources",
       "Foundation of the Gupta Dynasty",
@@ -785,7 +785,7 @@
   },
   {
     "topic": "South Indian Kingdoms",
-    "topic-hint": [
+    "topichint": [
       "The Pallavas",
       "Pallava Genealogy (Prominent Kings)",
       "Pallava’s Contribution to Architecture",
@@ -807,7 +807,7 @@
   },
   {
     "topic": "Asia and Europe",
-    "topic-hint": [
+    "topichint": [
       "Location and Area",
       "Boundaries",
       "Political Divisions",
@@ -828,7 +828,7 @@
   },
   {
     "topic": "Globe",
-    "topic-hint": [
+    "topichint": [
       "Directions",
       "Globe",
       "Lines on the globe",
@@ -853,7 +853,7 @@
   },
   {
     "topic": "Understanding Disaster",
-    "topic-hint": [
+    "topichint": [
       "Disaster",
       "Natural Disasters",
       "Earthquakes",
@@ -873,7 +873,7 @@
   },
   {
     "topic": "Democracy",
-    "topic-hint": [
+    "topichint": [
       "REPRESENTATIVE DEMOCRACY",
       "Parliamentary Democracy",
       "Presidential Democracy",
@@ -883,7 +883,7 @@
   },
   {
     "topic": "Local Bodies – Rural and Urban",
-    "topic-hint": [
+    "topichint": [
       "The List of corporations in Tamil Nadu",
       "Panchayat Union",
       "District Panchayat",
@@ -898,7 +898,7 @@
   },
   {
     "topic": "Road Safety",
-    "topic-hint": [
+    "topichint": [
       "Three types of traffic signs - Mandatory, Cautionary and Informatory",
       "Cross roads and pedestrian crossing",
       "Always use pavements",
@@ -1834,13 +1834,1683 @@
     ]
     
 },
+"class8": {
+  "tamil": [
+  {
+    "topic": "தமிழ் இன்பம்",
+    "topichint": [
+      "தமிழ்மொழி வாழ்த்து",
+      "தமிழ்மொழி மரபு",
+      "தமிழ் வரிவடிவ வளர்ச்சி",
+      "சொற்பூங்கா",
+      "எழுத்துகளின் பிறப்பு"
+    ]
+  },
+  {
+    "topic": "ஈடில்லா இயற்கை",
+    "topichint": [
+      "ஓடை",
+      "கோணக்காத்துப் பாட்டு",
+      "நிலம் பொது",
+      "வெட்டுக்கிளியும் சருகுமானும்",
+      "வினைமுற்று",
+      "திருக்குறள்"
+    ]
+  },
+  {
+    "topic": "உடலை ஓம்புமின்",
+    "topichint": [
+      "நோயும் மருந்தும்",
+      "வருமுன் காப்போம்",
+      "தமிழர் மருத்துவம்",
+      "தலைக்குள் ஓர் உலகம்",
+      "எச்சம்"
+    ]
+  },
+  {
+    "topic": "கல்வி கரையில",
+    "topichint": [
+      "கல்வி அழகே அழகு",
+      "புத்தியைத் தீட்டு",
+      "பல்துறைக் கல்வி",
+      "ஆன்ற குடிப்பிறத்தல்",
+      "வேற்றுமை"
+    ]
+  },
+  {
+    "topic": "குழலினிது யாழினிது",
+    "topichint": [
+      "திருக்கேதாரம்",
+      "பாடறிந்து ஒழுகுதல்",
+      "நாட்டுப்புறக்",
+      "கைவினைக் கலைகள்",
+      "தமிழர் இசைக்கருவிகள்",
+      "தொகைநிலை, தொகாநிலைத் தொடர்கள்",
+      "திருக்குறள்"
+    ]
+  },
+  {
+    "topic": "வையம்புகழ் வணிகம்",
+    "topichint": [
+      "வளம் பெருகுக",
+      "மழைச்சோறு",
+      "கொங்குநாட்டு வணிகம்",
+      "காலம் உடன் வரும்",
+      "புணர்ச்சி"
+    ]
+  },
+  {
+    "topic": "பாருக்குள்ளே நல்ல நாடு",
+    "topichint": [
+      "படை வேழம்",
+      "விடுதலைத் திருநாள்",
+      "பாரத ரத்னா எம்.ஜி. இராமச்சந்திரன்",
+      "அறிவுசால் ஔவையார்",
+      "வல்லினம் மிகும் இடங்களும் மிகா இடங்களும்"
+    ]
+  },
+  {
+    "topic": "அறத்தால் வருவதே இன்பம்",
+    "topichint": [
+      "ஒன்றே குலம்",
+      "மெய்ஞ்ஞான ஒளி",
+      "அயோத்திதாசர் சிந்தனைகள்",
+      "மனித யந்திரம்",
+      "யாப்பு இலக்கணம்",
+      "திருக்குறள்"
+    ]
+  },
+  {
+    "topic": "குன்றென நிமிர்ந்துநில்",
+    "topichint": [
+      "உயிர்க்குணங்கள்",
+      "இளைய தோழனுக்கு",
+      "சட்டமேதை அம்பேத்கர்",
+      "பால் மனம்",
+      "அணி இலக்கணம்",
+      "திருக்குறள்"
+    ]
+  }
+],
+
+  "english": [
+    {
+      "topic": "unit-1",
+      "topichint": [
+        "prose the nose-jewel",
+        "poem special hero",
+        "supplementary the woman on platform 8"
+      ]
+    },
+    {
+      "topic": "unit-2",
+      "topichint": [
+        "prose hobby turns into a successful career",
+        "poem my hobby: reading",
+        "supplementary a hunter turned naturalist"
+      ]
+    },
+    {
+      "topic": "unit-3",
+      "topichint": [
+        "prose sir isaac newton -the ingenious scientist",
+        "poem making life worth while",
+        "supplementary the three questions"
+      ]
+    },
+    {
+      "topic": "unit-4",
+      "topichint": [
+        "prose my reminiscence",
+        "poem a thing of beauty",
+        "supplementary crossing the river"
+      ]
+    },
+    {
+      "topic": "unit-5",
+      "topichint": [
+        "prose being safe",
+        "poem fire work night",
+        "supplementary when instinct works"
+      ]
+    },
+    {
+      "topic": "unit-6",
+      "topichint": [
+        "prose friendship",
+        "poem lessons in life",
+        "supplementary homeless man and his friends"
+      ]
+    },
+    {
+      "topic": "unit-7",
+      "topichint": [
+        "prose cyber safety",
+        "poem my computer needs a break",
+        "supplementary the mystery of the cyber friend"
+      ]
+    },
+    {
+      "topic": "unit-8",
+      "topichint": [
+        "play jack and the beanstalk"
+      ]
+    }
+  ],
+
+"maths": [
+  {
+    "topic": "Numbers",
+    "topichint": [
+      "Introduction",
+      "Rational Numbers",
+      "Basic Arithmetic Operations on Rational Numbers",
+      "Word Problems on the basic operations",
+      "Properties of Rational Numbers",
+      "Introduction to Square Numbers",
+      "Square Root",
+      "Cubes and Cube Roots",
+      "Exponents and Powers"
+    ]
+  },
+  {
+    "topic": "Measurements",
+    "topichint": [
+      "Introduction",
+      "Parts of a Circle",
+      "Combined Shapes",
+      "Three Dimensional (3-D) Shapes"
+    ]
+  },
+  {
+    "topic": "Algebra",
+    "topichint": [
+      "Introduction",
+      "Multiplication of Algebraic Expressions",
+      "Division of Algebraic Expressions",
+      "Avoid some Common Errors",
+      "Identities",
+      "Cubic Identities",
+      "Factorisation",
+      "Linear Equation in One Variable",
+      "Graph",
+      "Linear Graph"
+    ]
+  },
+  {
+    "topic": "Life Mathematics",
+    "topichint": [
+      "Introduction",
+      "Applications of Percentage in Word Problems",
+      "Profit, Loss, Discount, Overhead Expenses and GST",
+      "Compound Interest",
+      "Compound Variation",
+      "Time and Work"
+    ]
+  },
+  {
+    "topic": "Geometry",
+    "topichint": [
+      "Introduction",
+      "Congruent and Similar Shapes",
+      "The Pythagorean Theorem",
+      "Converse of Pythagoras Theorem",
+      "Point of Concurrency",
+      "Medians of a Triangle",
+      "Altitude of a Triangle",
+      "Perpendicular Bisectors of a Triangle",
+      "Angle Bisectors of a Triangle",
+      "Construction of Quadrilaterals",
+      "Construction of Trapeziums",
+      "Construction of Special Quadrilaterals",
+      "Construction of a Parallelogram",
+      "Construction of a Rhombus",
+      "Construction of a Rectangle",
+      "Construction of a Square"
+    ]
+  },
+  {
+    "topic": "Statistics",
+    "topichint": [
+      "Introduction",
+      "Frequency Distribution Table",
+      "Graphical Representation of the Frequency, Distribution for Ungrouped Data",
+      "Graphical Representation of the Frequency Distribution for Grouped Data"
+    ]
+  },
+  {
+    "topic": "Information Processing",
+    "topichint": [
+      "Introduction",
+      "Principles of Counting",
+      "SET - Game",
+      "Map Colouring",
+      "Fibonacci Numbers",
+      "Highest Common Factor",
+      "Cryptology",
+      "Shopping Comparison",
+      "Packing"
+    ]
+  }
+],
+
+"science": [
+      {
+        "topic": "Measurement",
+        "topichint": [
+          "SI Units, Base Quantities and Units",
+          "Systems of Units",
+          "Temperature and Scales",
+          "Electric Current",
+          "Amount of Substance",
+          "Luminous Intensity",
+          "Plane Angle and Solid Angle",
+          "Clocks and Measurement of Time"
+        ]
+      },
+      {
+        "topic": "Forces and Pressure",
+        "topichint": [
+          "Force and its Effects",
+          "Pressure exerted by Air - Atmospheric Pressure",
+          "Forces in Liquid",
+          "Viscous Force or Viscosity",
+          "Friction",
+          "Pascal’s Law"
+        ]
+      },
+      {
+        "topic": "Light",
+        "topichint": [
+          "Nature of Light",
+          "Types of Mirror",
+          "Spherical Mirrors",
+          "Curved Mirrors",
+          "Laws of Reflection & Types",
+          "Multiple Reflections",
+          "Refraction of Light",
+          "Dispersion"
+        ]
+      },
+      {
+        "topic": "Matter",
+        "topichint": [
+          "States of Matter",
+          "Symbols",
+          "Metals and Non-Metals",
+          "Compound"
+        ]
+      },
+      {
+        "topic": "Changes Around Us",
+        "topichint": [
+          "Chemical Reactions Based on Physical Contact",
+          "Chemical Reactions Based on Solution of Reactants",
+          "Chemical Reaction Based on Electricity",
+          "Chemical Reactions Based on Heat",
+          "Chemical Reactions Based on Light",
+          "Chemical Reaction Based on Catalyst",
+          "Effects of Chemical Reactions"
+        ]
+      },
+      {
+        "topic": "Microorganisms",
+        "topichint": [
+          "Virus",
+          "Bacteria",
+          "Fungi",
+          "Algae",
+          "Protozoa",
+          "Uses of Microorganisms in Medicine, Agriculture, Industry and Daily Life",
+          "Harmful Microorganisms",
+          "Microbes in Food Process",
+          "Prions and Virions"
+        ]
+      },
+      {
+        "topic": "Plant Kingdom",
+        "topichint": [
+          "Taxonomy",
+          "Outline of Bentham and Hooker’s System of Classification",
+          "Binomial Nomenclature",
+          "Fungi",
+          "Bryophytes",
+          "Pteridophytes",
+          "Gymnosperms",
+          "Angiosperms (Closed seeded plants)",
+          "Uses of Medicinal plants"
+        ]
+      },
+      {
+        "topic": "Organisation of Life",
+        "topichint": [
+          "Organization of Cells and Tissues",
+          "Homeostasis",
+          "Diffusion",
+          "Osmosis",
+          "Osmoregulation",
+          "Cellular respiration",
+          "Metabolism"
+        ]
+      },
+      {
+        "topic": "Introduction to the Information Age",
+        "topichint": [
+          "Generation of Computers",
+          "Parts of a Computer",
+          "Classification of Computer",
+          "Software"
+        ]
+      },
+      {
+        "topic": "Heat",
+        "topichint": [
+          "Effects of Heat",
+          "Transfer of Heat",
+          "Calorimetry & Calorimeter",
+          "Thermostat and Thermos Flask"
+        ]
+      },
+      {
+        "topic": "Electricity",
+        "topichint": [
+          "Atom & Charges",
+          "Transfer of Charges",
+          "Flow of Charges",
+          "Electroscope",
+          "Lightning and Thunder",
+          "Electric Circuits",
+          "Effects of Current"
+        ]
+      },
+      {
+        "topic": "Air",
+        "topichint": [
+          "Oxygen",
+          "Nitrogen",
+          "Carbon dioxide",
+          "Greenhouse Effect"
+        ]
+      },
+      {
+        "topic": "Atomic Structure",
+        "topichint": [
+          "Evolution of Atomic Theory",
+          "Fundamental Particles",
+          "Thomson’s Atom Model",
+          "Valency",
+          "Ions",
+          "Chemical formula or Molecular formula",
+          "Models of Atom (Thomson, Rutherford, Bohr)",
+          "Naming chemical compounds",
+          "Chemical Equation",
+          "Laws of chemical combinations"
+        ]
+      },
+      {
+        "topic": "Movements",
+        "topichint": [
+          "Movement in different Animals",
+          "Types of Movements",
+          "Joints",
+          "Skeleton System",
+          "Muscles"
+        ]
+      },
+      {
+        "topic": "Reaching the Age of Adolescence",
+        "topichint": [
+          "Adolescence and Puberty",
+          "Secondary Sex Characteristics",
+          "Role of Hormones in Reproduction",
+          "Reproductive phase of life in Human",
+          "Menstrual Cycle & Reproductive Health",
+          "Nutritional needs & Personal hygiene of Adolescents"
+        ]
+      },
+      {
+        "topic": "Digital Painting",
+        "topichint": [
+          "Tux Paint",
+          "Tux Math"
+        ]
+      },
+      {
+        "topic": "Sound",
+        "topichint": [
+          "Production and Propagation of Sound",
+          "Sound Waves",
+          "Properties of Sound",
+          "Musical Instruments",
+          "Sound produced by Humans",
+          "Human Ear and Hearing",
+          "Noise Pollution"
+        ]
+      },
+      {
+        "topic": "Magnetism",
+        "topichint": [
+          "Classification of Magnets",
+          "Magnetic Properties",
+          "Magnetic Field and Field Lines",
+          "Magnetic Materials",
+          "Artificial Magnets",
+          "Earth’s Magnetism",
+          "Uses of magnets"
+        ]
+      },
+      {
+        "topic": "Universe and Space Science",
+        "topichint": [
+          "Rockets",
+          "India’s Space Programmes",
+          "NASA (National Aeronautics and Space Administration)"
+        ]
+      },
+      {
+        "topic": "Water",
+        "topichint": [
+          "Composition",
+          "Properties of Water",
+          "Importance of Water",
+          "Potable Water",
+          "Water Pollution",
+          "Sources and Distribution of Water"
+        ]
+      },
+      {
+        "topic": "Acids and Bases",
+        "topichint": [
+          "Properties of Acids",
+          "Properties of Bases",
+          "Indicators"
+        ]
+      },
+      {
+        "topic": "Chemistry in Everyday Life",
+        "topichint": [
+          "Hydrocarbon",
+          "Natural Gas",
+          "Fuel Gases",
+          "Coal and its type",
+          "Petroleum",
+          "Fuel",
+          "Alternative Fuel",
+          "Solar Energy"
+        ]
+      },
+      {
+        "topic": "Crop Production and Management",
+        "topichint": [
+          "Agricultural Practices",
+          "Soil Preparation, Sowing, Irrigation",
+          "Weeding, Manuring, Harvesting",
+          "Storage and Preservation",
+          "Rotation of Crops & seed bank",
+          "Bio-Indicators",
+          "Agriculture Research Institutions",
+          "Foliar Sprays & Biocontrol Methods"
+        ]
+      },
+      {
+        "topic": "Conservation of Plants and Animals",
+        "topichint": [
+          "Deforestation and Its Effects",
+          "Afforestation & Reforestation",
+          "Endangered and Extinct Species",
+          "Red Data Book",
+          "Conservation Methods",
+          "PBR (People’s Bio Diversity Register)",
+          "Biomagnification",
+          "Animal Welfare Organisations"
+        ]
+      },
+      {
+        "topic": "Visual Communication",
+        "topichint": [
+          "LibreOffice Components",
+          "Text Document",
+          "Selecting Text",
+          "Formatting Options",
+          "Importance of Visual Media",
+          "Alignment & Page Orientation"
+        ]
+      }
+    ]
+},
+
+"class9":{
+  "tamil": [
+      {
+        "topic": "மொழி",
+        "topichint": [
+          "திராவிட மொழிக்குடும்பம்",
+          "தமிழினம்",
+          "தமிழ் எதற்கு?",
+          "வரலாறு சொல்லும்",
+          "தொழில் இலக்கணம்"
+        ]
+      },
+      {
+        "topic": "இயற்கை, சுற்றுச்சூழல்",
+        "topichint": [
+          "நீரின்றி அமையாது உலகு",
+          "பசுமை",
+          "பெரியபுராணம்",
+          "பரமநூறு",
+          "தண்ணீர்",
+          "துளைமனைகள்"
+        ]
+      },
+      {
+        "topic": "பண்டையம்",
+        "topichint": [
+          "இரண்டு பழமொழிகள்",
+          "மனனிவழி",
+          "சகவாழ்வுகள்",
+          "வள்ளலின் மிக்க இடங்கள்",
+          "திருக்குறள்"
+        ]
+      },
+      {
+        "topic": "அறிவியல், தொழில்நுட்பம்",
+        "topichint": [
+          "இணையத்தின் பயன்கள்",
+          "ஓ! என் சமகாலத் தோழரே!",
+          "உயிரியலாச் சிந்தனைகள்",
+          "விண்ணைமீது சார்ந்தோம்"
+        ]
+      },
+      {
+        "topic": "கல்வி",
+        "topichint": [
+          "கல்வியில் சிறந்த பெண்கள்",
+          "சிறந்த விளக்கம்",
+          "சிறப்புக் கட்டுரை",
+          "சிற்றிதழ்கள், புத்தக வாசிப்பு",
+          "எழுத்தாளர் – உரையாளர்"
+        ]
+      },
+      {
+        "topic": "கலை, அழகியல்",
+        "topichint": [
+          "சிற்பக்கலை",
+          "பாரம்பரியக் கலைகள்",
+          "நாகரிகம் திருநாவலர்",
+          "செந்தமிழ்",
+          "புனைவு",
+          "திருக்குறள்"
+        ]
+      },
+      {
+        "topic": "நாடு, சமூகம், வரலாறு",
+        "topichint": [
+          "இந்திய தேசிய இயக்கத்தில் தமிழர் பங்கு",
+          "சீர்திருத்தவாதிகள்",
+          "முன்இனியார்ப்புப் புரை",
+          "மதநல்லிணக்கம்",
+          "சங்கம்",
+          "ஆழ்வார்"
+        ]
+      },
+      {
+        "topic": "ஆன்மீகம், தத்துவம்",
+        "topichint": [
+          "பெரியாரின் சிந்தனைகள்",
+          "ஒய்வின் அழகு",
+          "தாயோ தேசம்",
+          "யாதும் ஊரே",
+          "மக்களுக்கு எழுதிய கடிதம்",
+          "யாப்பிலக்கணம்"
+        ]
+      },
+      {
+        "topic": "மனநிலை, ஆன்மா",
+        "topichint": [
+          "விவேகானந்தரின் ஆன்மிகக் கருத்துகள்",
+          "அக்கறை",
+          "குற்றவுணர்ச்சி",
+          "தன்னம்பிக்கை",
+          "அணுவிலிருந்து அணுமதி இல்லை",
+          "அறிவியல் இலக்கணம்",
+          "திருக்குறள்"
+        ]
+      }
+    ],
+     "english": [
+    {
+      "topic": "Unit-1",
+      "topichint": [
+        "Prose Learning the Game",
+        "Poem Stopping by Woods on a Snowy Evening",
+        "Supplementary The Envious Neighbour"
+      ]
+    },
+    {
+      "topic": "Unit-2",
+      "topichint": [
+        "Prose I Can't Climb Trees Anymore",
+        "Poem A Poison Tree",
+        "Supplementary The Fun They Had"
+      ]
+    },
+    {
+      "topic": "Unit-3",
+      "topichint": [
+        "Drama Old Man River",
+        "Poem On Killing a Tree",
+        "Supplementary Earthquake"
+      ]
+    },
+    {
+      "topic": "Unit-4",
+      "topichint": [
+        "Prose Seventeen Oranges",
+        "Poem The Spider and the Fly",
+        "Supplementary The Cat and the Painkiller"
+      ]
+    },
+    {
+      "topic": "Unit-5",
+      "topichint": [
+        "Prose Water – The Elixir of Life",
+        "Poem The River",
+        "Supplementary Little Cyclone: The Story of a Grizzly Cub"
+      ]
+    },
+    {
+      "topic": "Unit-6",
+      "topichint": [
+        "Prose From Zero to Infinity",
+        "Poem The Comet",
+        "Supplementary Mother’s Voice"
+      ]
+    },
+    {
+      "topic": "Unit-7",
+      "topichint": [
+        "Prose A Birthday Letter",
+        "Poem The Stick-together Families",
+        "Supplementary The Christmas Truce"
+      ]
+    }
+  ],
+  "math": [
+  {
+    "topic": "Set",
+    "topichint": [
+      "Definition and introduction to sets",
+      "Methods of representing sets: roster form, set-builder form",
+      "Types of sets: finite, infinite, empty, singleton, equal, equivalent",
+      "Subsets and proper subsets",
+      "Universal set and power set",
+      "Venn diagrams representation",
+      "Union, intersection, difference of sets",
+      "Complement of a set",
+      "Cardinality of sets and examples",
+      "Practical problems using set operations in daily life"
+    ]
+  },
+  {
+    "topic": "Real Numbers",
+    "topichint": [
+      "Definition of rational numbers",
+      "Definition and examples of irrational numbers",
+      "Real number system and its properties",
+      "Laws of exponents for real numbers",
+      "Decimal representation of rational numbers",
+      "Recurring and terminating decimals",
+      "Operations on real numbers (addition, subtraction, multiplication, division)",
+      "Euclid’s division lemma",
+      "Fundamental Theorem of Arithmetic",
+      "Applications of real numbers in problem solving"
+    ]
+  },
+  {
+    "topic": "Algebra",
+    "topichint": [
+      "Introduction to polynomials",
+      "Types of polynomials: linear, quadratic, cubic",
+      "Addition, subtraction, multiplication of polynomials",
+      "Division of polynomials",
+      "Remainder theorem and its applications",
+      "Factor theorem",
+      "Value of a polynomial at a given point",
+      "Zeros of a polynomial",
+      "Graphical representation of polynomials",
+      "Word problems involving polynomials"
+    ]
+  },
+  {
+    "topic": "Geometry",
+    "topichint": [
+      "Basic geometry concepts: point, line, plane, angles",
+      "Properties of triangles",
+      "Congruence of triangles",
+      "Properties of quadrilaterals: parallelogram, rhombus, trapezium",
+      "Midpoint theorem",
+      "Pythagoras theorem",
+      "Circle and its properties",
+      "Construction of triangles",
+      "Construction of bisectors and perpendiculars",
+      "Practical applications of constructions"
+    ]
+  },
+  {
+    "topic": "Coordinate Geometry",
+    "topichint": [
+      "Introduction to Cartesian plane",
+      "Coordinates of a point in XY plane",
+      "Plotting of points on a graph",
+      "Distance formula and its derivation",
+      "Application of distance formula",
+      "Midpoint formula",
+      "Section formula (internal division)",
+      "Slope concept (basic introduction)",
+      "Equation of a line in standard form",
+      "Application of coordinate geometry in real life"
+    ]
+  },
+  {
+    "topic": "Trigonometry",
+    "topichint": [
+      "Introduction to trigonometry",
+      "Trigonometric ratios: sine, cosine, tangent, cosecant, secant, cotangent",
+      "Trigonometric ratios of standard angles (0°, 30°, 45°, 60°, 90°)",
+      "Trigonometric identities and proofs",
+      "Complementary angle identities",
+      "Simple problems on trigonometric ratios",
+      "Height and distance problems",
+      "Angles of elevation and depression",
+      "Practical applications of trigonometry",
+      "Problem solving in real-life contexts"
+    ]
+  },
+  {
+    "topic": "Mensuration",
+    "topichint": [
+      "Surface area of cube and cuboid",
+      "Surface area of cylinder, cone, sphere and hemisphere",
+      "Volume of cube, cuboid, cylinder, cone, sphere",
+      "Frustum of a cone: surface area and volume",
+      "Conversion of solids from one shape to another",
+      "Combination of solids",
+      "Application of mensuration in daily life",
+      "Heron’s formula for area of triangle",
+      "Application of Heron’s formula for quadrilaterals",
+      "Mixed problems on mensuration"
+    ]
+  },
+  {
+    "topic": "Statistics",
+    "topichint": [
+      "Introduction to statistics",
+      "Collection and classification of data",
+      "Frequency distribution tables",
+      "Graphical representation: bar graphs",
+      "Histograms and frequency polygons",
+      "Pie charts and their uses",
+      "Measures of central tendency: mean",
+      "Median and mode",
+      "Interpretation of statistical data",
+      "Applications of statistics in daily life"
+    ]
+  },
+  {
+    "topic": "Probability",
+    "topichint": [
+      "Introduction to probability",
+      "Random experiment and sample space",
+      "Equally likely outcomes",
+      "Favourable outcomes",
+      "Classical definition of probability",
+      "Simple problems on probability",
+      "Probability of complementary events",
+      "Problems on coins, dice, playing cards",
+      "Use of probability in real life",
+      "Problem solving with probability"
+    ]
+  }
+],
+
+  "science": [
+    {
+      "topic": "measurement",
+      "topichint": [
+        "introduction to measurement and its significance",
+        "different physical quantities (fundamental vs derived)",
+        "si unit system and unit conversions",
+        "measuring instruments: vernier caliper, screw gauge",
+        "measurement of length, mass, and time",
+        "beam balance and electronic balance",
+        "stopwatch and measuring time",
+        "errors in measurement: parallax error and zero error",
+        "systematic errors and random errors",
+        "methods to minimize errors and improve accuracy"
+      ]
+    },
+    {
+      "topic": "motion",
+      "topichint": [
+        "types of motion: translatory, rotatory, vibratory",
+        "difference between distance and displacement",
+        "concepts of speed and velocity",
+        "acceleration and its calculation",
+        "uniform versus non-uniform motion",
+        "distance-time and velocity-time graphs",
+        "slopes and area under graphs interpretation",
+        "equations of motion for uniformly accelerated motion",
+        "practical examples of motion equations",
+        "relative motion and frame of reference"
+      ]
+    },
+    {
+      "topic": "fluids",
+      "topichint": [
+        "definition and examples of fluids",
+        "density and its measurement",
+        "pressure in fluids and atmospheric pressure",
+        "buoyant force and archimedes' principle",
+        "applications of archimedes' principle",
+        "pascal’s law and hydraulic machines",
+        "surface tension and capillary action",
+        "factors affecting surface tension",
+        "viscosity and its measurement",
+        "applications of viscosity in daily life"
+      ]
+    },
+    {
+      "topic": "electric charge and electric current",
+      "topichint": [
+        "concept of electric charge and types",
+        "conductors and insulators",
+        "definition and direction of conventional current",
+        "measurement of electric current (ammeter)",
+        "potential difference and its unit",
+        "voltage sources and cells",
+        "ohm’s law and its mathematical form",
+        "graphical representation: v-i characteristics",
+        "resistance and resistivity",
+        "series and parallel resistances and their applications"
+      ]
+    },
+    {
+      "topic": "magnetism and electromagnetism",
+      "topichint": [
+        "definition and properties of a magnetic field",
+        "magnetic field lines around bar magnet",
+        "magnetic force on moving charges",
+        "magnetic field due to current-carrying conductors",
+        "right-hand thumb rule and electromagnets",
+        "electromagnetic induction and faraday’s law",
+        "lenz’s law and its application",
+        "electric generator principle",
+        "induced emf and applications in daily life",
+        "magnetic effects in household devices"
+      ]
+    },
+    {
+      "topic": "light",
+      "topichint": [
+        "nature of light: ray and beam",
+        "reflection of light and laws of reflection",
+        "image formation by plane mirror",
+        "refraction of light and snell's law",
+        "refractive index and its calculation",
+        "total internal reflection and critical angle",
+        "dispersion of light and spectrum formation",
+        "lenses: convex and concave properties",
+        "image formation by lenses (ray diagrams)",
+        "camera and optical instruments applications"
+      ]
+    },
+    {
+      "topic": "heat",
+      "topichint": [
+        "difference between heat and temperature",
+        "measurement of temperature using different scales",
+        "thermal expansion in solids, liquids, gases",
+        "real-life examples of expansion",
+        "conduction, convection, and radiation mechanisms",
+        "materials’ thermal conductivities",
+        "applications in cooking, weather, insulation",
+        "specific heat capacity concept",
+        "calculation involving heat transfer",
+        "practical uses of specific heat in daily life"
+      ]
+    },
+    {
+      "topic": "sound",
+      "topichint": [
+        "nature of sound: longitudinal waves",
+        "frequency, wavelength, amplitude definitions",
+        "speed of sound in different media",
+        "graphical representation of sound waves",
+        "reflection of sound: echoes and reverberation",
+        "human ear structure and hearing mechanism",
+        "noise pollution and its effects",
+        "applications of sound: sonar, ultrasound",
+        "pitch and loudness control",
+        "sound wave properties in music instruments"
+      ]
+    },
+    {
+      "topic": "universe",
+      "topichint": [
+        "components of solar system: planets, satellites",
+        "asteroids, comets, meteoroids in space",
+        "characteristics of stars and constellations",
+        "classification of galaxies",
+        "light year and distance measurement in space",
+        "milky way galaxy and our solar neighborhood",
+        "big bang theory: origin of universe",
+        "expansion of universe and redshift concept",
+        "telescopes and their importance",
+        "space exploration and satellites applications"
+      ]
+    },
+    {
+      "topic": "matter around us",
+      "topichint": [
+        "states of matter: solid, liquid, gas",
+        "properties of each state",
+        "change of state: melting, evaporation, condensation",
+        "boiling vs evaporation processes",
+        "diffusion and its examples",
+        "particle theory explanation",
+        "compressibility and expansion of gases",
+        "applications: refrigeration, dew formation",
+        "changes of state in daily life",
+        "vapor pressure and boiling point concept"
+      ]
+    },
+    {
+      "topic": "atomic structure",
+      "topichint": [
+        "structure of atom: protons, neutrons, electrons",
+        "atomic number and mass number definitions",
+        "isotopes and isobars difference",
+        "electronic configuration of elements",
+        "valence electrons and bonding tendency",
+        "rutherford’s model of atom",
+        "bohr’s model and planetary orbit analogy",
+        "limitations of bohr's model",
+        "atoms in periodic table trends",
+        "applications in nuclear energy and isotopes"
+      ]
+    },
+    {
+      "topic": "periodic classification of elements",
+      "topichint": [
+        "need for classification of elements",
+        "dobereiner’s triads concept",
+        "newland’s law of octaves principle",
+        "mendeleev’s periodic table features",
+        "modern periodic law and periodic table",
+        "classification by groups and periods",
+        "metals, non-metals and metalloids placement",
+        "trends: atomic size, reactivity",
+        "valency patterns and periodicity",
+        "modern table advantages over earlier systems"
+      ]
+    },
+    {
+      "topic": "chemical bonding",
+      "topichint": [
+        "definition and types of chemical bonds",
+        "ionic bond formation and properties",
+        "covalent bond formation and shared pairs",
+        "multiple bonds: double and triple",
+        "polar vs non-polar covalent bonds",
+        "coordinate bond concept",
+        "bond energy and bond length relation",
+        "properties of ionic vs covalent compounds",
+        "examples: nacl, co₂, h₂o",
+        "applications in daily life and industry"
+      ]
+    },
+    {
+      "topic": "acids, bases, and salts",
+      "topichint": [
+        "definition and examples of acids and bases",
+        "ph scale and its importance",
+        "indicators: litmus, phenolphthalein, methyl orange",
+        "neutralization reaction process",
+        "formation of salts and water",
+        "properties of salts",
+        "common salt extraction methods",
+        "uses of acids, bases, salts in daily life",
+        "acid rain and environmental impact",
+        "precautions in handling acids and bases"
+      ]
+    },
+    {
+      "topic": "carbon and its compounds",
+      "topichint": [
+        "carbon allotropes: diamond, graphite, fullerenes",
+        "hybridisation in carbon compounds",
+        "saturated and unsaturated hydrocarbons",
+        "alkanes, alkenes, alkynes definitions",
+        "functional groups: alcohols, aldehydes, ketones",
+        "carboxylic acids and their properties",
+        "structural formula writing",
+        "isomerism concept in carbon compounds",
+        "applications: fuels, plastics, medicines",
+        "environmental impact of carbon compounds"
+      ]
+    },
+    {
+      "topic": "applied chemistry",
+      "topichint": [
+        "soaps and detergents: structure and cleansing action",
+        "soaps vs synthetic detergents differences",
+        "food additives: purpose and examples",
+        "preservatives and coloring agents usage",
+        "antibiotics and disinfectants in hygiene",
+        "drinks: soft drinks, acids, bases role",
+        "household chemicals safety rules",
+        "biodegradable vs non-biodegradable chemicals",
+        "green chemistry fundamentals",
+        "practical examples in daily cleaning"
+      ]
+    },
+    {
+      "topic": "animal kingdom",
+      "topichint": [
+        "classification: invertebrates vs vertebrates",
+        "phylum porifera: sponges characteristics",
+        "phylum coelenterata: jellyfish examples",
+        "phylum annelida: earthworms traits",
+        "phylum arthropoda: insects and crustaceans",
+        "phylum mollusca: snails and squids",
+        "phylum echinodermata: starfish features",
+        "phylum chordata: mammals, birds, reptiles",
+        "economic importance of various phyla",
+        "adaptation strategies in animals"
+      ]
+    },
+    {
+      "topic": "organisation of tissues",
+      "topichint": [
+        "plant tissues: meristematic cells",
+        "types: apical, lateral meristems",
+        "permanent tissues: xylem, phloem, epidermis",
+        "ground tissue roles",
+        "animal tissues: epithelial types",
+        "connective tissues: bone, blood, cartilage",
+        "muscular tissues: skeletal, smooth, cardiac",
+        "nervous tissue structure and function",
+        "tissue repair and regeneration",
+        "organ and system level organization"
+      ]
+    },
+    {
+      "topic": "plant physiology",
+      "topichint": [
+        "photosynthesis process and formula",
+        "chlorophyll role and light reactions",
+        "factors affecting photosynthesis",
+        "transpiration mechanism in plants",
+        "water transport: xylem vessels function",
+        "mineral transport in plants",
+        "respiration in plants: aerobic vs anaerobic",
+        "stomatal function and transpiration control",
+        "plant adaptations in diverse environments",
+        "importance of plant physiology in agriculture"
+      ]
+    },
+    {
+      "topic": "organ systems in animals",
+      "topichint": [
+        "digestive system: mouth to anus",
+        "role of enzymes and digestion steps",
+        "respiratory system: lungs and gas exchange",
+        "circulatory system: heart, blood vessels",
+        "blood components: rbc, wbc, platelets",
+        "excretory system: kidney and nephron function",
+        "homeostasis and regulation",
+        "interconnection between systems",
+        "health issues and disorders",
+        "preventive care and hygiene"
+      ]
+    },
+    {
+      "topic": "nutrition and health",
+      "topichint": [
+        "balanced diet components",
+        "functions of carbohydrates, proteins, fats",
+        "vitamins and minerals: sources and importance",
+        "deficiency diseases and prevention",
+        "common communicable diseases control",
+        "role of personal hygiene",
+        "waterborne and vector-borne diseases",
+        "nutrition during life stages",
+        "government health schemes",
+        "healthy lifestyle habits"
+      ]
+    },
+    {
+      "topic": "world of microbes",
+      "topichint": [
+        "types of microorganisms: bacteria, fungi",
+        "protozoa and algae characteristics",
+        "beneficial roles: fermentation, antibiotics",
+        "harmful effects: diseases, food spoilage",
+        "microbes in agriculture (nitrogen fixation)",
+        "water purification by microbes",
+        "microbes in composting and waste management",
+        "study of microbes: simple lab techniques",
+        "pasteurization process",
+        "antibiotic resistance and safety"
+      ]
+    },
+    {
+      "topic": "economic biology",
+      "topichint": [
+        "crop production techniques",
+        "soil preparation and irrigation methods",
+        "plant protection: pesticides, biological control",
+        "sericulture: silk production process",
+        "life cycle of silkworm",
+        "apiculture: beekeeping practices",
+        "honey production and importance",
+        "integrated farming systems",
+        "sustainable agriculture approaches",
+        "economic impact of agriculture and allied sectors"
+      ]
+    },
+    {
+      "topic": "environmental science",
+      "topichint": [
+        "ecosystem components: producers, consumers, decomposers",
+        "food chains and ecological pyramids",
+        "biogeochemical cycles overview",
+        "types of environmental pollution: air, water, soil",
+        "sources and effects of pollution",
+        "waste management and recycling",
+        "conservation strategies: forests, wildlife",
+        "biodiversity and its importance",
+        "sustainable living practices",
+        "environmental laws and human responsibility"
+      ]
+    },
+    {
+      "topic": "computer – libreoffice impress",
+      "topichint": [
+        "introduction to presentation software",
+        "getting started with libreoffice impress",
+        "creating new presentations",
+        "slide layouts and templates",
+        "inserting text, images, charts",
+        "formatting slides: fonts, color, alignment",
+        "adding animations and transitions",
+        "slide show setup and delivery",
+        "practical presentation design tips",
+        "saving and exporting slides"
+      ]
+    }
+  ],
+   "social_science": [
+        {
+          "topic": "Evolution of Humans and Society – Prehistoric Period",
+          "topichint": [
+            "Origin of the Earth and Geological Ages",
+            "Human Enquiry into the Past: Importance of Archaeology, Geology, and Biology",
+            "The Age of Speculation",
+            "Australopithecus to Homo sapiens: Evolutionary Stages",
+            "Human Migration Patterns",
+            "Lower Paleolithic Cultures",
+            "Middle Paleolithic Cultures",
+            "Upper Paleolithic Cultures",
+            "Mesolithic Cultures",
+            "Neolithic Cultures and the Beginning of Agriculture",
+            "Prehistoric Tamilagam: Lower to Neolithic Cultures in Tamil Nadu",
+            "Megalithic (Iron Age) Society in Tamilagam",
+            "Megalithic Burial Types: Practices and Significance",
+            "Iron Technology and Pottery in Prehistoric Tamilakam"
+          ]
+        },
+        {
+          "topic": "Ancient Civilisations",
+          "topichint": [
+            "Geography of Egyptian Civilisation",
+            "Pharaohs: Power and Administration",
+            "Agriculture and Trade in Egypt",
+            "Art and Architecture of Egypt",
+            "Religion and Beliefs in Egyptian Society",
+            "Philosophy, Science and Literature in Egypt",
+            "Writing Systems: Hieroglyphics",
+            "Geography of Mesopotamian Civilisations",
+            "Sumerians, Akkadians, Babylonians, Assyrians: Cultural Highlights",
+            "Society, State and Administration in Mesopotamia",
+            "Mesopotamian Agriculture and Trade",
+            "Cuneiform Writing and Hammurabi’s Code",
+            "Indus Valley Civilization: Urban Planning and Economy",
+            "Chinese and Greek Civilisations: Society, Culture, Philosophy"
+          ]
+        },
+        {
+          "topic": "Early Tamil Society and Culture",
+          "topichint": [
+            "Sangam Age: Overview and Timeline",
+            "Literature and the Sangam Corpus",
+            "Social Structure and Economy in Sangam Age",
+            "Administration of Chola, Chera, and Pandya Kingdoms",
+            "Art, Culture, and Trade in Early Tamilakam",
+            "Religious Practices in Sangam Period",
+            "Tamil-Brahmi Script and its Spread",
+            "Pearl Fishery and Maritime Trade",
+            "Patinappalai and Ancient Tamil Settlements",
+            "Iron Technology and Weaponry",
+            "Agriculture and Land Use Patterns",
+            "Role of Bards, Poets, and Chieftains",
+            "Connections with other Civilisations"
+          ]
+        },
+        {
+          "topic": "Intellectual Awakening and Socio-Political Changes",
+          "topichint": [
+            "Bhakti Movement: Origins and Philosophy",
+            "Sufi Movement and its Influence",
+            "Raja Ram Mohan Roy: Social Reformation",
+            "Swami Vivekananda’s Contribution",
+            "Reform Movements in Tamil Nadu: Key Leaders",
+            "Social Reforms: Caste, Dowry, Education",
+            "Role of Women Reformers",
+            "Media and Press in the Awakening",
+            "Impact on Modern Indian Society",
+            "Legacy of Reform Movements"
+          ]
+        },
+        {
+          "topic": "The Classical World",
+          "topichint": [
+            "Greek Civilisation: Overview and Influence",
+            "Roman Civilisation: Society and Structures",
+            "Classical Philosophy: Key Thinkers",
+            "Science, Art, and Literature in Greece and Rome",
+            "Political Systems: Democracy to Empire",
+            "Roman Law and Governance",
+            "Cultural Contributions: Architecture and Theatre",
+            "Science and Medicine: Greek Roots",
+            "Spread of Classical Ideas"
+          ]
+        },
+        {
+          "topic": "The Middle Ages",
+          "topichint": [
+            "Feudalism in Europe: Structure and Function",
+            "Feudalism in Japan: Samurai and Shogunate",
+            "Rise and Spread of Islam",
+            "Medieval Indian Society: Caste and Community",
+            "Cultural Developments: Architecture, Literature, Education",
+            "Trade and Commerce in Medieval Period",
+            "Religious and Mystical Movements",
+            "Role of Medieval Rulers in Society",
+            "Technological and Agricultural Advances",
+            "Impact on Modern World"
+          ]
+        },
+        {
+          "topic": "State and Society in Medieval India",
+          "topichint": [
+            "Delhi Sultanate: Administrative Structure",
+            "Society under Sultanate Rule",
+            "Mughal Empire: Centralized Administration",
+            "Mughal Society and Culture",
+            "Regional Kingdoms: Vijayanagar, Marathas, Rajputs",
+            "Art and Architecture in Medieval India",
+            "Land Revenue Systems: Jagirs, Mansabdari",
+            "Religious and Social Dynamics",
+            "Trade and Contacts under Medieval Polities",
+            "Legacy and Impact on Later India"
+          ]
+        },
+        {
+          "topic": "The Beginning of the Modern Age",
+          "topichint": [
+            "Renaissance in Europe: Rebirth of Art and Learning",
+            "Scientific Revolution: Key Discoveries",
+            "Enlightenment: Philosophical Ideas",
+            "Causes of Industrial Revolution",
+            "Impact of Industrialisation on Society",
+            "Technological Innovations and Factories",
+            "Economic Changes: Capitalism and Labour",
+            "Social Impact: Urbanisation and Workers",
+            "Spread of Industrial Revolution Globally",
+            "Modern World View Transformation"
+          ]
+        },
+        {
+          "topic": "The Age of Revolutions",
+          "topichint": [
+            "French Revolution: Causes and Outcomes",
+            "Key Events: Storming the Bastille, Reign of Terror",
+            "Napoleon and Restoration Era",
+            "American Revolution: Roots and Results",
+            "Latin American Revolutions: Leaders and Impact",
+            "Spread of Revolutionary Ideas",
+            "Influence on Nationalism",
+            "Human Rights Concepts from Revolutions",
+            "Global Political Reshaping",
+            "Legacy of Revolutions in Modern Era"
+          ]
+        },
+        {
+          "topic": "Industrial Revolution",
+          "topichint": [
+            "Key Inventions: Spinning Jenny, Steam Engine",
+            "Industrialization Processes",
+            "Factory Systems and Labour Changes",
+            "Urbanization and City Growth",
+            "Economic Effects: Growth and Inequality",
+            "Social Effects: Living Conditions and Reforms",
+            "Colonial Impact on Industry",
+            "Industrial Revolution in India",
+            "Labor Movements and Unions",
+            "Environmental Effects of Industrialisation"
+          ]
+        },
+        {
+          "topic": "Colonialism in Asia and Africa",
+          "topichint": [
+            "European Colonization: Motives and Methods",
+            "Colonial Rule in Asia: British, French, Dutch",
+            "Colonial Rule in Africa: Scramble for Africa",
+            "Impact on Colonized Societies",
+            "Economic Exploitation and Resource Extraction",
+            "Resistance Movements in Asia",
+            "Resistance Movements in Africa",
+            "Social and Cultural Changes under Colonization",
+            "Legacy of Colonialism",
+            "Decolonization and Independence Struggles"
+          ]
+        },
+        {
+          "topic": "Lithosphere – I: Endogenetic Processes",
+          "topichint": [
+            "Structure of the Earth (crust, mantle, core)",
+            "Lithosphere: composition and characteristics",
+            "Earth’s interior layers and their properties",
+            "Earthquakes: causes, focus, epicenter, seismic waves",
+            "Volcanoes: types, causes, constructive & destructive effects",
+            "Plate tectonics: continental drift, tectonic plates",
+            "Rock types: igneous, sedimentary, metamorphic",
+            "Rock cycle and rock formation processes",
+            "Diastrophism: folding, faulting",
+            "Geological applications: seismic and volcanic zones",
+            "Direct and indirect methods to study Earth’s interior"
+          ]
+        },
+        {
+          "topic": "Lithosphere – II: Exogenetic Processes",
+          "topichint": [
+            "Weathering: physical, chemical, biological",
+            "Erosion: agents like water, wind, ice, gravity",
+            "Transportation and deposition of weathered materials",
+            "Landforms: mountains, plateaus, plains, valleys",
+            "River features: meanders, floodplains, deltas",
+            "Glacial landforms: moraines, U-shaped valleys",
+            "Coastal landforms: cliffs, beaches, sandbars",
+            "Soil formation processes",
+            "Soil types: laterite, alluvial, black soil, red soil",
+            "Soil conservation methods"
+          ]
+        },
+        {
+          "topic": "Atmosphere",
+          "topichint": [
+            "Composition of the atmosphere (nitrogen, oxygen, etc.)",
+            "Layers of the atmosphere: troposphere, stratosphere, etc.",
+            "Weather vs. climate distinctions",
+            "Temperature variations and heat balance",
+            "Air pressure and pressure belts",
+            "Winds: local (sea breeze, land breeze)",
+            "Global wind systems: trade, westerlies, polar winds",
+            "Cyclones and anticyclones",
+            "Humidity, condensation, and types of rainfall",
+            "Weather forecasting and instruments"
+          ]
+        },
+        {
+          "topic": "Hydrosphere",
+          "topichint": [
+            "Distribution of water on Earth: oceans, glaciers, groundwater",
+            "Water cycle: evaporation, condensation, precipitation",
+            "Types of water bodies: oceans, seas, lakes, rivers",
+            "Characteristics of oceans: salinity, currents, tides",
+            "Marine resources: food, minerals, energy",
+            "Freshwater resources and their uses",
+            "Human-water relations: irrigation, consumption, conservation",
+            "Pollution of water bodies and its effects",
+            "Water conservation practices",
+            "Importance of hydrosphere in ecosystem functioning"
+          ]
+        },
+        {
+          "topic": "Biosphere",
+          "topichint": [
+            "Definition and significance of the biosphere",
+            "Components: biotic (flora, fauna) and abiotic (CO₂, water)",
+            "Ecosystems: structure and functioning",
+            "Types of biomes: tropical rainforest, desert, tundra, etc.",
+            "Food chains and food webs",
+            "Energy flow and ecological pyramids",
+            "Biodiversity: importance and threats",
+            "Hotspots and endemic species",
+            "Conservation strategies: protected areas, biosphere reserves",
+            "Human impacts: deforestation, habitat loss, conservation laws"
+          ]
+        },
+        {
+          "topic": "Man and Environment",
+          "topichint": [
+            "Human-environment interactions",
+            "Natural resources: types and distribution",
+            "Population and its impact on resource use",
+            "Environmental degradation: deforestation, soil erosion",
+            "Air, water, and land pollution",
+            "Waste management: reduce, reuse, recycle",
+            "Sustainable development principles",
+            "Climate change and global warming",
+            "Renewable vs. non-renewable resources",
+            "Environmental policies and initiatives"
+          ]
+        },
+        {
+          "topic": "Mapping Skills",
+          "topichint": [
+            "Basics of map reading and symbols",
+            "Types of maps: thematic vs. topographic",
+            "Latitude and longitude: location determination",
+            "Reading scale: linear and ratio scales",
+            "Contour lines and relief maps",
+            "Isogonic and isothermal lines",
+            "Use of remote sensing in mapping",
+            "GIS (Geographic Information System) basics",
+            "Interpreting climate and vegetation maps",
+            "Field sketching and map drawing techniques"
+          ]
+        },
+        {
+          "topic": "Disaster Management: Responding to Disasters",
+          "topichint": [
+            "Types of disasters: natural vs anthropogenic",
+            "Earthquake preparedness and early warning",
+            "Flood management strategies",
+            "Cyclone warnings and safety measures",
+            "Forest fire prevention and control",
+            "Landslide risk mitigation",
+            "Role of government and agencies in disaster response",
+            "Relief measures: rescue, shelter, medical aid",
+            "Rehabilitation and reconstruction efforts",
+            "Community awareness and participation"
+          ]
+ },
+        {
+          "topic": "Forms of Government and Democracy",
+          "topichint": [
+            "Definition and principles of democracy",
+            "Features of democratic systems: rule of law, participation, accountability",
+            "Forms of government: monarchy, dictatorship, oligarchy, aristocracy",
+            "Republics and theocratic systems",
+            "Direct vs representative democracy",
+            "Role of constitution in democracy",
+            "Fundamental rights protected via constitution",
+            "Preamble and its significance",
+            "Separation of powers: executive, legislature, judiciary",
+            "Citizen responsibilities and voting rights",
+            "Universal adult franchise concept",
+            "Examples: India, USA, UK systems"
+          ]
+        },
+        {
+          "topic": "Election, Political Parties and Pressure Groups",
+          "topichint": [
+            "Electoral process: nomination, campaigning, voting, counting",
+            "Types of elections: local, state, national",
+            "First-past-the-post system",
+            "Proportional representation basics",
+            "Political parties: functions, types, structure",
+            "National vs regional parties",
+            "Campaign financing and election symbols",
+            "Pressure groups meaning and classification",
+            "Role of NGOs and interest groups",
+            "Lobbying techniques and influence",
+            "Media’s role in elections",
+            "Electoral reforms: EVMs, VVPAT, Transparency"
+          ]
+        },
+        {
+          "topic": "Human Rights",
+          "topichint": [
+            "Definition and universal declarations",
+            "Fundamental rights under the Indian Constitution",
+            "Right to equality and right to freedom",
+            "Right against exploitation and cultural/educational rights",
+            "Right to constitutional remedies",
+            "International Human Rights Organizations: UN, Amnesty Intl, Red Cross",
+            "Role of NHRC (National Human Rights Commission)",
+            "Child Rights as per UN (e.g. education, safety, social security)",
+            "Protection of rights in India (legal remedies)",
+            "Role of civil society and media",
+            "Case studies: whistleblowers, landmark HR judgments",
+            "Importance of rights awareness in schools"
+          ]
+        },
+        {
+          "topic": "Forms of Government",
+          "topichint": [
+            "Unitary system: features, advantages, limitations",
+            "Federal system: division of powers, federal features in India",
+            "Parliamentary system: roles of PM, cabinet, Parliament",
+            "Presidential system: features in the USA",
+            "Comparative analysis: parliamentary vs presidential",
+            "Advantages and drawbacks of unitary vs federal",
+            "Secularism and separation of powers in both systems",
+            "Local government under federalism",
+            "Case studies: India (federal), France (semi-unitary)",
+            "Constitutional resilience and flexibility",
+            "Inter-governmental relations"
+          ]
+        },
+        {
+          "topic": "Local Self Government",
+          "topichint": [
+            "Principles of local self-governance",
+            "Panchayati Raj system: three-tier structure (village, block, district)",
+            "Gram Sabha role and functions",
+            "Town Panchayat, Municipality, Corporation differences",
+            "73rd and 74th Constitutional Amendments (1992)",
+            "Roles of elected members and officers",
+            "Funding and taxation: property tax, grants, local finances",
+            "Functions: sanitation, street lighting, public health, water",
+            "Case study: Uthiramerur system in Chola period",
+            "Urban vs rural local governance",
+            "Citizen participation and social audits",
+            "Challenges: urbanization, resource constraints"
+          ]
+        },
+        {
+          "topic": "Road Safety",
+          "topichint": [
+            "Importance of road safety in daily life",
+            "Basic traffic rules and signals",
+            "Types of road signs: regulatory, warning, information",
+            "Role of pedestrians and motorists",
+            "Helmets, seat belts, and child safety norms",
+            "Common causes of road accidents",
+            "Accident prevention measures and emergency response",
+            "Role of police, transport department, and courts",
+            "Road safety education in schools",
+            "Citizen awareness campaigns",
+            "Traffic fines and penalties for violations",
+            "Infrastructure’s role: zebra crossings, sidewalks"
+          ]
+        },
+        {
+          "topic": "Understanding Development: Perspectives, Measurement and Sustainability",
+          "topichint": [
+            "Definition and scope of development",
+            "Difference between economic growth and development",
+            "Multiple perspectives on development (economic, social, environmental)",
+            "Indicators of development: Net National Product (NNP)",
+            "Per Capita Income (PCI) and its significance",
+            "Purchasing Power Parity (PPP) and international comparisons",
+            "Human Development Index (HDI): components and importance",
+            "Composite indices and limitations",
+            "Sustainable development concept introduction",
+            "Social parameters: education, health, literacy, life expectancy",
+            "Environmental dimensions: resource conservation, green policies",
+            "Inclusive development: addressing inequality and poverty"
+          ]
+        },
+        {
+          "topic": "Employment in India and Tamil Nadu",
+          "topichint": [
+            "Definition and concept of employment",
+            "Working-age population and workforce participation",
+            "Types of employment: organized vs unorganized sectors",
+            "Sectoral employment distribution: primary, secondary, tertiary",
+            "Features of primary sector employment: agriculture-livestock-fisheries",
+            "Growth of secondary sector: manufacturing and construction",
+            "Tertiary sector expansion: services, trade, transport",
+            "Employment trends and issues in India",
+            "Employment situation and challenges in Tamil Nadu",
+            "Skilled vs unskilled labor trends",
+            "Child labor and labor rights concerns",
+            "Government employment schemes and policies"
+          ]
+        },
+        {
+          "topic": "Money and Credit",
+          "topichint": [
+            "Evolution of money: barter system to money economy",
+            "Forms of money: commodity money, paper money, digital currency",
+            "Functions of money: medium of exchange, store of value, standard of deferred payment",
+            "Role and functions of banking in money economy",
+            "Credit concept and its economic significance",
+            "Sources of credit: formal (banks, cooperatives) vs informal (moneylenders)",
+            "Interest rate mechanism and its impact on economy",
+            "Role of Reserve Bank of India in money and credit regulation",
+            "Types of banking services: savings, current, loans",
+            "Electronic transactions and digital payments (UPI, e-wallets)",
+            "Financial inclusion: importance and initiatives",
+            "Risks of credit: over-indebtedness and responsible borrowing"
+          ]
+}
+]
+
+
+
+},
 
 
 "class10": {
     "tamil": [
       {
         "topic": "அமுதஊற்று",
-        "topic-hint": [
+        "topichint": [
           "அன்னை மொழியே",
           "தமிழ்ச்சொல் வளம்",
           "இரட்டுற மொழிதல்",
@@ -1850,7 +3520,7 @@
       },
       {
         "topic": "உயிரின் ஓசை",
-        "topic-hint": [
+        "topichint": [
           "கேட்கிறதா என்குரல்!",
           "காற்றே வா!",
           "முல்லைப்பாட்டு",
@@ -1860,7 +3530,7 @@
       },
       {
         "topic": "கூட்டாஞ்சோறு",
-        "topic-hint": [
+        "topichint": [
           "விருந்து போற்றுதும்!",
           "காசிக்காண்டம்",
           "மலைபடுகடாம் கோபல்லபுரத்து மக்கள்",
@@ -1870,7 +3540,7 @@
       },
       {
         "topic": "நான்காம் தமிழ்",
-        "topic-hint": [
+        "topichint": [
           "செயற்கை நுண்ணறிவு",
           "பெருமாள் திருமொழி",
           "பரிபாடல்",
@@ -1880,7 +3550,7 @@
       },
       {
         "topic": "மணற்கேணி",
-        "topic-hint": [
+        "topichint": [
           "மொழிபெயர்ப்புக் கல்வி",
           "நீதி வெண்பா",
           "திருவிளையாடற் புராணம்",
@@ -1890,7 +3560,7 @@
       },
       {
         "topic": "நிலா முற்றம்",
-        "topic-hint": [
+        "topichint": [
           "பன்முகக் கலைஞர்",
           "பூத்தொடுத்தல்",
           "முத்துக்குமாரசாமி பிள்ளைத்தமிழ்",
@@ -1902,7 +3572,7 @@
       },
       {
         "topic": "விதைநெல்",
-        "topic-hint": [
+        "topichint": [
           "சிற்றகல் ஒளி (தன்வரலாறு)",
           "ஏர் புதிதா?",
           "மெய்க்கீர்த்தி",
@@ -1913,7 +3583,7 @@
       },
       {
         "topic": "பெருவழி",
-        "topic-hint": [
+        "topichint": [
           "சங்க இலக்கியத்தில் அறம்",
           "ஞானம்",
           "காலக்கணிதம்",
@@ -1923,7 +3593,7 @@
       },
       {
         "topic": "அன்பின் மொழி",
-        "topic-hint": [
+        "topichint": [
           "ஜெயகாந்தம் (நினைவு இதழ்)",
           "சித்தாளு",
           "தேம்பாவணி",
@@ -1994,7 +3664,7 @@
 "maths": [
       {
         "topic": "Relations and Functions",
-        "topic-hint": [
+        "topichint": [
           "Ordered Pair",
           "Cartesian Product",
           "Relations",
@@ -2008,7 +3678,7 @@
       },
       {
         "topic": "Numbers and Sequences",
-        "topic-hint": [
+        "topichint": [
           "Euclid’s Division Lemma",
           "Euclid’s Division Algorithm",
           "Fundamental Theorem of Arithmetic",
@@ -2023,7 +3693,7 @@
       },
       {
         "topic": "Algebra",
-        "topic-hint": [
+        "topichint": [
           "Simultaneous Linear Equations in Three Variables",
           "GCD and LCM of Polynomials",
           "Rational Expressions",
@@ -2036,7 +3706,7 @@
       },
       {
         "topic": "Geometry",
-        "topic-hint": [
+        "topichint": [
           "Similarity",
           "Thales Theorem and Angle Bisector Theorem",
           "Pythagoras Theorem",
@@ -2046,7 +3716,7 @@
       },
       {
         "topic": "Coordinate Geometry",
-        "topic-hint": [
+        "topichint": [
           "Area of a Triangle",
           "Area of a Quadrilateral",
           "Inclination of a Line",
@@ -2056,7 +3726,7 @@
       },
       {
         "topic": "Trigonometry",
-        "topic-hint": [
+        "topichint": [
           "Introduction",
           "Trigonometric Identities",
           "Heights and Distances"
@@ -2064,7 +3734,7 @@
       },
       {
         "topic": "Mensuration",
-        "topic-hint": [
+        "topichint": [
           "Introduction",
           "Surface Area",
           "Volume",
@@ -2074,7 +3744,7 @@
       },
       {
         "topic": "Statistics and Probability",
-        "topic-hint": [
+        "topichint": [
           "Measures of Dispersion",
           "Coefficient of Variation",
           "Probability",
