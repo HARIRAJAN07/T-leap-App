@@ -113,6 +113,7 @@ async function generateQuestion({
 - For languages: focus on grammar, vocabulary, and comprehension.
 `;
 
+  // ✅ NEW: Add uniqueness instruction
   const uniquenessRule =
     askedQuestions.length > 0
       ? `- Do NOT repeat any of these previously generated questions: ${askedQuestions.map(q => `"${q}"`).join(", ")}`

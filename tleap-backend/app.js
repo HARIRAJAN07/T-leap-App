@@ -41,6 +41,8 @@ async function main() {
   const difficulty = askChoice("Choose Difficulty:", difficulties);
 
   const topicHint = readline.question("Enter Topic (optional, press Enter to skip): ").trim();
+
+  // ✅ NEW: Ask for subtopic
   const subtopicHint = readline.question("Enter Subtopic (optional, press Enter to skip): ").trim();
 
   const languages = ["English", "Tamil"];
@@ -58,12 +60,18 @@ async function main() {
   if (Array.isArray(questionType)) {
     questionType = questionType.map(q => {
       switch (q.toLowerCase()) {
-        case "mcq": return "mcq";
-        case "fill in the blank": return "fill";
-        case "assertion & reasoning": return "assertion";
-        case "true/false": return "truefalse";
-        case "match the following": return "match";
-        default: return "mcq";
+        case "mcq":
+          return "mcq";
+        case "fill in the blank":
+          return "fill";
+        case "assertion & reasoning":
+          return "assertion";
+        case "true/false":
+          return "truefalse";
+        case "match the following":
+          return "match";
+        default:
+          return "mcq";
       }
     });
   } else if (questionType === 'mix') {
@@ -109,10 +117,11 @@ Mode: ${mode}\n`);
   });
 
   const buffer = [];
-  let totalQ = 0, correctCount = 0;
+  let totalQ = 0,
+    correctCount = 0;
   const isPractice = mode.startsWith("Practice");
 
-  // Track previously asked questions
+  // ✅ NEW: Track previously asked questions
   const askedQuestions = new Set();
 
   while (true) {
@@ -125,17 +134,17 @@ Mode: ${mode}\n`);
       subtopicHint,
       language,
       questionType,
-      askedQuestions: Array.from(askedQuestions)
+      askedQuestions: Array.from(askedQuestions) // Pass previous questions
     });
 
     if (!q) {
-      console.log(`⚠ Skipping Q${totalQ}: generation error.`);
+      console.log(`⚠️ Skipping Q${totalQ}: generation error.`);
       continue;
     }
 
     // Prevent repeats
     if (askedQuestions.has(q.question)) {
-      console.log("⚠ Duplicate detected. Retrying...");
+      console.log(`⚠️ Duplicate detected. Retrying...`);
       totalQ--;
       continue;
     }
@@ -149,7 +158,7 @@ Mode: ${mode}\n`);
       console.log(`A) ${A}\nB) ${B}\nC) ${C}\nD) ${D}`);
       const ans = readline.question("Your answer (A/B/C/D or text): ").trim();
       const letter = ans.toUpperCase();
-      userAnswer = { A, B, C, D }[letter] || ans;
+      userAnswer = ['A', 'B', 'C', 'D'].includes(letter) ? { A, B, C, D }[letter] : ans;
     } else if (q.type === "fill") {
       userAnswer = readline.question("Fill in the blank: ").trim();
     } else if (q.type === "assertion") {

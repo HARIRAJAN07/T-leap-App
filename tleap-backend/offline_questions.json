@@ -1,0 +1,72 @@
+[
+  {
+    "question": "The unit of length is meter.",
+    "type": "truefalse",
+    "answer": "True",
+    "explanation": "Meter is the fundamental unit of length.",
+    "subtopic": "Units of Measurement"
+  },
+  {
+    "question": "The unit of length is meter.",
+    "type": "truefalse",
+    "answer": "True",
+    "explanation": "Meter is the fundamental unit of length.",
+    "subtopic": "Units of Measurement"
+  },
+  {
+    "question": "The unit of length is meter.",
+    "type": "truefalse",
+    "answer": "False",
+    "explanation": "The unit of length is actually centimeter, meter, or kilometer.",
+    "subtopic": "Length"
+  },
+  {
+    "question": "The unit of length is meter.",
+    "type": "truefalse",
+    "answer": "False",
+    "explanation": "The unit of length is actually centimeter, meter, or kilometer.",
+    "subtopic": "Length"
+  },
+  {
+    "question": "The unit of volume is cubic centimeter.",
+    "type": "truefalse",
+    "answer": "True",
+    "explanation": "The unit of volume is indeed cubic centimeter, also known as milliliters.",
+    "subtopic": "Units of Measurement"
+  },
+  {
+    "question": "The unit of volume is cubic centimeter.",
+    "type": "truefalse",
+    "answer": "True",
+    "explanation": "The unit of volume is indeed cubic centimeter, also known as milliliters.",
+    "subtopic": "Units of Measurement"
+  },
+  {
+    "question": "A measuring tape is used to measure the length of an object.",
+    "type": "truefalse",
+    "answer": "True",
+    "explanation": "A measuring tape is a tool used to measure the length of an object.",
+    "subtopic": "Tools for Measurement"
+  },
+  {
+    "question": "A measuring tape is used to measure the length of an object.",
+    "type": "truefalse",
+    "answer": "True",
+    "explanation": "A measuring tape is a tool used to measure the length of an object.",
+    "subtopic": "Tools for Measurement"
+  },
+  {
+    "question": "The unit of length in the metric system is",
+    "type": "truefalse",
+    "answer": "False",
+    "explanation": "The unit of length in the metric system is meter, not centimeter.",
+    "subtopic": "Metric System"
+  },
+  {
+    "question": "The unit of length in the metric system is",
+    "type": "truefalse",
+    "answer": "False",
+    "explanation": "The unit of length in the metric system is meter, not centimeter.",
+    "subtopic": "Metric System"
+  }
+]

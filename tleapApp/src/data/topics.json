@@ -11,11 +11,15 @@
       { "topic": "எல்லாரும் இன்புற", "topichint": ["பராபரக் கண்ணி","நீங்கள் நல்லவர்","பசிப்பிணி போக்கிய பாவை","பாதம்","பெயர்ச்சொல்","திருக்குறள்"] },
       { "topic": "இன்னுயிர் காப்போம்", "topichint": ["ஆசிய ஜோதி", "ஆசிய ஜோதி","மனிதநேயம்","முடிவில் ஒரு தொடக்கம்","அணி இலக்கணம்","திருக்குறள்"]}
     ],
-    "english": [
-      {"topic": "Prose", "topichint": "Stories, comprehension, and summaries"},
-      {"topic": "Poem", "topichint": "Poems with meanings and appreciation"},
-      {"topic": "Supplementary", "topichint": "Additional reading and comprehension"},
-      {"topic": "Grammar", "topichint": "Parts of speech, tenses, sentence construction"}
+   "english": [
+      {"topic": "unit-1", "topichint": ["Sea Turtles","The Crocodile","The Friendship","Frame sentence"]},
+      {"topic": "unit-2", "topichint": ["When the Trees Walked" ,"Trees ","The Apple Tree and the Farmer","Command and Request sentences"]},
+      {"topic": "unit-3", "topichint": ["A Visitor from Distant Lands","I Dream of Spices","Stone Soup"]},
+      {"topic": "unit-4", "topichint": ["Sports Stars","Team Work","Think to Win"]},
+      {"topic": "unit-5", "topichint": ["Trip to Ooty","From a Railway Carriage","Gulliver's Travel"]},
+      {"topic": "unit-6", "topichint": ["Who Owns the Water?","Indian Seasons","A Childhood in Malabar: A Memoir","Compound words, Collective nouns"]},
+      {"topic": "unit-7", "topichint": ["That Sunday Morning","A Tragic Story","Brought to Book","Grammar : Adverbs"]},
+      {"topic": "unit-8", "topichint": ["The Jungle Book"]}
     ],
     "math": [
       {
@@ -1998,7 +2002,7 @@
     }
   ],
 
-"maths": [
+"math": [
   {
     "topic": "Numbers",
     "topichint": [
@@ -2376,7 +2380,270 @@
           "Alignment & Page Orientation"
         ]
       }
-    ]
+    ],
+    "social studies": [
+    {
+      "topic": "advent of the europeans",
+      "topichint": [
+        "sources of modern india",
+        "advent of the europeans",
+        "rivalry among the europeans in india",
+        "establishment of british power in india"
+      ]
+    },
+    {
+      "topic": "from trade to territory",
+      "topichint": [
+        "introduction of from trade to territory",
+        "establishment of political power by the english east india company in bengal",
+        "the british and french conflict (carnatic wars)",
+        "mysore and its resistance to british expansion",
+        "anglo-maratha wars",
+        "the british administrative organisation in india",
+        "the subsidiary alliance"
+      ]
+    },
+    {
+      "topic": "rural life and society",
+      "topichint": [
+        "rural life and society",
+        "the land revenue policy under the british",
+        "peasants revolts"
+      ]
+    },
+    {
+      "topic": "people’s revolt",
+      "topichint": [
+        "introduction of people’s revolt",
+        "oigin of palayam",
+        "early revolts of south india",
+        "vellore revolt",
+        "the freedom struggle of 1857"
+      ]
+    },
+    {
+      "topic": "rock and soil",
+      "topichint": [
+        "introduction of rocks and soil",
+        "rock and it’s types",
+        "soil formation and preparation for agricuture"
+      ]
+    },
+    {
+      "topic": "weather and climate",
+      "topichint": [
+        "weather and climate introduction",
+        "weather and climate related factors",
+        "elements of weather and climate",
+        "rainfall and it’s types",
+        "atmospheric pressure",
+        "humidity",
+        "wind"
+      ]
+    },
+    {
+      "topic": "hydrologic cycle",
+      "topichint": [
+        "water on the earth",
+        "hydrologic cycle or water cycle",
+        "components of hydrologic cycle",
+        "precipitation",
+        "water resources of india"
+      ]
+    },
+    {
+      "topic": "how the state government works",
+      "topichint": [
+        "the state executive",
+        "the state legislature",
+        "judiciary of state",
+        "high court",
+        "jurisdiction and powers of high court"
+      ]
+    },
+    {
+      "topic": "citizen and citizenship",
+      "topichint": [
+        "introduction of citizens and citizenship",
+        "citizen and citizenship",
+        "acquisition of citizenship",
+        "loss of indian citizenship",
+        "single citizenship",
+        "rights and duties of citizen",
+        "qualities of a good citizen",
+        "global citizenship",
+        "overseas citizenship of india",
+        "tamil around the world"
+      ]
+    },
+    {
+      "topic": "money, savings and investments",
+      "topichint": [
+        "introduction to money, savings and investment",
+        "evolutions of money",
+        "value of money",
+        "concept of money",
+        "function of money",
+        "savings in banks and investments",
+        "concept of black money"
+      ]
+    },
+    {
+      "topic": "public and private sectors",
+      "topichint": [
+        "introduction to public and private sectors"
+      ]
+    },
+    {
+      "topic": "educational development in india",
+      "topichint": [
+        "educational development of independence india",
+        "education in ancient india",
+        "education in modern india",
+        "modern system of education",
+        "national policy on education",
+        "sarva shiksha abhiyan (ssa) and rastriya madhyamik shiksha abhiyan (rmsa)",
+        "education development in tamil nadu"
+      ]
+    },
+    {
+      "topic": "development of industries in india",
+      "topichint": [
+        "introduction of development of industries in india",
+        "traditional crafts of india",
+        "decline of indian industries",
+        "beginning of modern industries",
+        "confederation of indian industry (cii)",
+        "phases of industrial development in india"
+      ]
+    },
+    {
+      "topic": "tamils around the world",
+      "topichint": []
+    },
+    {
+      "topic": "urban changes during the british period",
+      "topichint": [
+        "introduction of urban changes during the british period",
+        "ancient towns",
+        "medieval towns",
+        "modern towns",
+        "uniques features of urbanisation under the british",
+        "creation of municipalities and corporation",
+        "origin and growth of madras"
+      ]
+    },
+    {
+      "topic": "status of women in india through the ages",
+      "topichint": [
+        "introduction of status of women in india through the ages",
+        "the position of women",
+        "major social evils for women",
+        "role of social reforms",
+        "women in freedom movement",
+        "impact of reform movement",
+        "women in independent india"
+      ]
+    },
+    {
+      "topic": "migration and urbanisation",
+      "topichint": [
+        "introduction of migration and urbanisation",
+        "migration on the basis of region and duration",
+        "factors of migration",
+        "types of migration",
+        "consequences of migration",
+        "urbanisation in india",
+        "causes of urbanisation",
+        "origin and growth of world urbanisation",
+        "consequences of urbanisation"
+      ]
+    },
+    {
+      "topic": "hazards",
+      "topichint": [
+        "introduction of hazards",
+        "hazards and their types",
+        "major hazards in india",
+        "need for prevention measures"
+      ]
+    },
+    {
+      "topic": "industries",
+      "topichint": [
+        "introduction to industries",
+        "industry",
+        "microeconomics",
+        "economic activity",
+        "factors responsible for location of industries",
+        "classification of industries"
+      ]
+    },
+    {
+      "topic": "exploring continents africa, australia and antarctica",
+      "topichint": [
+        "introduction of exploring continents: africa, australia and antarctica",
+        "africa",
+        "australia",
+        "antarctica"
+      ]
+    },
+    {
+      "topic": "map reading",
+      "topichint": [
+        "introduction to map reading",
+        "types of maps",
+        "uses of maps"
+      ]
+    },
+    {
+      "topic": "understanding secularism",
+      "topichint": [
+        "introduction of understanding secularism",
+        "tamils around the world"
+      ]
+    },
+    {
+      "topic": "human right and uno",
+      "topichint": [
+        "introduction of human rights",
+        "human rights based on values",
+        "human right commission",
+        "human right organization",
+        "child and women rights"
+      ]
+    },
+    {
+      "topic": "road safety rules and regulations",
+      "topichint": [
+        "introduction of road safety rules and regulations"
+      ]
+    },
+    {
+      "topic": "defence and foreign policy",
+      "topichint": [
+        "introduction of defence",
+        "need for a defense system",
+        "indian defence services",
+        "indian armed forces",
+        "paramilitary defence forces",
+        "central defence forces",
+        "central armed police forces",
+        "introduction of foreign policy of india"
+      ]
+    },
+    {
+      "topic": "the judiciary",
+      "topichint": [
+        "introduction of the judiciary",
+        "evolution of the judiciary",
+        "structure of courts in india",
+        "role of the judiciary",
+        "the litigation process",
+        "independent and impartial function of judiciary"
+      ]
+    }
+  ]
 },
 
 "class9":{
@@ -3661,7 +3928,7 @@
       ]
     }
   ],
-"maths": [
+"math": [
       {
         "topic": "Relations and Functions",
         "topichint": [

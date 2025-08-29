@@ -60,27 +60,55 @@ export default function QuestionPage() {
     setSubmitted(false);
     setUserAnswer("");
 
-    const randomHint =
-      topicObj?.topichint[
-        Math.floor(Math.random() * topicObj.topichint.length)
-      ];
+    let data;
 
-    const res = await fetch(`${API_BASE}/generate-question`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload(randomHint)),
-    });
+    // pick a random subtopic from topicObj
+    const randomHint =
+      topicObj?.topichint?.[
+        Math.floor(Math.random() * (topicObj.topichint?.length || 0))
+      ];
     console.log("TOPIC HINT:", randomHint);
 
-    if (!res.ok) throw new Error(`API ${res.status}`);
-    const data = await res.json();
+    try {
+      const res = await fetch(`${API_BASE}/generate-question`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload(randomHint)),
+      });
+
+      if (!res.ok) throw new Error(`API ${res.status}`);
+
+      data = await res.json();
+
+      // save question for offline use
+      await fetch(`${API_BASE}/save-offline-question`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+    } catch (err) {
+      console.warn("Offline mode: falling back to saved questions.", err);
+
+      const offlineRes = await fetch(`${API_BASE}/offline-questions`);
+      if (!offlineRes.ok) throw new Error("Offline JSON fetch failed");
+      const offlineData = await offlineRes.json();
+
+      if (!offlineData || offlineData.length === 0)
+        throw new Error("No offline questions available");
+
+      data = offlineData[Math.floor(Math.random() * offlineData.length)];
+    }
+
     setQuestion(data);
   } catch (e) {
-    setError(e.message || "Failed to load");
+    console.error(e);
+    setError(e.message || "Failed to load question");
+    setQuestion(null);
   } finally {
     setLoading(false);
   }
 }, [classId, subject, difficulty, topic, questionType, language, topicObj]);
+
 
   useEffect(() => {
     fetchQuestion();
