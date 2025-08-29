@@ -1,28 +1,27 @@
-// QuizType.js
+// screens/QuizType.js
 import React from "react";
 import {
   View,
   Text,
   TouchableOpacity,
-  ScrollView,
   Dimensions,
+  StyleSheet,
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
-import { Ionicons } from "@expo/vector-icons"; // ✅ for back icon
+import Logo from "../components/logo";
+import BackButton from "../components/BackButton";
 
 const { width, height } = Dimensions.get("window");
 
-// helpers for responsiveness
+// scale helpers
 const wp = (perc) => (width * perc) / 100;
 const hp = (perc) => (height * perc) / 100;
 
 const questionTypes = [
-  { key: "mcq", label: "Multiple Choice", emoji: "📝", desc: "Pick the correct option" },
-  { key: "match", label: "Match the Following", emoji: "🔗", desc: "Pair items correctly" },
-  { key: "assertion", label: "Assertion & Reason", emoji: "🤔", desc: "Decide if reasoning fits" },
-  { key: "truefalse", label: "True or False", emoji: "✔️❌", desc: "Simple but tricky" },
-  { key: "fill", label: "Fill in the Blanks", emoji: "✍️", desc: "Complete the sentences" },
+  { key: "mcq", label: "Multiple Choice 📝", desc: "Pick the correct option" },
+  { key: "truefalse", label: "True or False ✔️❌", desc: "Simple but tricky" },
+  { key: "fill", label: "Fill the Blanks ✍️", desc: "Complete the sentences" },
 ];
 
 export default function QuizType() {
@@ -47,137 +46,30 @@ export default function QuizType() {
       end={{ x: 1, y: 1 }}
       style={{ flex: 1 }}
     >
-      <ScrollView
-        contentContainerStyle={{
-          flexGrow: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          padding: wp(3),
-        }}
-      >
-        {/* ✅ Back Button */}
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            backgroundColor: "rgba(255,255,255,0.7)",
-            paddingVertical: hp(0.8),
-            paddingHorizontal: wp(3),
-            borderRadius: wp(5),
-            alignSelf: "flex-start",
-            marginBottom: hp(2),
-            elevation: 3,
-          }}
-        >
-          <Ionicons name="arrow-back" size={20} color="#333" />
-          <Text
-            style={{
-              marginLeft: wp(1.5),
-              fontSize: wp(2.2),
-              fontWeight: "600",
-              color: "#333",
-            }}
-          >
-            Back
-          </Text>
-        </TouchableOpacity>
+      <Logo />
+      <BackButton />
 
-        {/* Outer card */}
-        <View
-          style={{
-            backgroundColor: "#fff",
-            borderRadius: wp(3),
-            padding: wp(2),
-            width: "80%",
-            maxWidth: wp(90),
-            shadowColor: "#000",
-            shadowOpacity: 0.15,
-            shadowRadius: wp(1),
-            elevation: 8,
-          }}
-        >
+      <View style={styles.container}>
+        <View style={styles.box}>
           {/* Heading */}
-          <Text
-            style={{
-              fontSize: wp(2.75),
-              fontWeight: "800",
-              textAlign: "center",
-              marginBottom: hp(1.5),
-              color: "#000",
-            }}
-          >
-            Select Question Type
-          </Text>
-          <Text
-            style={{
-              fontSize: wp(1.5),
-              color: "#555",
-              textAlign: "center",
-              marginBottom: hp(5),
-            }}
-          >
+          <Text style={styles.heading}>🎯 Select Question Type</Text>
+
+          {/* Subtitle */}
+          <Text style={styles.subtitle}>
             Choose how you want to test your knowledge.
           </Text>
 
-          {/* Grid Layout */}
-          <View
-            style={{
-              flexDirection: "row",
-              flexWrap: "wrap",
-              justifyContent: "space-around",
-              gap: wp(1),
-            }}
-          >
+          {/* Question Type Cards */}
+          <View style={styles.grid}>
             {questionTypes.map((q) => (
               <TouchableOpacity
                 key={q.key}
                 onPress={() => goNext(q.key)}
                 activeOpacity={0.85}
-                style={{
-                  backgroundColor: "#f0f7ff",
-                  borderRadius: wp(2),
-                  paddingVertical: hp(3),
-                  paddingHorizontal: wp(2),
-                  width: width > 1000 ? "30%" : "47%",
-                  marginBottom: hp(2),
-                  alignItems: "center",
-                  justifyContent: "center",
-                  shadowColor: "#000",
-                  shadowOpacity: 0.15,
-                  shadowRadius: wp(1),
-                  elevation: 5,
-                  position: "relative",
-                }}
+                style={styles.card}
               >
-                {/* Emoji */}
-                <Text style={{ fontSize: wp(3), marginBottom: hp(1.5) }}>
-                  {q.emoji}
-                </Text>
-
-                {/* Label */}
-                <Text
-                  style={{
-                    fontSize: wp(1.75),
-                    fontWeight: "700",
-                    color: "#111",
-                    textAlign: "center",
-                  }}
-                >
-                  {q.label}
-                </Text>
-
-                {/* Description */}
-                <Text
-                  style={{
-                    fontSize: wp(1.2),
-                    color: "#555",
-                    textAlign: "center",
-                    marginTop: hp(1),
-                  }}
-                >
-                  {q.desc}
-                </Text>
+                <Text style={styles.cardTitle}>{q.label}</Text>
+                <Text style={styles.cardDesc}>{q.desc}</Text>
 
                 {/* Decorative glowing circle */}
                 <View
@@ -196,7 +88,71 @@ export default function QuizType() {
             ))}
           </View>
         </View>
-      </ScrollView>
+      </View>
     </LinearGradient>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: wp(3),
+  },
+  box: {
+    backgroundColor: "#fbfbfb",
+    borderRadius: wp(2),
+    shadowColor: "#000",
+    shadowOpacity: 0.15,
+    shadowRadius: wp(1.5),
+    paddingVertical: hp(5),
+    paddingHorizontal: wp(3),
+    width: "100%",
+    maxWidth: wp(90),
+  },
+  heading: {
+    fontSize: wp(4),
+    fontWeight: "bold",
+    textAlign: "center",
+    marginBottom: hp(2),
+    color: "#000",
+  },
+  subtitle: {
+    fontSize: wp(2),
+    textAlign: "center",
+    color: "#555",
+    marginBottom: hp(5),
+  },
+  grid: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexWrap: "nowrap",
+  },
+  card: {
+    flex: 1,
+    marginHorizontal: wp(1),
+    borderRadius: wp(2),
+    paddingVertical: hp(8),
+    paddingHorizontal: wp(3),
+    backgroundColor: "#e8f9ff",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowRadius: wp(1),
+    elevation: 8,
+  },
+  cardTitle: {
+    fontSize: wp(2.2),
+    fontWeight: "bold",
+    color: "#333",
+    textAlign: "center",
+  },
+  cardDesc: {
+    marginTop: hp(2),
+    fontSize: wp(1.8),
+    color: "#666",
+    textAlign: "center",
+  },
+});

@@ -10,7 +10,8 @@ import {
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
-import { Ionicons } from "@expo/vector-icons"; // back icon
+import Logo from "../components/logo";       // ✅ use consistent case
+import BackButton from "../components/BackButton"; // ✅ new reusable component
 
 const { width, height } = Dimensions.get("window");
 
@@ -64,34 +65,9 @@ const SubjectSelectionPage = () => {
       end={{ x: 1, y: 1 }}
       style={{ flex: 1 }}
     >
-      {/* Back Button */}
-      <View style={{ paddingTop: hp(5), paddingLeft: wp(3) }}>
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            backgroundColor: "rgba(255,255,255,0.7)",
-            paddingVertical: hp(0.8),
-            paddingHorizontal: wp(3),
-            borderRadius: wp(5),
-            alignSelf: "flex-start",
-            elevation: 3,
-          }}
-        >
-          <Ionicons name="arrow-back" size={20} color="#333" />
-          <Text
-            style={{
-              marginLeft: wp(1.5),
-              fontSize: wp(2.2),
-              fontWeight: "600",
-              color: "#333",
-            }}
-          >
-            Back
-          </Text>
-        </TouchableOpacity>
-      </View>
+      {/* ✅ Reusable Logo + BackButton */}
+      <Logo />
+      <BackButton />
 
       <ScrollView
         contentContainerStyle={{
@@ -101,35 +77,36 @@ const SubjectSelectionPage = () => {
           padding: wp(3.5),
         }}
       >
-        {/* Title + Subtitle */}
-        <View
-          style={{
-            alignItems: "center",
-            marginBottom: hp(2),
-            paddingBottom: "3.5%",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: wp(2.5),
-              fontWeight: "800",
-              textAlign: "center",
-              color: "#333",
-            }}
-          >
-            Choose Your Subject
-          </Text>
-          <Text
-            style={{
-              fontSize: wp(1.7),
-              textAlign: "center",
-              color: "#666",
-              marginTop: hp(1),
-            }}
-          >
-            Select a subject to test your knowledge and begin your quiz!
-          </Text>
-        </View>
+{/* Title + Subtitle */}
+<View
+  style={{
+    alignItems: "center",
+    marginBottom: hp(2),
+    paddingBottom: "3.5%",
+  }}
+>
+  <Text
+    style={{
+      fontSize: wp(4),            // ✅ same as ModeSelection heading
+      fontWeight: "bold",         // ✅ bold like ModeSelection
+      textAlign: "center",
+      color: "#000",              // ✅ same dark color
+      marginBottom: hp(1.5),
+    }}
+  >
+    🎯 Choose Your Subject
+  </Text>
+  <Text
+    style={{
+      fontSize: wp(2),            // ✅ same as ModeSelection subtitle
+      textAlign: "center",
+      color: "#555",              // ✅ consistent subtitle color
+    }}
+  >
+    Select a subject to test your knowledge and begin your quiz!
+  </Text>
+</View>
+
 
         {/* Single row of subjects */}
         <View
@@ -170,19 +147,14 @@ const SubjectSelectionPage = () => {
                     backfaceVisibility: "hidden",
                     backgroundColor: subject.color,
                     transform: [{ rotateY }],
-                    elevation: 3, // shadow for Android
-                    shadowColor: "#000", // shadow for iOS
+                    elevation: 3,
+                    shadowColor: "#000",
                     shadowOpacity: 0.4,
                     shadowOffset: { width: 0, height: 0 },
                     shadowRadius: 8,
                   }}
                 >
-                  <Text
-                    style={{
-                      fontSize: wp(5),
-                      marginBottom: hp(1),
-                    }}
-                  >
+                  <Text style={{ fontSize: wp(5), marginBottom: hp(1) }}>
                     {subject.icon}
                   </Text>
                   <Text
@@ -208,8 +180,8 @@ const SubjectSelectionPage = () => {
                     backfaceVisibility: "hidden",
                     backgroundColor: "#c4d9ff",
                     padding: wp(2),
-                    elevation: 3, // shadow for Android
-                    shadowColor: "#000", // shadow for iOS
+                    elevation: 3,
+                    shadowColor: "#000",
                     shadowOpacity: 0.3,
                     shadowOffset: { width: 0, height: 0 },
                     shadowRadius: 6,
@@ -258,9 +230,9 @@ const SubjectSelectionPage = () => {
                   >
                     <Text
                       style={{
-                        fontWeight: "700",
+                        fontWeight: "600",
                         color: "#333",
-                        fontSize: "2.5vh",
+                        fontSize: wp(1),
                       }}
                     >
                       Choose Topic

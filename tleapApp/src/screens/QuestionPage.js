@@ -1,4 +1,4 @@
-// QuestionPage.js
+// src/screens/QuestionPage.js
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import {
   View,
@@ -13,7 +13,8 @@ import {
 } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
-
+import Logo from "../components/logo"; // ✅ make sure file name is capital L
+import topicsData from "../data/topics.json";
 const API_BASE = "http://localhost:5000"; // 🔧 replace with your server or env variable
 
 // Responsive helpers
@@ -38,40 +39,48 @@ export default function QuestionPage() {
   const [showReport, setShowReport] = useState(false);
 
   const [modalVisible, setModalVisible] = useState(false);
+  const classKey = `class${classId}`;
+  const topics = topicsData[classKey]?.[subject.toLowerCase()] || [];
+  const topicObj = topics.find((t) => t.topic === topic);
 
-  const payload = useMemo(
-    () => ({
-      stdClass: classId,
-      subject,
-      difficulty,
-      topicHint: decodeURIComponent(topic),
-      language,
-      questionType,
-    }),
-    [classId, subject, difficulty, topic, questionType, language]
-  );
+  const payload = (subtopicHint) => ({
+  stdClass: classId,
+  subject,
+  difficulty,
+  topicHint: decodeURIComponent(topic),
+  subtopicHint: decodeURIComponent(subtopicHint || ""),
+  language,
+  questionType,
+});
 
   const fetchQuestion = useCallback(async () => {
-    try {
-      setLoading(true);
-      setError("");
-      setSubmitted(false);
-      setUserAnswer("");
+  try {
+    setLoading(true);
+    setError("");
+    setSubmitted(false);
+    setUserAnswer("");
 
-      const res = await fetch(`${API_BASE}/generate-question`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) throw new Error(`API ${res.status}`);
-      const data = await res.json();
-      setQuestion(data);
-    } catch (e) {
-      setError(e.message || "Failed to load");
-    } finally {
-      setLoading(false);
-    }
-  }, [payload]);
+    const randomHint =
+      topicObj?.topichint[
+        Math.floor(Math.random() * topicObj.topichint.length)
+      ];
+
+    const res = await fetch(`${API_BASE}/generate-question`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload(randomHint)),
+    });
+    console.log("TOPIC HINT:", randomHint);
+
+    if (!res.ok) throw new Error(`API ${res.status}`);
+    const data = await res.json();
+    setQuestion(data);
+  } catch (e) {
+    setError(e.message || "Failed to load");
+  } finally {
+    setLoading(false);
+  }
+}, [classId, subject, difficulty, topic, questionType, language, topicObj]);
 
   useEffect(() => {
     fetchQuestion();
@@ -98,7 +107,8 @@ export default function QuestionPage() {
         isCorrect,
       },
     ]);
-    setModalVisible(true); // show popup
+   // console.log("TOPIC HINT:", randomHint);
+    setModalVisible(true);
   };
 
   const onNext = () => {
@@ -108,7 +118,7 @@ export default function QuestionPage() {
   const onEnd = () => {
     setSubmitted(true);
     if (isPractice) {
-      navigation.navigate("Home");
+      navigation.navigate("Dashboard");
     } else {
       setShowReport(true);
     }
@@ -231,43 +241,66 @@ export default function QuestionPage() {
     const total = history.length;
     const wrong = total - correctCount;
     return (
-      <ScrollView contentContainerStyle={styles.container}>
-        <View style={styles.reportCard}>
+      <LinearGradient
+        colors={["#c5baff", "#c4d9ff", "#e8f9ff"]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={{ flex: 1 }}
+      >
+        <Logo />
+
+        <ScrollView 
+          contentContainerStyle={styles.container}
+          stickyHeaderIndices={[2]}   // ✅ only stats row sticks
+        >
           <Text style={styles.title}>📊 Test Report</Text>
           <Text style={styles.subtitle}>
             Class {classId} · {subject} · {decodeURIComponent(topic)} ·{" "}
             {difficulty} · {questionType.toUpperCase()}
           </Text>
 
-          <View style={styles.statsRow}>
-            <View style={styles.statBox}>
-              <Text style={styles.statNumber}>{total}</Text>
-              <Text>Total Questions</Text>
-            </View>
-            <View style={[styles.statBox, { backgroundColor: "#e0ffe0" }]}>
-              <Text style={[styles.statNumber, { color: "green" }]}>
-                {correctCount}
-              </Text>
-              <Text>Correct</Text>
-            </View>
-            <View style={[styles.statBox, { backgroundColor: "#ffe0e0" }]}>
-              <Text style={[styles.statNumber, { color: "red" }]}>{wrong}</Text>
-              <Text>Wrong</Text>
+          {/* Sticky Stats Row */}
+          <View style={styles.stickyStatsWrapper}>
+            <View style={styles.statsRow}>
+              <View style={styles.statBox}>
+                <Text style={styles.statNumber}>{total}</Text>
+                <Text style={styles.statLabel}>Total Questions</Text>
+              </View>
+              <View style={[styles.statBox, { backgroundColor: "#e0ffe0" }]}>
+                <Text style={[styles.statNumber, { color: "green" }]}>{correctCount}</Text>
+                <Text style={styles.statLabel}>Correct</Text>
+              </View>
+              <View style={[styles.statBox, { backgroundColor: "#ffe0e0" }]}>
+                <Text style={[styles.statNumber, { color: "#b91c1c" }]}>{wrong}</Text>
+                <Text style={styles.statLabel}>Wrong</Text>
+              </View>
             </View>
           </View>
 
+          {/* Scrollable history */}
           {history.map((h, i) => (
             <View key={i} style={styles.historyBox}>
-              <Text style={styles.bold}>Q{i + 1}. {h.question}</Text>
-              <Text>Your Answer: {h.userAnswer || "-"}</Text>
-              <Text>Correct Answer: {h.correctAnswer}</Text>
-              <Text style={{ color: h.isCorrect ? "green" : "red" }}>
+              <Text style={styles.historyQuestion}>Q{i + 1}. {h.question}</Text>
+              <Text style={styles.historyAnswer}>Your Answer: {h.userAnswer || "-"}</Text>
+              <Text style={styles.historyAnswer}>Correct Answer: {h.correctAnswer}</Text>
+              <Text style={[
+                styles.historyStatus,
+                { color: h.isCorrect ? "green" : "#b91c1c" }
+              ]}>
                 {h.isCorrect ? "✅ Correct" : "❌ Incorrect"}
               </Text>
             </View>
           ))}
-        </View>
-      </ScrollView>
+
+          {/* ✅ Back button to dashboard */}
+          <TouchableOpacity
+            style={[styles.endBtn, { marginTop: hp(2), alignSelf: "center" }]}
+            onPress={() => navigation.navigate("Dashboard")}
+          >
+            <Text style={styles.btnText}>🏠 Back to Home</Text>
+          </TouchableOpacity>
+        </ScrollView>
+      </LinearGradient>
     );
   }
 
@@ -279,7 +312,8 @@ export default function QuestionPage() {
       end={{ x: 1, y: 1 }}
       style={{ flex: 1 }}
     >
-      <ScrollView contentContainerStyle={styles.container}>
+      <Logo />
+      <View style={styles.container}>
         <View style={styles.card}>
           <Text style={styles.title}>
             {isPractice ? "📖 Practice Mode" : "📝 Test Mode"}
@@ -318,7 +352,7 @@ export default function QuestionPage() {
             </>
           )}
         </View>
-      </ScrollView>
+      </View>
 
       {/* Feedback Popup Modal */}
       <Modal
@@ -332,9 +366,7 @@ export default function QuestionPage() {
             {checkCorrect(userAnswer, question) ? (
               <Text style={styles.correctText}>✅ Correct!</Text>
             ) : (
-              <Text style={styles.incorrectText}>
-                ❌ Incorrect. Correct: {question?.answer}
-              </Text>
+              <Text style={styles.incorrectText}>❌ Incorrect</Text>
             )}
             {isPractice && question?.explanation && (
               <Text style={styles.explanation}>💡 {question.explanation}</Text>
@@ -362,8 +394,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: wp(4),
   },
-
-  // Main card
   card: {
     backgroundColor: "#fff",
     borderRadius: wp(3),
@@ -376,63 +406,54 @@ const styles = StyleSheet.create({
     maxWidth: wp(80),
     alignSelf: "center",
   },
-
-  // Headers
   title: {
-    fontSize: wp(4),
-    fontWeight: "800",
-    marginBottom: hp(1),
-    color: "#000",
+    fontSize: wp(3),
+    fontWeight: "bold",
     textAlign: "center",
+    marginBottom: hp(2),
+    color: "#000",
   },
   subtitle: {
-    fontSize: wp(2),
-    color: "#555",
-    marginBottom: hp(2),
-    fontWeight: "500",
+    fontSize: wp(1.5),
     textAlign: "center",
+    color: "#555",
+    marginBottom: hp(5),
   },
   question: {
-    fontSize: wp(3),
-    fontWeight: "600",
+    fontSize: wp(2),
+    fontWeight: "500",
     marginBottom: hp(2),
     color: "#111",
     textAlign: "center",
   },
-
-  // Options
-  optionsContainer: {
+  optionsContainer: { 
     marginBottom: hp(2),
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
   },
   optionButton: {
     backgroundColor: "#e8f9ff",
     paddingVertical: hp(2),
     paddingHorizontal: wp(3),
     borderRadius: wp(2),
-    marginBottom: hp(1.5),
+    margin: wp(1.5),
+    width: "45%",            
     alignItems: "center",
     borderWidth: 2,
     borderColor: "transparent",
   },
   optionButtonSelected: {
-    backgroundColor: "#4f46e5",
-    borderColor: "#4f46e5",
+    backgroundColor: "#c5baff",
+    borderColor: "#c5baff",
     transform: [{ scale: 1.05 }],
-    shadowColor: "#4f46e5",
+    shadowColor: "#c5baff",
     shadowOpacity: 0.3,
     shadowRadius: wp(2),
     elevation: 5,
   },
-  optionText: {
-    fontSize: wp(2.5),
-    fontWeight: "600",
-    color: "#333",
-  },
-  optionTextSelected: {
-    color: "#fff",
-  },
-
-  // Input
+  optionText: { fontSize: wp(2), fontWeight: "500", color: "#333" },
+  optionTextSelected: { color: "#333" },
   input: {
     borderWidth: 2,
     borderColor: "#ccc",
@@ -442,19 +463,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     fontSize: wp(2.2),
   },
-
-  // True/False row
-  row: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    gap: wp(2),
-  },
-  rowBetween: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-
-  // Match section
+  row: { flexDirection: "row", justifyContent: "space-between", gap: wp(2) },
+  rowBetween: { flexDirection: "row", justifyContent: "space-between" },
   matchBox: {
     backgroundColor: "#f0f0ff",
     padding: wp(3),
@@ -465,8 +475,6 @@ const styles = StyleSheet.create({
     shadowRadius: wp(1.5),
     elevation: 2,
   },
-
-  // Actions row
   actionsRow: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -474,8 +482,6 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     gap: wp(2),
   },
-
-  // Buttons
   submitBtn: {
     borderWidth: 2,
     borderColor: "#16a34a",
@@ -492,35 +498,30 @@ const styles = StyleSheet.create({
   },
   endBtn: {
     borderWidth: 2,
-    borderColor: "#dc2626",
+    borderColor: "#b91c1c",
     paddingVertical: hp(1.2),
     paddingHorizontal: wp(4),
     borderRadius: wp(2),
   },
-  btnText: {
-    fontSize: wp(2),
-    fontWeight: "600",
-    color: "#111",
-  },
+  btnText: { fontSize: wp(2), fontWeight: "600", color: "#111" },
+ stickyStatsWrapper: {
+  backgroundColor: "transparent", 
+  paddingVertical: hp(1),
+  zIndex: 10,
+},
+statsRow: {
+  flexDirection: "row",
+  justifyContent: "space-between",
+  marginVertical: hp(1),
+  backgroundColor: "rgba(255,255,255,0.9)", // only around the row
+  borderRadius: wp(3),
+  padding: wp(2),
+  shadowColor: "#000",
+  shadowOpacity: 0.1,
+  shadowRadius: wp(2),
+  elevation: 4,
+},
 
-  // Report
-  reportCard: {
-    backgroundColor: "#fff",
-    borderRadius: wp(3),
-    padding: wp(4),
-    shadowColor: "#000",
-    shadowOpacity: 0.15,
-    shadowRadius: wp(2),
-    elevation: 8,
-    width: "85%",
-    maxWidth: wp(80),
-    alignSelf: "center",
-  },
-  statsRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginVertical: hp(2),
-  },
   statBox: {
     flex: 1,
     margin: wp(1),
@@ -529,23 +530,35 @@ const styles = StyleSheet.create({
     borderRadius: wp(2),
     backgroundColor: "#e8f9ff",
   },
-  statNumber: {
-    fontSize: wp(4),
-    fontWeight: "bold",
-    marginBottom: hp(0.5),
+  statLabel: {
+    fontSize: wp(1.8),
+    color: "#333",
+    fontWeight: "500",
+    textAlign: "center",
   },
+  statNumber: { fontSize: wp(4), fontWeight: "bold", marginBottom: hp(0.5) },
   historyBox: {
     marginBottom: hp(2),
     padding: wp(3),
     backgroundColor: "#f9f9f9",
     borderRadius: wp(2),
   },
-
-  bold: {
-    fontWeight: "bold",
+  historyQuestion: {
+    fontSize: wp(1.8),
+    fontWeight: "600",
+    marginBottom: hp(1),
+    color: "#111",
   },
-
-  // Popup Modal
+  historyAnswer: {
+    fontSize: wp(1.5),
+    color: "#333",
+    marginBottom: hp(0.5),
+  },
+  historyStatus: {
+    fontSize: wp(1.5),
+    fontWeight: "500",
+  },
+  bold: { fontWeight: "bold" },
   modalOverlay: {
     flex: 1,
     backgroundColor: "rgba(0,0,0,0.5)",
@@ -572,7 +585,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   incorrectText: {
-    color: "red",
+    color: "#b91c1c",
     fontSize: wp(3),
     fontWeight: "bold",
     marginBottom: hp(1),
@@ -586,9 +599,9 @@ const styles = StyleSheet.create({
   },
   nextBtnPopup: {
     marginTop: hp(2),
-    backgroundColor: "#2563eb",
+    backgroundColor: "#c5baff",
     paddingVertical: hp(1.5),
-    paddingHorizontal: wp(5),
+    paddingHorizontal: wp(3),
     borderRadius: wp(2),
   },
 });

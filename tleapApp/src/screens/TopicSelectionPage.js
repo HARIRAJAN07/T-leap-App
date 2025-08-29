@@ -1,4 +1,4 @@
-// screens/TopicSelectionPage.js
+// src/screens/TopicSelectionPage.js
 import React from "react";
 import {
   View,
@@ -10,7 +10,8 @@ import {
 import { useRoute, useNavigation } from "@react-navigation/native";
 import topicsData from "../data/topics.json";
 import { LinearGradient } from "expo-linear-gradient";
-import { Ionicons } from "@expo/vector-icons"; // back icon
+import Logo from "../components/logo";        // ✅ use consistent case
+import BackButton from "../components/BackButton"; // ✅ reusable back button
 
 const { width, height } = Dimensions.get("window");
 
@@ -45,48 +46,24 @@ const TopicSelectionPage = () => {
       end={{ x: 1, y: 1 }}
       style={{ flex: 1 }}
     >
+      {/* ✅ Global Logo + Back Button */}
+      <Logo />
+      <BackButton />
+
       <View
         style={{
           flex: 1,
           padding: wp(5),
         }}
       >
-        {/* Back Button */}
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            backgroundColor: "rgba(255,255,255,0.7)",
-            paddingVertical: hp(0.8),
-            paddingHorizontal: wp(3),
-            borderRadius: wp(5),
-            alignSelf: "flex-start",
-            marginBottom: hp(2),
-            elevation: 3,
-          }}
-        >
-          <Ionicons name="arrow-back" size={20} color="#333" />
-          <Text
-            style={{
-              marginLeft: wp(1.5),
-              fontSize: wp(2.2),
-              fontWeight: "600",
-              color: "#333",
-            }}
-          >
-            Back
-          </Text>
-        </TouchableOpacity>
-
         {/* Heading */}
         <Text
           style={{
-            fontSize: wp(2),
+            fontSize: wp(4),         // ✅ updated to match SubjectSelection
             fontWeight: "bold",
             color: "#000",
             textAlign: "center",
-            marginBottom: hp(3),
+            marginBottom: hp(2),
           }}
         >
           📚 Choose a Topic
@@ -95,10 +72,10 @@ const TopicSelectionPage = () => {
         {/* Subtitle */}
         <Text
           style={{
-            fontSize: wp(1.5),
+            fontSize: wp(2),         // ✅ updated to match SubjectSelection
             textAlign: "center",
-            color: "#444",
-            marginBottom: hp(8.5),
+            color: "#555",
+            marginBottom: hp(8),
           }}
         >
           Select a topic in{" "}
@@ -113,8 +90,12 @@ const TopicSelectionPage = () => {
             data={topics}
             keyExtractor={(item, index) => index.toString()}
             numColumns={3} // 🔑 ensures 3 per row
-            columnWrapperStyle={{ justifyContent: "space-evenly" }}
-            contentContainerStyle={{ paddingBottom: hp(2) }}
+            columnWrapperStyle={{ justifyContent: "flex-start" }}
+            contentContainerStyle={{
+              paddingBottom: hp(10),
+              paddingLeft: hp(10),
+            }}
+            scrollEnabled={false} // ✅ scrolling removed
             renderItem={({ item }) => (
               <TouchableOpacity
                 style={{
@@ -127,14 +108,14 @@ const TopicSelectionPage = () => {
                   justifyContent: "center",
                   alignItems: "center",
                   padding: "0.6%",
-                  // Shadow
+                  marginRight: wp(2),
                   elevation: 4, // Android
                   shadowColor: "#000", // iOS
                   shadowOpacity: 0.2,
                   shadowOffset: { width: 0, height: 2 },
                   shadowRadius: 5,
                 }}
-                onPress={() => goNext(item)}
+                onPress={() => goNext(item.topic)}
                 activeOpacity={0.85}
               >
                 <Text
@@ -144,7 +125,7 @@ const TopicSelectionPage = () => {
                     textAlign: "center",
                   }}
                 >
-                  {item}
+                  {item.topic}
                 </Text>
               </TouchableOpacity>
             )}
