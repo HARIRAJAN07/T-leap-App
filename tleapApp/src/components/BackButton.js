@@ -1,41 +1,47 @@
 import React from "react";
-import { View, TouchableOpacity } from "react-native";
+import { TouchableOpacity, StyleSheet, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
-import { Dimensions } from "react-native";
 
-const { width, height } = Dimensions.get("window");
-const wp = (perc) => (width * perc) / 100;
-const hp = (perc) => (height * perc) / 100;
-
-export default function BackButton({ customOnPress }) {
-  const navigation = useNavigation();
-
-  const handlePress = () => {
-    if (customOnPress) {
-      customOnPress();
-    } else {
-      navigation.goBack();
-    }
-  };
-
+const BackButton = ({ onPress, style, iconStyle, size = 24 }) => {
   return (
-    <View style={{ paddingTop: hp(5), paddingLeft: wp(3) }}>
-      <TouchableOpacity
-        onPress={handlePress}
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          backgroundColor: "rgba(255,255,255,0.7)",
-          paddingVertical: hp(0.8),
-          paddingHorizontal: wp(1),
-          borderRadius: wp(5),
-          alignSelf: "flex-start",
-          elevation: 3,
-        }}
+    <View style={styles.container}>
+      <TouchableOpacity 
+        onPress={onPress} 
+        style={[styles.button, style]}
+        activeOpacity={0.7}
       >
-        <Ionicons name="arrow-back" size={50} color="#333" />
+        <Ionicons name="arrow-back" size={size} style={[styles.icon, iconStyle]} />
       </TouchableOpacity>
     </View>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  container: {
+    position: 'absolute',
+    bottom: 20,
+    left: 20,
+    zIndex: 10,
+  },
+  button: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 3,
+  },
+  icon: {
+    color: '#8E7FD9',
+  },
+});
+
+export default BackButton;

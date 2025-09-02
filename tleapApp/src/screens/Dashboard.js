@@ -9,11 +9,8 @@ import {
   Image,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { BlurView } from "expo-blur";
 import Animated, {
   useAnimatedStyle,
-  withSpring,
-  withTiming,
   useSharedValue,
   interpolate,
   Extrapolate,
@@ -21,30 +18,21 @@ import Animated, {
 import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
-
-// Import your logo from the correct path
-import LogoImage from '../../assets/logo.png';
+import Logo from "../../assets/logo.png";
 
 const { width, height } = Dimensions.get("window");
 const classes = ["VI", "VII", "VIII", "IX", "X"];
 
-// Logo component using your local image
-const Logo = () => (
+// Logo component with image - positioned in top left
+const LogoComponent = () => (
   <View style={styles.logoContainer}>
-    <Image
-      source={LogoImage}
-      style={styles.logo}
-      resizeMode="contain"
-    />
-    <Text style={styles.title}>Select Your Class</Text>
-    <Text style={styles.subtitle}>Choose your class to explore available subjects and learning materials</Text>
+    <Image source={Logo} style={styles.logoImage} resizeMode="contain" />
   </View>
 );
 
 // ---------- INDIVIDUAL CLASS CARD ----------
 const ClassCard = ({ cls, index, scrollX, isSelected, onPress }) => {
-  const CARD_WIDTH = Math.round(width * 0.4);
-  const SPACING = 16;
+  const CARD_WIDTH = Math.round(width * 0.55);
   const inputRange = [
     (index - 1) * CARD_WIDTH,
     index * CARD_WIDTH,
@@ -92,7 +80,7 @@ const ClassCard = ({ cls, index, scrollX, isSelected, onPress }) => {
             </Text>
             {isSelected && (
               <View style={styles.selectedIndicator}>
-                <Feather name="check-circle" size={24} color="#4CAF50" />
+                <Feather name="check-circle" size={20} color="#4CAF50" />
                 <Text style={styles.selectedText}>Selected</Text>
               </View>
             )}
@@ -105,24 +93,18 @@ const ClassCard = ({ cls, index, scrollX, isSelected, onPress }) => {
 
 // ---------- CLASS CAROUSEL ----------
 const ClassCarousel = ({ selected, setSelected, onSelect }) => {
-  const CARD_WIDTH = Math.round(width * 0.2);
-  const SPACING = 16;
+  const CARD_WIDTH = Math.round(width * 0.55);
+  const SPACING = 12;
   const SNAP_INTERVAL = CARD_WIDTH + SPACING;
   const scrollX = useSharedValue(0);
   
   const scrollRef = useRef(null);
-
-  const offsets = useMemo(
-    () => classes.map((_, i) => i * SNAP_INTERVAL),
-    [SNAP_INTERVAL]
-  );
 
   const scrollToIndex = (i) => {
     if (scrollRef.current) {
       scrollRef.current.scrollTo({ x: i * SNAP_INTERVAL, animated: true });
     }
     setSelected(classes[i]);
-    // Small delay for animation before navigation
     setTimeout(() => {
       onSelect(classes[i]);
     }, 300);
@@ -130,7 +112,12 @@ const ClassCarousel = ({ selected, setSelected, onSelect }) => {
 
   return (
     <View style={styles.carouselWrapper}>
-      <Logo />
+      <LogoComponent />
+      
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>Select Your Class</Text>
+        <Text style={styles.subtitle}>Choose your class to explore available subjects and learning materials</Text>
+      </View>
       
       <View style={styles.carouselContainer}>
         <Animated.ScrollView
@@ -170,8 +157,10 @@ const ClassCarousel = ({ selected, setSelected, onSelect }) => {
         <Text style={styles.instructionsText}>
           Swipe left or right to browse classes 
         </Text>
-        <Feather name="arrow-left" size={16} color="#666" />
-        <Feather name="arrow-right" size={16} color="#666" />
+        <View style={styles.arrowsContainer}>
+          <Feather name="arrow-left" size={16} color="#666" />
+          <Feather name="arrow-right" size={16} color="#666" />
+        </View>
       </View>
     </View>
   );
@@ -180,7 +169,7 @@ const ClassCarousel = ({ selected, setSelected, onSelect }) => {
 // ---------- MAIN DASHBOARD ----------
 const Dashboard = () => {
   const navigation = useNavigation();
-  const [selected, setSelected] = useState(null); // No default selection
+  const [selected, setSelected] = useState(null);
 
   const handleSelectClass = (cls) => {
     const classMap = {
@@ -192,17 +181,14 @@ const Dashboard = () => {
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
-      {/* Background with subtle gradient */}
       <LinearGradient 
         colors={["#FBFBFB", "#E8F9FF"]} 
         style={styles.gradient} 
       />
       
-      {/* Decorative elements */}
       <View style={styles.circle1} />
       <View style={styles.circle2} />
       
-      {/* Main content */}
       <ClassCarousel
         selected={selected}
         setSelected={setSelected}
@@ -225,76 +211,84 @@ const styles = StyleSheet.create({
   },
   circle1: {
     position: 'absolute',
-    width: 300,
-    height: 300,
-    borderRadius: 150,
+    width: 250,
+    height: 250,
+    borderRadius: 125,
     backgroundColor: 'rgba(196, 217, 255, 0.3)',
-    top: -100,
-    left: -100,
+    top: -80,
+    left: -80,
   },
   circle2: {
     position: 'absolute',
-    width: 200,
-    height: 200,
-    borderRadius: 100,
+    width: 180,
+    height: 180,
+    borderRadius: 90,
     backgroundColor: 'rgba(197, 186, 255, 0.2)',
-    bottom: -50,
-    right: -50,
+    bottom: -40,
+    right: -40,
+    zIndex: -1, // Ensure it stays behind the content
   },
   carouselWrapper: {
     flex: 1,
     justifyContent: 'center',
-    paddingBottom: 40,
+    paddingBottom: 20,
   },
   carouselContainer: {
-    height: height * 0.5,
+    height: height * 0.4,
     justifyContent: 'center',
   },
   carouselContent: {
-    paddingHorizontal: (width - (width * 0.7)) / 2,
+    paddingHorizontal: (width - (width * 0.55)) / 2,
   },
   logoContainer: {
-    alignItems: 'center',
-    marginBottom: 50,
-    paddingHorizontal: 20,
+    position: 'absolute',
+    top: height * 0.05,
+    left: 20,
+    zIndex: 10,
   },
-  logo: {
-    width: 260,
-    height: 220,
-    marginBottom: 20,
+  logoImage: {
+    width: 140,
+    height: 100,
+  },
+  titleContainer: {
+    alignItems: 'center',
+    marginBottom: 30,
+    paddingHorizontal: 20,
+    marginTop: height * 0.15, // Push down to make space for logo
   },
   title: {
-    fontSize: 84,
+    fontSize: 34,
     fontWeight: '700',
     color: '#333',
-    marginBottom: 28,
+    marginBottom: 10,
     textAlign: 'center',
   },
   subtitle: {
-    fontSize: 62,
+    fontSize: 17,
     color: '#666',
     textAlign: 'center',
-    lineHeight: 22,
-    marginBottom: 28,
+    lineHeight: 20,
+    marginBottom: 50,
+    paddingHorizontal: 20,
   },
   card: {
-    width: width * 0.2,
-    height: height * 0.35,
-    marginHorizontal: 8,
-    borderRadius: 24,
+    width: width * 0.35,
+    height: 180,
+    marginHorizontal: 6,
+    borderRadius: 20,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 10,
+      height: 6,
     },
     shadowOpacity: 0.1,
-    shadowRadius: 20,
-    elevation: 10,
+    shadowRadius: 12,
+    elevation: 8,
     overflow: 'hidden',
   },
   cardGradient: {
     flex: 1,
-    padding: 20,
+    padding: 16,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -304,16 +298,16 @@ const styles = StyleSheet.create({
   },
   classBadge: {
     backgroundColor: 'rgba(255, 255, 255, 0.7)',
-    paddingHorizontal: 16,
-    paddingVertical: 6,
-    borderRadius: 16,
-    marginBottom: 16,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    borderRadius: 12,
+    marginBottom: 12,
   },
   classBadgeSelected: {
     backgroundColor: 'rgba(255, 255, 255, 0.9)',
   },
   classText: {
-    fontSize: 34,
+    fontSize: 12,
     fontWeight: '600',
     color: '#8E7FD9',
   },
@@ -321,7 +315,7 @@ const styles = StyleSheet.create({
     color: '#8E7FD9',
   },
   cardText: {
-    fontSize: 102,
+    fontSize: 42,
     fontWeight: 'bold',
     color: '#444',
   },
@@ -332,36 +326,41 @@ const styles = StyleSheet.create({
     shadowColor: "#8E7FD9",
     shadowOffset: {
       width: 0,
-      height: 15,
+      height: 10,
     },
     shadowOpacity: 0.3,
-    shadowRadius: 25,
-    elevation: 15,
+    shadowRadius: 15,
+    elevation: 12,
   },
   selectedIndicator: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 10,
     backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 16,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 12,
   },
   selectedText: {
-    marginLeft: 6,
+    marginLeft: 4,
     fontWeight: '600',
     color: '#4CAF50',
+    fontSize: 12,
   },
   instructions: {
-    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 30,
+    marginTop: 20,
     paddingHorizontal: 20,
   },
   instructionsText: {
-    marginRight: 8,
     color: '#666',
-    fontSize: 50,
+    fontSize: 14,
+    marginBottom: 6,
+  },
+  arrowsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 20,
   },
 });
