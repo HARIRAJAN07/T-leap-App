@@ -14,7 +14,7 @@ function normalizeDifficulty(d) {
 /** Call Groq and parse strict JSON safely */
 async function askGROQ(
   prompt,
-  { model = "llama3-8b-8192", temperature = 0.6, max_tokens = 700 } = {}
+  { model = "llama-3.1-8b-instant", temperature = 0.6, max_tokens = 700 } = {}
 ) {
   try {
     const response = await groq.chat.completions.create({

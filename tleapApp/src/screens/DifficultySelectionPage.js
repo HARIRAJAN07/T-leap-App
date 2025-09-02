@@ -19,9 +19,9 @@ const wp = (perc) => (width * perc) / 100;
 const hp = (perc) => (height * perc) / 100;
 
 const levels = [
-  { key: "Beginner 🐣", desc: "Start easy and warm up" },
-  { key: "Intermediate 🚀", desc: "A balanced challenge" },
-  { key: "Advanced 🧠", desc: "For pros only" },
+  {key: "easy",  word:"Beginner 🐣", desc: "Start easy and warm up" },
+  {key: "medium",word:"Intermediate 🚀", desc: "A balanced challenge" },
+  {key: "hard",  word:"Advanced 🧠", desc: "For pros only" },
 ];
 
 export default function DifficultySelectionPage() {
@@ -46,7 +46,7 @@ export default function DifficultySelectionPage() {
       style={{ flex: 1 }}
     >
       <Logo />
-      <BackButton />
+      <BackButton onPress={() => navigation.goBack()} />
 
       <View style={styles.container}>
         <View style={styles.box}>
@@ -67,7 +67,7 @@ export default function DifficultySelectionPage() {
                 activeOpacity={0.85}
                 style={styles.card}
               >
-                <Text style={styles.cardTitle}>{l.key}</Text>
+                <Text style={styles.cardTitle}>{l.word}</Text>
                 <Text style={styles.cardDesc}>{l.desc}</Text>
 
                 {/* Decorative glowing circle */}

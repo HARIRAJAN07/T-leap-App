@@ -47,7 +47,7 @@ export default function QuizType() {
       style={{ flex: 1 }}
     >
       <Logo />
-      <BackButton />
+      <BackButton onPress={() => navigation.goBack()} />
 
       <View style={styles.container}>
         <View style={styles.box}>

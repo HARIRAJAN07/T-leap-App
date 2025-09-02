@@ -41,14 +41,14 @@ const TopicSelectionPage = () => {
 
   return (
     <LinearGradient
-      colors={["#c5baff", "#c4d9ff", "#e8f9ff"]}
+      colors={["#FBFBFB", "#E8F9FF"]}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={{ flex: 1 }}
     >
       {/* ✅ Global Logo + Back Button */}
       <Logo />
-      <BackButton />
+      <BackButton onPress={() => navigation.goBack()} />
 
       <View
         style={{
@@ -59,7 +59,7 @@ const TopicSelectionPage = () => {
         {/* Heading */}
         <Text
           style={{
-            fontSize: wp(4),         // ✅ updated to match SubjectSelection
+            fontSize: wp(4),
             fontWeight: "bold",
             color: "#000",
             textAlign: "center",
@@ -72,7 +72,7 @@ const TopicSelectionPage = () => {
         {/* Subtitle */}
         <Text
           style={{
-            fontSize: wp(2),         // ✅ updated to match SubjectSelection
+            fontSize: wp(2),
             textAlign: "center",
             color: "#555",
             marginBottom: hp(8),
@@ -95,38 +95,46 @@ const TopicSelectionPage = () => {
               paddingBottom: hp(10),
               paddingLeft: hp(10),
             }}
-            scrollEnabled={false} // ✅ scrolling removed
+            scrollEnabled={true}
             renderItem={({ item }) => (
               <TouchableOpacity
                 style={{
                   width: CARD_WIDTH,
                   height: CARD_HEIGHT,
-                  backgroundColor: "#fff",
                   borderRadius: wp(2),
                   marginBottom: hp(2),
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: "0.6%",
                   marginRight: wp(2),
-                  elevation: 4, // Android
-                  shadowColor: "#000", // iOS
+                  elevation: 4, // Android shadow
+                  shadowColor: "#000", // iOS shadow
                   shadowOpacity: 0.2,
                   shadowOffset: { width: 0, height: 2 },
                   shadowRadius: 5,
+                  overflow: "hidden", // ✅ ensures gradient respects borderRadius
                 }}
                 onPress={() => goNext(item.topic)}
                 activeOpacity={0.85}
               >
-                <Text
+                <LinearGradient
+                  colors={["#c5baff", "#c4d9ff", "#e8f9ff"]} // 🎨 gradient colors
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
                   style={{
-                    fontSize: wp(1.25),
-                    fontWeight: "600",
-                    textAlign: "center",
+                    flex: 1,
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
                 >
-                  {item.topic}
-                </Text>
+                  <Text
+                    style={{
+                      fontSize: wp(1.25),
+                      fontWeight: "600",
+                      textAlign: "center",
+                      color: "#000", // 🔑 text visible on gradient
+                    }}
+                  >
+                    {item.topic}
+                  </Text>
+                </LinearGradient>
               </TouchableOpacity>
             )}
           />
