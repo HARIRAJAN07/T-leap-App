@@ -17,6 +17,16 @@ import topicsData from "../data/topics.json";
 import mcqData from "../data/mcq.json";
 import fillData from "../data/fill.json";
 import truefalseData from "../data/truefalse.json";
+import matchData from "../data/matchData.json";
+import dragdropData from "../data/dragdropData.json";
+import { PanGestureHandler } from 'react-native-gesture-handler';
+import Animated, {
+  useAnimatedGestureHandler,
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+  runOnJS,
+} from 'react-native-reanimated';
 
 const API_BASE = "http://localhost:5000";
 
@@ -31,7 +41,6 @@ let usedSubtopics = {};
 function getPracticeQuestion({ classId, subject, topic, difficulty, questionType, topicObj }) {
   let questionBank;
 
-  // Switch now correctly guards for missing/invalid type
   switch ((questionType || "").trim().toLowerCase()) {
     case "mcq":
       questionBank = mcqData;
@@ -42,28 +51,31 @@ function getPracticeQuestion({ classId, subject, topic, difficulty, questionType
     case "truefalse":
       questionBank = truefalseData;
       break;
+    case "match":
+      questionBank = matchData;
+      break;
+    case "dragdrop":
+      questionBank = dragdropData;
+      break;
     default:
       return { message: "Invalid question type" };
   }
 
-  // Defensive: Ensure topicObj and its structure is correct
   const subtopics = topicObj?.topichint || [];
   if (!Array.isArray(subtopics) || subtopics.length === 0) return { message: "No subtopics found" };
 
-  // Normalize topic name for consistent keys (fix: use lower + trim for all keys)
   const topicKey = topic.trim().toLowerCase();
   if (!usedSubtopics[topicKey]) usedSubtopics[topicKey] = new Set();
 
   const remaining = subtopics.filter((s) => !usedSubtopics[topicKey].has(s));
   if (remaining.length === 0) {
-    usedSubtopics[topicKey] = new Set(); // Reset after exhausting all
+    usedSubtopics[topicKey] = new Set();
     return { message: "All subtopics completed" };
   }
 
   const nextSubtopic = remaining[0];
   usedSubtopics[topicKey].add(nextSubtopic);
 
-  // Fix: Always normalize things to trim and lowercase for comparison
   const question = questionBank.find(
     (q) =>
       q.class.toString().trim() === classId.toString().trim() &&
@@ -90,16 +102,27 @@ export default function QuestionPage() {
   const [showReport, setShowReport] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
 
-  /**
-   * Fix: Defensive access for topicsData shape.
-   * topicsData should be { class10: { math: [topics...] }, ... }
-   */
+  // States for 'match' type
+  const [userMatches, setUserMatches] = useState({});
+  const [terms, setTerms] = useState([]);
+  const [definitions, setDefinitions] = useState([]);
+  const [selectedTerm, setSelectedTerm] = useState(null);
+  const [termColors, setTermColors] = useState({});
+  const [colorIndex, setColorIndex] = useState(0);
+
+  // States for 'dragdrop' type
+  const [userDropzone, setUserDropzone] = useState({});
+  const [draggableItems, setDraggableItems] = useState([]);
+  const [dropzoneItems, setDropzoneItems] = useState([]);
+  const [draggedItem, setDraggedItem] = useState(null);
+
+  const colors = ["#b5e5a4", "#a4b5e5", "#e5a4b5", "#e5d1a4", "#c1a4e5", "#a4e5c1"];
+
   const classKey = `class${classId}`.trim();
   const subjectKey = (subject || "").trim().toLowerCase();
   const subjectTopics = topicsData[classKey]?.[subjectKey] || [];
   const topicKey = (topic || "").trim().toLowerCase();
 
-  // Defensive: Find topicObj by normalized topic name
   const topicObj = subjectTopics.find(
     (t) => (t.topic || "").toString().trim().toLowerCase() === topicKey
   );
@@ -120,10 +143,20 @@ export default function QuestionPage() {
       setError("");
       setSubmitted(false);
       setUserAnswer("");
+      setUserMatches({});
+      setTerms([]);
+      setDefinitions([]);
+      setSelectedTerm(null);
+      setTermColors({});
+      setColorIndex(0);
+      setUserDropzone({});
+      setDraggableItems([]);
+      setDropzoneItems([]);
+      setDraggedItem(null);
+
       let data;
 
       if (isPractice) {
-        // PRACTICE MODE: pull from JSON
         if (!topicObj) {
           setError("Topic not found for this subject/class");
           setQuestion(null);
@@ -137,9 +170,12 @@ export default function QuestionPage() {
           questionType,
           topicObj,
         });
-        if (data.message) setError(data.message);
+        if (data.message) {
+          setError(data.message);
+          setQuestion(null);
+          return;
+        }
       } else {
-        // TEST MODE: keep API
         const randomHint =
           topicObj?.topichint?.[
             Math.floor(Math.random() * (topicObj.topichint?.length || 0))
@@ -154,6 +190,20 @@ export default function QuestionPage() {
       }
 
       setQuestion(data);
+
+      if (data?.type?.toLowerCase() === "match") {
+        const shuffledTerms = [...data.matches];
+        const shuffledDefinitions = [...data.matches].sort(() => 0.5 - Math.random());
+        setTerms(shuffledTerms);
+        setDefinitions(shuffledDefinitions);
+      }
+      
+      if (data?.type?.toLowerCase() === "dragdrop") {
+        const shuffledDraggables = [...data.matches].sort(() => 0.5 - Math.random());
+        const shuffledDropzones = [...data.matches].sort(() => 0.5 - Math.random());
+        setDraggableItems(shuffledDraggables);
+        setDropzoneItems(shuffledDropzones);
+      }
     } catch (e) {
       console.error(e);
       setError(e.message || "Failed to load question");
@@ -178,22 +228,69 @@ export default function QuestionPage() {
 
   const checkCorrect = (ua, q) => {
     if (!q) return false;
-    const correct = (q.answer || "").toString().trim().toLowerCase();
-    const got = (ua || "").toString().trim().toLowerCase();
-    return correct === got;
+    const type = q.type?.toLowerCase();
+
+    switch (type) {
+      case "mcq":
+      case "fill":
+      case "truefalse":
+        const correct = (q.answer || "").toString().trim().toLowerCase();
+        const got = (ua || "").toString().trim().toLowerCase();
+        return correct === got;
+      case "match":
+        const correctMatches = q.matches;
+        let isMatchCorrect = true;
+        for (const term of correctMatches) {
+          const userDef = ua[term.term];
+          if (!userDef || (userDef.trim().toLowerCase() !== term.definition.trim().toLowerCase())) {
+            isMatchCorrect = false;
+            break;
+          }
+        }
+        return isMatchCorrect;
+      case "dragdrop":
+        const correctDropzone = q.matches;
+        let isDragDropCorrect = true;
+        for (const item of correctDropzone) {
+          const userDroppedTerm = ua[item.definition];
+          if (!userDroppedTerm || (userDroppedTerm.trim().toLowerCase() !== item.term.trim().toLowerCase())) {
+            isDragDropCorrect = false;
+            break;
+          }
+        }
+        return isDragDropCorrect;
+      default:
+        return false;
+    }
   };
 
   const onSubmit = () => {
     if (!question) return;
-    const isCorrect = checkCorrect(userAnswer, question);
+
+    let finalAnswer;
+    let correctAnswerFormatted;
+
+    if (question.type?.toLowerCase() === "match") {
+      finalAnswer = userMatches;
+      correctAnswerFormatted = question.matches.map(m => `${m.term} -> ${m.definition}`).join("\n");
+    } else if (question.type?.toLowerCase() === "dragdrop") {
+      finalAnswer = userDropzone;
+      correctAnswerFormatted = question.matches.map(m => `${m.term} -> ${m.definition}`).join("\n");
+    } else {
+      finalAnswer = userAnswer;
+      correctAnswerFormatted = question.answer;
+    }
+
+    const isCorrect = checkCorrect(finalAnswer, question);
     setSubmitted(true);
     setHistory((h) => [
       ...h,
       {
         question: question.question,
         type: question.type,
-        correctAnswer: question.answer,
-        userAnswer,
+        correctAnswer: correctAnswerFormatted,
+        userAnswer: (question.type?.toLowerCase() === "match" || question.type?.toLowerCase() === "dragdrop") ?
+          Object.entries(finalAnswer).map(([key, value]) => `${key} -> ${value}`).join("\n") : finalAnswer,
         isCorrect,
       },
     ]);
@@ -215,7 +312,132 @@ export default function QuestionPage() {
 
   const correctCount = history.filter((h) => h.isCorrect).length;
 
-  // ================== Render Question Types ==================
+  const handleTermSelect = (term) => {
+    setSelectedTerm(term);
+    if (!termColors[term.term]) {
+      const newTermColors = { ...termColors, [term.term]: colors[colorIndex] };
+      setTermColors(newTermColors);
+      setColorIndex((colorIndex + 1) % colors.length);
+    }
+  };
+
+  const handleDefinitionSelect = (definition) => {
+    if (selectedTerm) {
+      const newMatches = {
+        ...userMatches,
+        [selectedTerm.term]: definition.definition,
+      };
+      setUserMatches(newMatches);
+      setSelectedTerm(null);
+    }
+  };
+
+  const onDragEnd = useCallback(({ absoluteX, absoluteY, item }) => {
+    setDraggedItem(null);
+    let foundDropzone = null;
+
+    dropzoneItems.forEach((dropzone) => {
+      const dropzoneLayout = dropzone.layout;
+      if (dropzoneLayout) {
+        if (
+          absoluteX > dropzoneLayout.x &&
+          absoluteX < dropzoneLayout.x + dropzoneLayout.width &&
+          absoluteY > dropzoneLayout.y &&
+          absoluteY < dropzoneLayout.y + dropzoneLayout.height
+        ) {
+          foundDropzone = dropzone;
+        }
+      }
+    });
+
+    if (foundDropzone) {
+      setUserDropzone((prev) => {
+        const updated = { ...prev };
+        const existingTerm = Object.keys(updated).find(key => updated[key] === foundDropzone.definition);
+        if (existingTerm) {
+          delete updated[existingTerm];
+          setDraggableItems(oldItems => [...oldItems, { term: existingTerm, definition: foundDropzone.definition }]);
+        }
+        updated[item.term] = foundDropzone.definition;
+        return updated;
+      });
+      setDraggableItems((oldItems) => oldItems.filter((i) => i.term !== item.term));
+    }
+  }, [dropzoneItems]);
+
+  const onDropzoneLayout = useCallback((event, item) => {
+    setDropzoneItems(prev => {
+      const newItems = [...prev];
+      const itemIndex = newItems.findIndex(i => i.definition === item.definition);
+      if (itemIndex > -1) {
+        newItems[itemIndex] = { ...item, layout: event.nativeEvent.layout };
+      }
+      return newItems;
+    });
+  }, []);
+
+  const DraggableItem = ({ item }) => {
+    const translateX = useSharedValue(0);
+    const translateY = useSharedValue(0);
+    const isDragging = useSharedValue(false);
+
+    const gestureHandler = useAnimatedGestureHandler({
+      onStart: (event, ctx) => {
+        ctx.startX = translateX.value;
+        ctx.startY = translateY.value;
+        isDragging.value = true;
+        runOnJS(setDraggedItem)(item);
+      },
+      onActive: (event, ctx) => {
+        translateX.value = ctx.startX + event.translationX;
+        translateY.value = ctx.startY + event.translationY;
+      },
+      onEnd: (event) => {
+        isDragging.value = false;
+        runOnJS(onDragEnd)({
+          absoluteX: event.absoluteX,
+          absoluteY: event.absoluteY,
+          item: item,
+        });
+        translateX.value = withSpring(0);
+        translateY.value = withSpring(0);
+      },
+    });
+
+    const animatedStyle = useAnimatedStyle(() => {
+      return {
+        transform: [{ translateX: translateX.value }, { translateY: translateY.value }],
+        zIndex: isDragging.value ? 10 : 1,
+      };
+    });
+
+    const isDropped = userDropzone[item.term];
+    if (isDropped) {
+      return null;
+    }
+
+    return (
+      <PanGestureHandler onGestureEvent={gestureHandler}>
+        <Animated.View style={[styles.dragItem, animatedStyle]}>
+          <Text style={styles.dragText}>{item.term}</Text>
+        </Animated.View>
+      </PanGestureHandler>
+    );
+  };
+  
+  const Dropzone = ({ item }) => {
+    const droppedTerm = Object.keys(userDropzone).find(key => userDropzone[key] === item.definition);
+    
+    return (
+      <View 
+        style={[styles.dropItem, droppedTerm && styles.dropItemFilled]}
+        onLayout={(e) => onDropzoneLayout(e, item)}
+      >
+        <Text style={styles.dragText}>{droppedTerm ? droppedTerm : item.definition}</Text>
+      </View>
+    );
+  };
+
   const renderMCQ = () => (
     <View style={styles.optionsContainer}>
       {(question?.options || []).map((opt, i) => (
@@ -273,7 +495,68 @@ export default function QuestionPage() {
     </View>
   );
 
-  // ================== Report ==================
+  const renderMatch = () => {
+    return (
+      <View style={styles.matchContainer}>
+        <View style={styles.matchColumn}>
+          <Text style={styles.matchHeader}>Terms</Text>
+          {terms.map((item, index) => (
+            <TouchableOpacity
+              key={item.term}
+              style={[
+                styles.matchItem,
+                selectedTerm?.term === item.term && styles.matchItemSelected,
+                {
+                  borderColor: termColors[item.term] || '#e2e8f0',
+                  backgroundColor: termColors[item.term] ? `${termColors[item.term]}80` : '#f0f4f8'
+                },
+              ]}
+              onPress={() => handleTermSelect(item)}
+            >
+              <Text style={styles.matchText}>{item.term}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+        <View style={styles.matchColumn}>
+          <Text style={styles.matchHeader}>Definitions</Text>
+          {definitions.map((item, index) => (
+            <TouchableOpacity
+              key={item.definition}
+              style={[
+                styles.matchItem,
+                {
+                  borderColor: Object.values(userMatches).includes(item.definition) ? termColors[Object.keys(userMatches).find(key => userMatches[key] === item.definition)] || '#16a34a' : '#e2e8f0',
+                  backgroundColor: Object.values(userMatches).includes(item.definition) ? `${termColors[Object.keys(userMatches).find(key => userMatches[key] === item.definition)]}80` || '#e0ffe0' : '#f0f4f8',
+                }
+              ]}
+              onPress={() => handleDefinitionSelect(item)}
+              disabled={!selectedTerm}
+            >
+              <Text style={styles.matchText}>{item.definition}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
+    );
+  };
+  
+  const renderDragDrop = () => (
+    <View style={styles.dragDropContainer}>
+      <View style={styles.dragColumn}>
+        <Text style={styles.dragHeader}>Terms</Text>
+        {draggableItems.map((item, index) => (
+          <DraggableItem key={item.term} item={item} />
+        ))}
+      </View>
+      <View style={styles.dropColumn}>
+        <Text style={styles.dragHeader}>Definitions</Text>
+        {dropzoneItems.map((item, index) => (
+          <Dropzone key={item.definition} item={item} />
+        ))}
+      </View>
+    </View>
+  );
+
   if (showReport && !isPractice) {
     const total = history.length;
     const wrong = total - correctCount;
@@ -346,7 +629,6 @@ export default function QuestionPage() {
     );
   }
 
-  // ================== Main Screen ==================
   return (
     <LinearGradient
       colors={["#c5baff", "#c4d9ff", "#e8f9ff"]}
@@ -355,7 +637,7 @@ export default function QuestionPage() {
       style={{ flex: 1 }}
     >
       <Logo />
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.card}>
           <Text style={styles.title}>
             {isPractice ? "📖 Practice Mode" : "📝 Test Mode"}
@@ -374,6 +656,8 @@ export default function QuestionPage() {
               {question.type?.toLowerCase() === "mcq" && renderMCQ()}
               {question.type?.toLowerCase() === "fill" && renderFill()}
               {question.type?.toLowerCase() === "truefalse" && renderTrueFalse()}
+              {question.type?.toLowerCase() === "match" && renderMatch()}
+              {question.type?.toLowerCase() === "dragdrop" && renderDragDrop()}
               <View style={styles.actionsRow}>
                 {!submitted && (
                   <TouchableOpacity style={styles.submitBtn} onPress={onSubmit}>
@@ -390,8 +674,7 @@ export default function QuestionPage() {
             </>
           )}
         </View>
-      </View>
-      {/* Feedback Popup Modal */}
+      </ScrollView>
       <Modal
         visible={modalVisible}
         transparent
@@ -400,7 +683,10 @@ export default function QuestionPage() {
       >
         <View style={styles.modalOverlay}>
           <View style={styles.modalBox}>
-            {checkCorrect(userAnswer, question) ? (
+            {checkCorrect(
+              question?.type?.toLowerCase() === "match" ? userMatches : (question?.type?.toLowerCase() === "dragdrop" ? userDropzone : userAnswer),
+              question
+            ) ? (
               <Text style={styles.correctText}>✅ Correct!</Text>
             ) : (
               <Text style={styles.incorrectText}>❌ Incorrect</Text>
@@ -424,223 +710,309 @@ export default function QuestionPage() {
   );
 }
 
-// ... (styles remain unchanged)
-// ================== Styles ==================
 const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    justifyContent: "center",
-    padding: wp(4),
-  },
-  card: {
-    backgroundColor: "#fff",
-    borderRadius: wp(3),
-    padding: wp(4),
-    shadowColor: "#000",
-    shadowOpacity: 0.15,
-    shadowRadius: wp(2),
-    elevation: 8,
-    width: "85%",
-    maxWidth: wp(80),
-    alignSelf: "center",
-  },
-  title: {
-    fontSize: wp(3),
-    fontWeight: "bold",
-    textAlign: "center",
-    marginBottom: hp(2),
-    color: "#000",
-  },
-  subtitle: {
-    fontSize: wp(1.5),
-    textAlign: "center",
-    color: "#555",
-    marginBottom: hp(5),
-  },
-  question: {
-    fontSize: wp(2),
-    fontWeight: "500",
-    marginBottom: hp(2),
-    color: "#111",
-    textAlign: "center",
-  },
-  optionsContainer: { 
-    marginBottom: hp(2),
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "center",
-  },
-  optionButton: {
-    backgroundColor: "#e8f9ff",
-    paddingVertical: hp(2),
-    paddingHorizontal: wp(3),
-    borderRadius: wp(2),
-    margin: wp(1.5),
-    width: "45%",            
-    alignItems: "center",
-    borderWidth: 2,
-    borderColor: "transparent",
-  },
-  optionButtonSelected: {
-    backgroundColor: "#c5baff",
-    borderColor: "#c5baff",
-    transform: [{ scale: 1.05 }],
-    shadowColor: "#c5baff",
-    shadowOpacity: 0.3,
-    shadowRadius: wp(2),
-    elevation: 5,
-  },
-  optionText: { fontSize: wp(2), fontWeight: "500", color: "#333" },
-  optionTextSelected: { color: "#333" },
-  input: {
-    borderWidth: 2,
-    borderColor: "#ccc",
-    borderRadius: wp(2),
-    padding: wp(3),
-    marginBottom: hp(2),
-    backgroundColor: "#fff",
-    fontSize: wp(2.2),
-  },
-  row: { flexDirection: "row", justifyContent: "space-between", gap: wp(2) },
-  rowBetween: { flexDirection: "row", justifyContent: "space-between" },
-  matchBox: {
-    backgroundColor: "#f0f0ff",
-    padding: wp(3),
-    borderRadius: wp(2),
-    marginBottom: hp(2),
-    shadowColor: "#000",
-    shadowOpacity: 0.05,
-    shadowRadius: wp(1.5),
-    elevation: 2,
-  },
-  actionsRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: hp(2),
-    flexWrap: "wrap",
-    gap: wp(2),
-  },
-  submitBtn: {
-    borderWidth: 2,
-    borderColor: "#16a34a",
-    paddingVertical: hp(1.2),
-    paddingHorizontal: wp(4),
-    borderRadius: wp(2),
-  },
-  nextBtn: {
-    borderWidth: 2,
-    borderColor: "#2563eb",
-    paddingVertical: hp(1.2),
-    paddingHorizontal: wp(4),
-    borderRadius: wp(2),
-  },
-  endBtn: {
-    borderWidth: 2,
-    borderColor: "#b91c1c",
-    paddingVertical: hp(1.2),
-    paddingHorizontal: wp(4),
-    borderRadius: wp(2),
-  },
-  btnText: { fontSize: wp(2), fontWeight: "600", color: "#111" },
- stickyStatsWrapper: {
-  backgroundColor: "transparent", 
-  paddingVertical: hp(1),
-  zIndex: 10,
-},
-statsRow: {
-  flexDirection: "row",
-  justifyContent: "space-between",
-  marginVertical: hp(1),
-  backgroundColor: "rgba(255,255,255,0.9)", // only around the row
-  borderRadius: wp(3),
-  padding: wp(2),
-  shadowColor: "#000",
-  shadowOpacity: 0.1,
-  shadowRadius: wp(2),
-  elevation: 4,
-},
-
-
-  statBox: {
-    flex: 1,
-    margin: wp(1),
-    alignItems: "center",
-    padding: wp(3),
-    borderRadius: wp(2),
-    backgroundColor: "#e8f9ff",
-  },
-  statLabel: {
-    fontSize: wp(1.8),
-    color: "#333",
-    fontWeight: "500",
-    textAlign: "center",
-  },
-  statNumber: { fontSize: wp(4), fontWeight: "bold", marginBottom: hp(0.5) },
-  historyBox: {
-    marginBottom: hp(2),
-    padding: wp(3),
-    backgroundColor: "#f9f9f9",
-    borderRadius: wp(2),
-  },
-  historyQuestion: {
-    fontSize: wp(1.8),
-    fontWeight: "600",
-    marginBottom: hp(1),
-    color: "#111",
-  },
-  historyAnswer: {
-    fontSize: wp(1.5),
-    color: "#333",
-    marginBottom: hp(0.5),
-  },
-  historyStatus: {
-    fontSize: wp(1.5),
-    fontWeight: "500",
-  },
-  bold: { fontWeight: "bold" },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: "rgba(0,0,0,0.5)",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  modalBox: {
-    backgroundColor: "#fff",
-    borderRadius: wp(3),
-    padding: wp(4),
-    width: "80%",
-    maxWidth: wp(70),
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOpacity: 0.25,
-    shadowRadius: wp(2),
-    elevation: 6,
-  },
-  correctText: {
-    color: "green",
-    fontSize: wp(3),
-    fontWeight: "bold",
-    marginBottom: hp(1),
-    textAlign: "center",
-  },
-  incorrectText: {
-    color: "#b91c1c",
-    fontSize: wp(3),
-    fontWeight: "bold",
-    marginBottom: hp(1),
-    textAlign: "center",
-  },
-  explanation: {
-    marginTop: hp(1),
-    fontSize: wp(2),
-    color: "#333",
-    textAlign: "center",
-  },
-  nextBtnPopup: {
-    marginTop: hp(2),
-    backgroundColor: "#c5baff",
-    paddingVertical: hp(1.5),
-    paddingHorizontal: wp(3),
-    borderRadius: wp(2),
-  },
+  container: {
+    flexGrow: 1,
+    justifyContent: "center",
+    padding: wp(4),
+  },
+  card: {
+    backgroundColor: "#fff",
+    borderRadius: wp(3),
+    padding: wp(4),
+    shadowColor: "#000",
+    shadowOpacity: 0.15,
+    shadowRadius: wp(2),
+    elevation: 8,
+    width: "85%",
+    maxWidth: wp(80),
+    alignSelf: "center",
+  },
+  title: {
+    fontSize: wp(3),
+    fontWeight: "bold",
+    textAlign: "center",
+    marginBottom: hp(2),
+    color: "#000",
+  },
+  subtitle: {
+    fontSize: wp(1.5),
+    textAlign: "center",
+    color: "#555",
+    marginBottom: hp(5),
+  },
+  question: {
+    fontSize: wp(2),
+    fontWeight: "500",
+    marginBottom: hp(2),
+    color: "#111",
+    textAlign: "center",
+  },
+  optionsContainer: {
+    marginBottom: hp(2),
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+  },
+  optionButton: {
+    backgroundColor: "#e8f9ff",
+    paddingVertical: hp(2),
+    paddingHorizontal: wp(3),
+    borderRadius: wp(2),
+    margin: wp(1.5),
+    width: "45%",
+    alignItems: "center",
+    borderWidth: 2,
+    borderColor: "transparent",
+  },
+  optionButtonSelected: {
+    backgroundColor: "#c5baff",
+    borderColor: "#c5baff",
+    transform: [{ scale: 1.05 }],
+    shadowColor: "#c5baff",
+    shadowOpacity: 0.3,
+    shadowRadius: wp(2),
+    elevation: 5,
+  },
+  optionText: { fontSize: wp(2), fontWeight: "500", color: "#333" },
+  optionTextSelected: { color: "#333" },
+  input: {
+    borderWidth: 2,
+    borderColor: "#ccc",
+    borderRadius: wp(2),
+    padding: wp(3),
+    marginBottom: hp(2),
+    backgroundColor: "#fff",
+    fontSize: wp(2.2),
+  },
+  row: { flexDirection: "row", justifyContent: "space-between", gap: wp(2) },
+  rowBetween: { flexDirection: "row", justifyContent: "space-between" },
+  matchBox: {
+    backgroundColor: "#f0f0ff",
+    padding: wp(3),
+    borderRadius: wp(2),
+    marginBottom: hp(2),
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowRadius: wp(1.5),
+    elevation: 2,
+  },
+  actionsRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: hp(2),
+    flexWrap: "wrap",
+    gap: wp(2),
+  },
+  submitBtn: {
+    borderWidth: 2,
+    borderColor: "#16a34a",
+    paddingVertical: hp(1.2),
+    paddingHorizontal: wp(4),
+    borderRadius: wp(2),
+  },
+  nextBtn: {
+    borderWidth: 2,
+    borderColor: "#2563eb",
+    paddingVertical: hp(1.2),
+    paddingHorizontal: wp(4),
+    borderRadius: wp(2),
+  },
+  endBtn: {
+    borderWidth: 2,
+    borderColor: "#b91c1c",
+    paddingVertical: hp(1.2),
+    paddingHorizontal: wp(4),
+    borderRadius: wp(2),
+  },
+  btnText: { fontSize: wp(2), fontWeight: "600", color: "#111" },
+  stickyStatsWrapper: {
+    backgroundColor: "transparent",
+    paddingVertical: hp(1),
+    zIndex: 10,
+  },
+  statsRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginVertical: hp(1),
+    backgroundColor: "rgba(255,255,255,0.9)",
+    borderRadius: wp(3),
+    padding: wp(2),
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: wp(2),
+    elevation: 4,
+  },
+  statBox: {
+    flex: 1,
+    margin: wp(1),
+    alignItems: "center",
+    padding: wp(3),
+    borderRadius: wp(2),
+    backgroundColor: "#e8f9ff",
+  },
+  statLabel: {
+    fontSize: wp(1.8),
+    color: "#333",
+    fontWeight: "500",
+    textAlign: "center",
+  },
+  statNumber: { fontSize: wp(4), fontWeight: "bold", marginBottom: hp(0.5) },
+  historyBox: {
+    marginBottom: hp(2),
+    padding: wp(3),
+    backgroundColor: "#f9f9f9",
+    borderRadius: wp(2),
+  },
+  historyQuestion: {
+    fontSize: wp(1.8),
+    fontWeight: "600",
+    marginBottom: hp(1),
+    color: "#111",
+  },
+  historyAnswer: {
+    fontSize: wp(1.5),
+    color: "#333",
+    marginBottom: hp(0.5),
+  },
+  historyStatus: {
+    fontSize: wp(1.5),
+    fontWeight: "500",
+  },
+  bold: { fontWeight: "bold" },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.5)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalBox: {
+    backgroundColor: "#fff",
+    borderRadius: wp(3),
+    padding: wp(4),
+    width: "80%",
+    maxWidth: wp(70),
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOpacity: 0.25,
+    shadowRadius: wp(2),
+    elevation: 6,
+  },
+  correctText: {
+    color: "green",
+    fontSize: wp(3),
+    fontWeight: "bold",
+    marginBottom: hp(1),
+    textAlign: "center",
+  },
+  incorrectText: {
+    color: "#b91c1c",
+    fontSize: wp(3),
+    fontWeight: "bold",
+    marginBottom: hp(1),
+    textAlign: "center",
+  },
+  explanation: {
+    marginTop: hp(1),
+    fontSize: wp(2),
+    color: "#333",
+    textAlign: "center",
+  },
+  nextBtnPopup: {
+    marginTop: hp(2),
+    backgroundColor: "#c5baff",
+    paddingVertical: hp(1.5),
+    paddingHorizontal: wp(3),
+    borderRadius: wp(2),
+  },
+  matchContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: hp(2),
+  },
+  matchColumn: {
+    width: '48%',
+    gap: hp(1),
+  },
+  matchHeader: {
+    fontSize: wp(2),
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: hp(1),
+    color: '#333',
+  },
+  matchItem: {
+    backgroundColor: '#f0f4f8',
+    padding: wp(2),
+    borderRadius: wp(2),
+    borderWidth: 1,
+    borderColor: '#e2e8f0',
+  },
+  matchItemSelected: {
+    borderColor: '#2563eb',
+    backgroundColor: '#dbeafe',
+  },
+  matchItemPaired: {
+    backgroundColor: '#e0ffe0',
+    borderColor: '#16a34a',
+  },
+  matchText: {
+    fontSize: wp(1.8),
+    color: '#1e293b',
+  },
+  dragDropContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: hp(2),
+  },
+  dragColumn: {
+    width: '48%',
+    alignItems: 'center',
+    gap: hp(1),
+  },
+  dropColumn: {
+    width: '48%',
+    alignItems: 'center',
+    gap: hp(1),
+  },
+  dragHeader: {
+    fontSize: wp(2),
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: hp(1),
+    color: '#333',
+  },
+  dragItem: {
+    backgroundColor: '#f0f4f8',
+    padding: wp(2),
+    borderRadius: wp(2),
+    borderWidth: 1,
+    borderColor: '#e2e8f0',
+    width: '100%',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: wp(1),
+    elevation: 3,
+  },
+  dragText: {
+    fontSize: wp(1.8),
+    color: '#1e293b',
+    textAlign: 'center'
+  },
+  dropItem: {
+    backgroundColor: '#fff',
+    padding: wp(2),
+    borderRadius: wp(2),
+    borderWidth: 2,
+    borderColor: '#a4b5e5',
+    minHeight: hp(6),
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  dropItemFilled: {
+    backgroundColor: '#e8f9ff',
+    borderColor: '#c5baff',
+  }
 });

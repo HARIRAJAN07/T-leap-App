@@ -1,0 +1,954 @@
+
+[
+  {
+  "class": 6,
+  "difficulty": "easy",
+  "subjects": [
+    {
+      "subject": "Tamil",
+      "questions": [
+        {
+          "topic": "ேமிழ்த்தேன்",
+          "topichint": ["இன்பத்ேமிழ்","ேமிழ்க்கும்மி","வளர்ேமிழ்","கனவு பலித்ேது","ேமிழ் எழுத்துகளின் வரகயும் தொேகாரகயும்"],
+          "type": "match",
+          "question": "Match the Tamil works to their authors.",
+          "matches": [
+            { "term": "இன்பத்ேமிழ்", "definition": "மாேவந்தர்" },
+            { "term": "ேமிழ்க்கும்மி", "definition": "பா. சுந்தரமூர்த்தி" },
+            { "term": "வளர்ேமிழ்", "definition": "மாேவந்தர்" },
+            { "term": "கனவு பலித்ேது", "definition": "சு. செந்தில்நாதன்" }
+          ],
+          "explanation": "இவை ஒவ்வொரு பாடலுக்கும் உரிய ஆசிரியர்கள்."
+        },
+        {
+          "topic": "இயற்கை இன்பம்",
+          "topichint": ["சி்லப்பதிகாரம்","காணி நிலம்","சினையின் ஓரம்","கைவனும் கடலும்","முதொலழுத்தும் பொர்தொலழுத்தும்","திருக்குறள்"],
+          "type": "match",
+          "question": "Match the lines or works to their related themes.",
+          "matches": [
+            { "term": "சி்லப்பதிகாரம்", "definition": "இளங்கோ அடிகள்" },
+            { "term": "காணி நிலம்", "definition": "பரந்தாமன்" },
+            { "term": "சினையின் ஓரம்", "definition": "பசுமை சூழல்" },
+            { "term": "திருக்குறள்", "definition": "வள்ளுவர்" }
+          ],
+          "explanation": "பாடல்கள், ஆசிரியர்கள் மற்றும் கருப்பொருள் தொடர்பாகப் பொருத்தப்பட்டுள்ளது."
+        },
+        {
+          "topic": "எந்தியின் உலகம்",
+          "topichint": ["அறிவியல் ஆத்திசூடி","அறிவியலால் ஆள்தவகம்","கணியனின் நண்பன்","ஒளி பின்தொன்று","தொமகாழிமுதொல்"],
+          "type": "match",
+          "question": "Match the scientific concepts to their meanings.",
+          "matches": [
+            { "term": "அறிவியல் ஆத்திசூடி", "definition": "விஞ்ஞான அடிப்படைகள்" },
+            { "term": "ஒளி பின்தொன்று", "definition": "பிரதிபலிப்பு" },
+            { "term": "கணியனின் நண்பன்", "definition": "கணினி" },
+            { "term": "தொமகாழிமுதொல்", "definition": "முதலெழுத்து, இறுதி எழுத்து" }
+          ],
+          "explanation": "அறிவியல் மற்றும் இலக்கண தொடர்புகள் பொருத்தப்பட்டுள்ளன."
+        },
+        {
+          "topic": "கண்ணெனத் தகும்",
+          "topichint": ["மூதுரை","துன்பம் வெல்லும் கல்வி","கல்விக்கண் திறந்தவர்","நூலகம் நோக்கி","இன எழுத்துகள்"],
+          "type": "match",
+          "question": "Match the proverbs or titles to their meanings.",
+          "matches": [
+            { "term": "மூதுரை", "definition": "பழமொழி தொகுப்பு" },
+            { "term": "துன்பம் வெல்லும் கல்வி", "definition": "கல்வி கற்றல் மூலம் வெற்றி" },
+            { "term": "நூலகம் நோக்கி", "definition": "அறிவு சேர்க்கும் இடம்" },
+            { "term": "இன எழுத்துகள்", "definition": "மென்மையான எழுத்துகள்" }
+          ],
+          "explanation": "பாடங்கள் மற்றும் இலக்கணப் பொருத்தங்கள் உள்ளன."
+        },
+        {
+          "topic": "பாடறிந்து ஒழுகுதல்",
+          "topichint": ["ஆசாரக்கோவை","கண்மணியே கண்ணுறங்கு","தமிழர் பெருவிழா","மனம் கவரும் மாமல்லபுரம்","மயங்கொலிகள்","திருக்குறள்"],
+          "type": "match",
+          "question": "Match the works to their authors.",
+          "matches": [
+            { "term": "ஆசாரக்கோவை", "definition": "ஔவையார்" },
+            { "term": "கண்மணியே கண்ணுறங்கு", "definition": "சுப்ரமணிய பாரதி" },
+            { "term": "மாமல்லபுரம்", "definition": "கலைச்சிறப்பு" },
+            { "term": "திருக்குறள்", "definition": "திருவள்ளுவர்" }
+          ],
+          "explanation": "இவை பாடல்களும் ஆசிரியர்களும் பொருத்தப்பட்டுள்ளன."
+        },
+        {
+          "topic": "கூடித் தொழில் செய்",
+          "topichint": ["நானிலம் படைத்தவன்","கடலோடு விளையாடு","வளரும் வணிகம்","உழைப்பே மூலதனம்","சுட்டு எழுத்துகள்"],
+          "type": "match",
+          "question": "Match the concept to its explanation.",
+          "matches": [
+            { "term": "நானிலம் படைத்தவன்", "definition": "பூமி படைத்தவன்" },
+            { "term": "வளரும் வணிகம்", "definition": "வர்த்தக வளர்ச்சி" },
+            { "term": "உழைப்பே மூலதனம்", "definition": "தொழில் முக்கியத்துவம்" },
+            { "term": "சுட்டு எழுத்துகள்", "definition": "பொருள் காட்டும் எழுத்துகள்" }
+          ],
+          "explanation": "பாடம் மற்றும் இலக்கணப்பொருள் பொருத்தப்பட்டுள்ளது."
+        },
+        {
+          "topic": "புதுமைகள் செய்யும் தேசமிது",
+          "topichint": ["பாரதம் அன்றைய நாற்றங்கால்","தமிழ்நாட்டில் காந்தி","வேலுநாச்சியார்","நால்வகைச் சொற்கள்"],
+          "type": "match",
+          "question": "Match the leaders or concepts to their details.",
+          "matches": [
+            { "term": "வேலுநாச்சியார்", "definition": "முதல் சுதந்திரப் போராளி" },
+            { "term": "காந்தி", "definition": "அஹிம்சை வழி" },
+            { "term": "நால்வகைச் சொற்கள்", "definition": "பெயர்ச்சொல், வினைச்சொல், இடைச்சொல், உரிச்சொல்" },
+            { "term": "பாரதம் அன்றைய நாற்றங்கால்", "definition": "சுதந்திரப் போராட்டம்" }
+          ],
+          "explanation": "வரலாறு மற்றும் இலக்கண அடிப்படையில் பொருத்தப்பட்டுள்ளது."
+        },
+        {
+          "topic": "எல்லாரும் இன்புற",
+          "topichint": ["பராபரக் கண்ணி","நீங்கள் நல்லவர்","பசிப்பிணி போக்கிய பாவை","பெயர்ச்சொல்","திருக்குறள்"],
+          "type": "match",
+          "question": "Match the lines to their meanings.",
+          "matches": [
+            { "term": "பராபரக் கண்ணி", "definition": "அன்பு நிறைந்த பெண்" },
+            { "term": "பசிப்பிணி போக்கிய பாவை", "definition": "பசித்தவரை உதவிய பெண்" },
+            { "term": "பெயர்ச்சொல்", "definition": "பெயரை குறிப்பது" },
+            { "term": "திருக்குறள்", "definition": "வள்ளுவர்" }
+          ],
+          "explanation": "பாடல் மற்றும் இலக்கணப்பொருத்தங்கள் உள்ளன."
+        },
+        {
+          "topic": "இன்னுயிர் காப்போம்",
+          "topichint": ["ஆசிய ஜோதி","மனிதநேயம்","முடிவில் ஒரு தொடக்கம்","அணி இலக்கணம்","திருக்குறள்"],
+          "type": "match",
+          "question": "Match the ideas to their explanations.",
+          "matches": [
+            { "term": "ஆசிய ஜோதி", "definition": "அன்பின் வெளிச்சம்" },
+            { "term": "மனிதநேயம்", "definition": "அனைவருக்கும் அன்பு" },
+            { "term": "அணி இலக்கணம்", "definition": "சொற்கள் அலங்காரம்" },
+            { "term": "திருக்குறள்", "definition": "நல்லொழுக்கப் பாடம்" }
+          ],
+          "explanation": "நல்லொழுக்கம் மற்றும் இலக்கணம் தொடர்புடையவை பொருத்தப்பட்டுள்ளன."
+        }
+      ]
+    },
+    {
+      "subject": "English",
+      "questions": [
+        {
+          "topic": "unit-1",
+          "topichint": ["Sea Turtles","The Crocodile","The Friendship","Frame sentence"],
+          "type": "match",
+          "question": "Match the titles to their main themes.",
+          "matches": [
+            { "term": "Sea Turtles", "definition": "Marine animals with protective shells" },
+            { "term": "The Crocodile", "definition": "A poem describing a reptile" },
+            { "term": "The Friendship", "definition": "A story about bonding and trust" },
+            { "term": "Frame sentence", "definition": "Creating sentences using given words" }
+          ],
+          "explanation": "Each topic focuses on understanding stories, poems, and sentence framing."
+        },
+        {
+          "topic": "unit-2",
+          "topichint": ["When the Trees Walked","Trees","The Apple Tree and the Farmer","Command and Request sentences"],
+          "type": "match",
+          "question": "Match the titles to their descriptions.",
+          "matches": [
+            { "term": "When the Trees Walked", "definition": "Story highlighting the importance of trees" },
+            { "term": "Trees", "definition": "Poem appreciating trees" },
+            { "term": "The Apple Tree and the Farmer", "definition": "A tale of gratitude and usefulness" },
+            { "term": "Command and Request sentences", "definition": "Grammar topic on imperative sentences" }
+          ],
+          "explanation": "This unit deals with environmental themes and grammar concepts."
+        },
+        {
+          "topic": "unit-3",
+          "topichint": ["A Visitor from Distant Lands","I Dream of Spices","Stone Soup"],
+          "type": "match",
+          "question": "Match the titles to their key ideas.",
+          "matches": [
+            { "term": "A Visitor from Distant Lands", "definition": "Story about nature and its wonders" },
+            { "term": "I Dream of Spices", "definition": "Poem on the aroma and memories of spices" },
+            { "term": "Stone Soup", "definition": "A tale about sharing and cooperation" }
+          ],
+          "explanation": "Each piece emphasizes culture, sharing, and imagination."
+        },
+        {
+          "topic": "unit-4",
+          "topichint": ["Sports Stars","Team Work","Think to Win"],
+          "type": "match",
+          "question": "Match the titles to their themes.",
+          "matches": [
+            { "term": "Sports Stars", "definition": "Famous personalities in sports" },
+            { "term": "Team Work", "definition": "Importance of working together" },
+            { "term": "Think to Win", "definition": "Strategy and determination for success" }
+          ],
+          "explanation": "This unit focuses on sportsmanship and success mindset."
+        },
+        {
+          "topic": "unit-5",
+          "topichint": ["Trip to Ooty","From a Railway Carriage","Gulliver's Travel"],
+          "type": "match",
+          "question": "Match the titles to their settings.",
+          "matches": [
+            { "term": "Trip to Ooty", "definition": "Travel experience in the hills" },
+            { "term": "From a Railway Carriage", "definition": "Poem describing train journey" },
+            { "term": "Gulliver's Travel", "definition": "Adventure in imaginary lands" }
+          ],
+          "explanation": "The unit revolves around journeys and adventures."
+        },
+        {
+          "topic": "unit-6",
+          "topichint": ["Who Owns the Water?","Indian Seasons","A Childhood in Malabar: A Memoir","Compound words, Collective nouns"],
+          "type": "match",
+          "question": "Match the titles to their context.",
+          "matches": [
+            { "term": "Who Owns the Water?", "definition": "Story about water conservation" },
+            { "term": "Indian Seasons", "definition": "Poem on seasonal beauty" },
+            { "term": "A Childhood in Malabar", "definition": "Memoir about childhood experiences" },
+            { "term": "Compound words, Collective nouns", "definition": "Grammar concepts of word formation" }
+          ],
+          "explanation": "The focus is on environment, memoirs, and grammar."
+        },
+        {
+          "topic": "unit-7",
+          "topichint": ["That Sunday Morning","A Tragic Story","Brought to Book","Grammar : Adverbs"],
+          "type": "match",
+          "question": "Match the titles to their meaning.",
+          "matches": [
+            { "term": "That Sunday Morning", "definition": "Story set on a memorable Sunday" },
+            { "term": "A Tragic Story", "definition": "Poem with humor and irony" },
+            { "term": "Brought to Book", "definition": "Story about justice and accountability" },
+            { "term": "Adverbs", "definition": "Grammar topic describing how actions happen" }
+          ],
+          "explanation": "The unit includes humor, moral stories, and grammar."
+        },
+        {
+          "topic": "unit-8",
+          "topichint": ["The Jungle Book"],
+          "type": "match",
+          "question": "Match the character to its role.",
+          "matches": [
+            { "term": "Mowgli", "definition": "Human child raised by wolves" },
+            { "term": "Baloo", "definition": "Bear who teaches Mowgli" },
+            { "term": "Bagheera", "definition": "Panther who protects Mowgli" },
+            { "term": "Shere Khan", "definition": "Tiger and the main antagonist" }
+          ],
+          "explanation": "This unit revolves around Mowgli's adventures in the jungle."
+        }
+      ]
+    },
+    {
+      "subject": "Math",
+      "questions": [
+        {
+          "topic": "NUMBERS",
+          "topichint": ["Formation of large numbers", "Place Value Chart", "Comparison of Numbers", "Creating New Numbers", "Use of Large Numbers in Daily Life Situations", "Order of Operations", "Estimation of numbers", "Whole Numbers", "Properties of Whole Numbers"],
+          "type": "match",
+          "question": "Match the number to its correct place value.",
+          "matches": [
+            { "term": "4 in 4,56,789", "definition": "Lakh" },
+            { "term": "5 in 4,56,789", "definition": "Ten Thousand" },
+            { "term": "6 in 4,56,789", "definition": "Thousand" },
+            { "term": "7 in 4,56,789", "definition": "Hundred" }
+          ],
+          "explanation": "Each digit has a specific place value in the Indian number system."
+        },
+        {
+          "topic": "INTRODUCTION TO ALGEBRA",
+          "topichint": ["Patterns", "Understanding operations on Variables", "Framing Algebraic Statements", "Solving unknowns through examples"],
+          "type": "match",
+          "question": "Match the algebraic expression to its description.",
+          "matches": [
+            { "term": "2x + 3", "definition": "An expression with a variable multiplied and added" },
+            { "term": "x - 5", "definition": "Variable decreased by a number" },
+            { "term": "3x", "definition": "Three times a variable" },
+            { "term": "x ÷ 2", "definition": "Variable divided by two" }
+          ],
+          "explanation": "Algebraic expressions use variables and mathematical operations."
+        },
+        {
+          "topic": "RATIO AND PROPORTION",
+          "topichint": ["Ratio", "Proportion", "Unitary Method"],
+          "type": "match",
+          "question": "Match the ratio to its equivalent form.",
+          "matches": [
+            { "term": "2:3", "definition": "4:6" },
+            { "term": "5:10", "definition": "1:2" },
+            { "term": "6:9", "definition": "2:3" },
+            { "term": "10:20", "definition": "1:2" }
+          ],
+          "explanation": "Equivalent ratios are found by multiplying or dividing both terms by the same number."
+        },
+        {
+          "topic": "GEOMETRY",
+          "topichint": ["Describing lines", "Angles", "Points and lines"],
+          "type": "match",
+          "question": "Match the angle type to its definition.",
+          "matches": [
+            { "term": "Acute Angle", "definition": "Less than 90°" },
+            { "term": "Right Angle", "definition": "Exactly 90°" },
+            { "term": "Obtuse Angle", "definition": "More than 90° but less than 180°" },
+            { "term": "Straight Angle", "definition": "Exactly 180°" }
+          ],
+          "explanation": "Angles are classified based on their measure."
+        },
+        {
+          "topic": "STATISTICS",
+          "topichint": ["Data", "Representation of data using Pictograph", "Representation of data using Bar Graph"],
+          "type": "match",
+          "question": "Match the data representation with its feature.",
+          "matches": [
+            { "term": "Pictograph", "definition": "Uses pictures to show data" },
+            { "term": "Bar Graph", "definition": "Uses bars to compare quantities" },
+            { "term": "Line Graph", "definition": "Shows data trends over time" },
+            { "term": "Table", "definition": "Organizes data in rows and columns" }
+          ],
+          "explanation": "Different types of graphs represent data in different ways."
+        },
+        {
+          "topic": "FRACTIONS",
+          "topichint": ["Equivalent Fractions", "Comparison of Unlike Fractions", "Addition and Subtraction of Unlike Fractions", "Improper and Mixed Fractions", "Addition and Subtraction of Mixed Fractions", "Multiplication of Fractions", "Division of Fractions"],
+          "type": "match",
+          "question": "Match the fraction type to its definition.",
+          "matches": [
+            { "term": "Proper Fraction", "definition": "Numerator is less than denominator" },
+            { "term": "Improper Fraction", "definition": "Numerator is greater than denominator" },
+            { "term": "Mixed Fraction", "definition": "A whole number with a fraction" },
+            { "term": "Equivalent Fraction", "definition": "Fractions representing the same value" }
+          ],
+          "explanation": "Fractions can be proper, improper, mixed, or equivalent based on their form."
+        },
+        {
+          "topic": "INTEGERS",
+          "topichint": ["Introduction of Integers and its representation on a number line", "Opposite of a number", "Ordering of Integers", "Predecessor and Successor of an Integer", "Comparing Integers"],
+          "type": "match",
+          "question": "Match the integer operation with its correct result.",
+          "matches": [
+            { "term": "(-3) + 7", "definition": "4" },
+            { "term": "5 - (-2)", "definition": "7" },
+            { "term": "(-6) × 2", "definition": "-12" },
+            { "term": "(-8) ÷ (-4)", "definition": "2" }
+          ],
+          "explanation": "Integer operations follow specific sign rules."
+        },
+        {
+          "topic": "PERIMETER AND AREA",
+          "topichint": ["Perimeter of a Rectangle", "Perimeter of a Square", "Perimeter of a Triangle", "Area of a Rectangle", "Area of a Square", "Area of a Right Angled Triangle", "Perimeter and Area of Combined Shapes", "Area of Irregular Shapes"],
+          "type": "match",
+          "question": "Match the shape with its perimeter formula.",
+          "matches": [
+            { "term": "Square", "definition": "4 × side" },
+            { "term": "Rectangle", "definition": "2 × (length + breadth)" },
+            { "term": "Triangle", "definition": "sum of all sides" },
+            { "term": "Circle", "definition": "2 × π × radius" }
+          ],
+          "explanation": "Each shape has a specific formula for calculating perimeter."
+        },
+        {
+          "topic": "SYMMETRY",
+          "topichint": ["Line of Symmetry", "Reflection Symmetry", "Rotational Symmetry", "Translational Symmetry"],
+          "type": "match",
+          "question": "Match the symmetry type with its description.",
+          "matches": [
+            { "term": "Line Symmetry", "definition": "Figure can be folded into two equal parts" },
+            { "term": "Reflection Symmetry", "definition": "Mirror image symmetry" },
+            { "term": "Rotational Symmetry", "definition": "Looks same after rotation" },
+            { "term": "Translational Symmetry", "definition": "Repeats when moved in a straight line" }
+          ],
+          "explanation": "Symmetry is about balance and repetition in shapes."
+        }
+      ]
+    },
+    {
+      "subject": "Science",
+      "questions": [
+        {
+          "topic": "Measurements",
+          "topichint": ["Measuring tools", "Length", "Corrective measures of length", "Parallax Error", "Mass", "Beam Balance", "Time", "Electronic balance"],
+          "type": "match",
+          "question": "Match the measuring tool with what it measures.",
+          "matches": [
+            { "term": "Thermometer", "definition": "Measures temperature" },
+            { "term": "Measuring Tape", "definition": "Measures length" },
+            { "term": "Electronic Balance", "definition": "Measures mass precisely" },
+            { "term": "Stopwatch", "definition": "Measures time intervals" }
+          ],
+          "explanation": "Different instruments measure different physical quantities accurately."
+        },
+        {
+          "topic": "Force and Motion",
+          "topichint": ["Motion", "Rest", "Force", "Contact and Non-Contact forces", "Types of motion", "Periodic and Non-periodic motion", "Multiple motion", "What is robot", "What is AI", "nanorobotics"],
+          "type": "match",
+          "question": "Match the term related to force and motion with its description.",
+          "matches": [
+            { "term": "Force", "definition": "A push or pull on an object" },
+            { "term": "Contact Force", "definition": "Force that acts by touching (e.g., friction)" },
+            { "term": "Non-Contact Force", "definition": "Acts at a distance (e.g., gravity, magnetism)" },
+            { "term": "Periodic Motion", "definition": "Motion that repeats at regular intervals (e.g., pendulum)" }
+          ],
+          "explanation": "Forces cause changes in motion; motion can be classified by its nature."
+        },
+        {
+          "topic": "Matter around Us",
+          "topichint": ["Physical nature of matter", "Characteristic of particles", "Mass, Shape and Volume of Solids, Liquids and Gases", "Diffusion", "Compressibility of gases compared to liquids and solids", "Pure Substances and Mixtures", "Classification of matter", "Separation of mixters", "Separation techniques", "Food Adulteration"],
+          "type": "match",
+          "question": "Match the term about states of matter with its characteristic.",
+          "matches": [
+            { "term": "Solid", "definition": "Has fixed shape and volume" },
+            { "term": "Liquid", "definition": "Has fixed volume but takes the shape of container" },
+            { "term": "Gas", "definition": "Has neither fixed shape nor fixed volume" },
+            { "term": "Mixture", "definition": "Combination of two or more substances physically mixed" }
+          ],
+          "explanation": "Matter exists in different states with distinct particle arrangements and properties."
+        },
+        {
+          "topic": "The World of Plants",
+          "topichint": ["Plant forms and functions", "Root System", "Shoot system", "Stem,Leaf", "Habitat", "Types of Habitat", "Terrestrial and Aquatic Habitat", "Plant adaptation and modification"],
+          "type": "match",
+          "question": "Match the plant part with its primary function.",
+          "matches": [
+            { "term": "Root", "definition": "Absorbs water and minerals" },
+            { "term": "Stem", "definition": "Supports the plant and transports substances" },
+            { "term": "Leaf", "definition": "Carries out photosynthesis" },
+            { "term": "Flower", "definition": "Involved in reproduction" }
+          ],
+          "explanation": "Each plant organ is specialized to perform particular roles essential for survival."
+        },
+        {
+          "topic": "The World of Animals",
+          "topichint": ["Biodiversity", "Habitat", "Unicellular (Amoeba,Paramecium,Euglena)", "Multicellular organism", "Adaptation in Animals (Fish,Bird,Frog,Lizard,Camel)"],
+          "type": "match",
+          "question": "Match the creature or class with the correct description or habitat.",
+          "matches": [
+            { "term": "Amoeba", "definition": "Unicellular organism" },
+            { "term": "Fish", "definition": "Lives and breathes in water" },
+            { "term": "Bird", "definition": "Has feathers and generally can fly" },
+            { "term": "Camel", "definition": "Adapted to desert habitat" }
+          ],
+          "explanation": "Animals show wide biodiversity and adaptations suited to their habitats."
+        },
+        {
+          "topic": "Health and Hygiene",
+          "topichint": ["Components of Food(Carbohydrate ,Proteins, Fats , Vitamins ,Minerals ,Water)", "Sources of fat", "Deficiency diseases", "Health and Nutrients", "Balanced Diet", "Malnutrition", "Physical Exercise", "Rest", "Personal Cleanliness", "Introduction to Microbes(Bacteria,Virus)"],
+          "type": "match",
+          "question": "Match the food component with its major role in the body.",
+          "matches": [
+            { "term": "Carbohydrates", "definition": "Provide energy" },
+            { "term": "Proteins", "definition": "Help build and repair body tissues" },
+            { "term": "Fats", "definition": "Store energy and help absorb vitamins" },
+            { "term": "Vitamins", "definition": "Regulate body functions and prevent deficiency diseases" }
+          ],
+          "explanation": "A balanced diet with all nutrients helps maintain health and prevent deficiencies."
+        },
+        {
+          "topic": "Computer - An Introduction",
+          "topichint": ["Invention computer", "data", "Software", "Hardware", "Input devices"],
+          "type": "match",
+          "question": "Match the computer-related term with its meaning.",
+          "matches": [
+            { "term": "Hardware", "definition": "Physical parts of a computer (e.g., keyboard, CPU)" },
+            { "term": "Software", "definition": "Programs and applications that run on a computer" },
+            { "term": "Input Device", "definition": "Device used to enter data (e.g., keyboard, mouse)" },
+            { "term": "Data", "definition": "Information processed by a computer" }
+          ],
+          "explanation": "Computing systems are built from hardware, software and data, with input devices to interact."
+        },
+        {
+          "topic": "Heat",
+          "topichint": ["Sources of heat  - Sun,Combustion,Friction,Electricity", "Heat", "Hot and cold objects", "Temperature", "Flow of Heat", "Expansion in solids", "Linear and Cubical Expansion", "Thermal Expansion", "Uses of Thermal Expansion", "Rivetting", "Electric wires"],
+          "type": "match",
+          "question": "Match the heat-related term with an appropriate example or definition.",
+          "matches": [
+            { "term": "Conduction", "definition": "Heat transfer through a solid (e.g., heated metal rod)" },
+            { "term": "Convection", "definition": "Heat transfer by fluid motion (e.g., boiling water circulation)" },
+            { "term": "Radiation", "definition": "Transfer of heat without a medium (e.g., sunlight)" },
+            { "term": "Thermal Expansion", "definition": "Materials expand on heating (e.g., railway gaps)" }
+          ],
+          "explanation": "Heat moves by conduction, convection or radiation and causes expansion in materials."
+        },
+        {
+          "topic": "Electricity",
+          "topichint": ["Sources of Electricity", "Thermal Power stations", "Hydel power stations", "Atomic power stations", "Wind mills", "Cell", "Primary Cells", "Secondary Cells", "Battery", "Electric Circuits", "Inside view of torch", "Open Circuit", "Closed Circuit", "Simple Circuit", "Series Circuit", "Parallel Circuits", "Symbols of Electric Components", "Conductors and Insulators", "Safety measures to safeguard a person from electric shock"],
+          "type": "match",
+          "question": "Match the electrical term with its description.",
+          "matches": [
+            { "term": "Conductor", "definition": "Material that allows electric current to pass (e.g., copper)" },
+            { "term": "Insulator", "definition": "Material that resists electric current (e.g., rubber)" },
+            { "term": "Open Circuit", "definition": "Circuit with a break; current cannot flow" },
+            { "term": "Closed Circuit", "definition": "Complete path where current can flow" }
+          ],
+          "explanation": "Circuits and materials determine how electricity flows and how to use it safely."
+        },
+        {
+          "topic": "Changes Around Us",
+          "topichint": ["What is a change", "Classification of Changes", "Slow and Fast changes", "Reversible and Irreversible changes", "Physical and Chemical Changes", "Dissolution", "Desirable and Undesirable  Changes", "Natural and human made changes"],
+          "type": "match",
+          "question": "Match the example of change with its type.",
+          "matches": [
+            { "term": "Melting of ice", "definition": "Reversible physical change" },
+            { "term": "Burning wood", "definition": "Irreversible chemical change" },
+            { "term": "Dissolving sugar in water", "definition": "Physical change (can be reversed by evaporation)" },
+            { "term": "Rusting of iron", "definition": "Chemical change (usually irreversible)" }
+          ],
+          "explanation": "Changes can be physical or chemical; some can be reversed while others cannot."
+        },
+        {
+          "topic": "Air",
+          "topichint": ["Atmosphere", "Layers of atmosphere", "Test for Carbon-di-oxide in air", "Composition of Air", "Burning and Combustion", "Importance of air for survival of plants and animals", "Respiration in plants", "Photosynthesis", "Respiration in Animals", "Respiration of plants and animals in water", "Uses of Air"],
+          "type": "match",
+          "question": "Match the air-related term or test with its description.",
+          "matches": [
+            { "term": "Oxygen", "definition": "Gas needed for respiration" },
+            { "term": "Nitrogen", "definition": "Major component of air (about 78%)" },
+            { "term": "Test for CO₂", "definition": "Limewater turns milky in presence of carbon dioxide" },
+            { "term": "Photosynthesis", "definition": "Plants use CO₂ and sunlight to make food" }
+          ],
+          "explanation": "Air is a mixture of gases with important roles for living organisms and chemical tests to identify components."
+        },
+        {
+          "topic": "The Cell",
+          "topichint": ["Introduction to cell", "Discovery of the cell", "The Structural Organization Of The Cell", "Size of the cell", "Shapes", "Number", "Types of cell", "Prokaryotic cell", "Eukaryotic cell", "Plant cell and Animal cell", "Dimension - cell structure", "Cell components and their functions"],
+          "type": "match",
+          "question": "Match the cell organelle with its main function.",
+          "matches": [
+            { "term": "Nucleus", "definition": "Controls cell activities and contains genetic material" },
+            { "term": "Cell Membrane", "definition": "Controls movement of substances in and out of cell" },
+            { "term": "Chloroplast", "definition": "Site of photosynthesis in plant cells" },
+            { "term": "Mitochondria", "definition": "Produces energy for the cell (powerhouse)" }
+          ],
+          "explanation": "Cells contain organelles each performing essential functions for life."
+        },
+        {
+          "topic": "Human Organ systems",
+          "topichint": ["Skeletal System", "Skull", "Vertebral column", "Rib cage", "Limbs", "gridles", "Muscular system", "Skeletal muscle", "Smooth muscle", "Cardiac muscle", "Digestive System", "Respiratory System", "External Respiration", "Internal Respiration", "Cellular Respiration", "Circulatory system", "Nervous System", "The Functions of the Nervous System", "Sense organs", "Endocrine System", "Excretory System"],
+          "type": "match",
+          "question": "Match the organ system with its main function.",
+          "matches": [
+            { "term": "Skeletal System", "definition": "Provides support and protection to the body" },
+            { "term": "Muscular System", "definition": "Enables movement of the body" },
+            { "term": "Digestive System", "definition": "Breaks down food and absorbs nutrients" },
+            { "term": "Respiratory System", "definition": "Exchanges oxygen and carbon dioxide" }
+          ],
+          "explanation": "Human body systems work together to keep the body functioning and healthy."
+        },
+        {
+          "topic": "Parts of Computer",
+          "topichint": ["Parts of a Computer", "Classification of Computer", "Personal computer and its types", "Connecting the Computer", "Types of Cables", "Video Graphics Array (VGA)", "High Definition Multimedia Interface(HDMI)", "Universal Serial Bus (USB)", "Data cable", "Power Cord", "Mic cable", "Ethernet cable", "Wireless Connections - Bluetooth,Wifi"],
+          "type": "match",
+          "question": "Match the computer connection or part with its primary use.",
+          "matches": [
+            { "term": "HDMI", "definition": "Transmits high-definition video and audio" },
+            { "term": "VGA", "definition": "Older connector for video display" },
+            { "term": "USB", "definition": "Used for data transfer and power to devices" },
+            { "term": "Ethernet Cable", "definition": "Used for wired network/internet connection" }
+          ],
+          "explanation": "Different ports and cables connect devices and transfer data or power."
+        },
+        {
+          "topic": "Magnetism",
+          "topichint": ["Discovery of Magnets", "Magnet of different shapes", "Magnetic and Non Magnetic Materials", "Magnetic Poles", "Finding directions with a magnet", "Magnetic compass", "Properties of Magnets", "Attraction", "Repulsion", "Storage of Magnets", "Usage of Magnets", "Bullet Trains", "Working of electromagnetic train"],
+          "type": "match",
+          "question": "Match the magnetic concept or device with its description.",
+          "matches": [
+            { "term": "Magnetic Pole", "definition": "Ends of a magnet where magnetic force is strongest" },
+            { "term": "Attraction", "definition": "Opposite poles of magnets pull together" },
+            { "term": "Repulsion", "definition": "Like poles of magnets push apart" },
+            { "term": "Compass", "definition": "Device using magnetism to show direction" }
+          ],
+          "explanation": "Magnetism explains attraction and repulsion and is used in tools like compasses and trains."
+        },
+        {
+          "topic": "Water",
+          "topichint": ["Sources of water", "Availability of water", "Forms of water", "Water cycle", "Composition of water", "Natural Sources of fresh water", "Conservation of water", "Methods of water conservation", "Importance of water", "Water distribution and treatment system"],
+          "type": "match",
+          "question": "Match the water term with its meaning or example.",
+          "matches": [
+            { "term": "Evaporation", "definition": "Process of water turning into vapor" },
+            { "term": "Condensation", "definition": "Vapor turning into liquid (forming dew)" },
+            { "term": "Precipitation", "definition": "Rain, snow or hail falling from clouds" },
+            { "term": "Groundwater", "definition": "Water stored beneath Earth's surface" }
+          ],
+          "explanation": "Water moves through the environment via the water cycle and exists in various forms."
+        },
+        {
+          "topic": "Chemistry in Everyday Life",
+          "topichint": ["Soaps and Detergents", "Fertilizers", "Organic fertilizers", "Inorganic fertilizers", "Cement", "Uses of cement", "Reinforced Cement Concrete", "Gypsum", "Epsom", "Phenol", "Plaster of Paris", "Adhesives", "Types of adhesives"],
+          "type": "match",
+          "question": "Match the everyday chemical or product with its primary use or property.",
+          "matches": [
+            { "term": "Soap", "definition": "Used for cleaning by removing oils and dirt" },
+            { "term": "Fertilizer", "definition": "Provides nutrients to plants for growth" },
+            { "term": "Cement", "definition": "Binding material used in construction" },
+            { "term": "Adhesive", "definition": "Substance used to stick materials together" }
+          ],
+          "explanation": "Many chemicals and compounds are used daily in cleaning, farming and construction."
+        },
+        {
+          "topic": "Our Environment",
+          "topichint": ["The Ecosystem", "Types of ecosystem", "Components of ecosystem", "Natural ecosystem", "Artificial ecosystem", "Producers", "Consumers", "Food chain", "energy flow", "Trophic levels", "Food web", "Waste Management and Recycling", "Biodegradable and Non- biodegradable Waste", "Solid Waste Management", "Preparation of Vermi compost", "Pollution", "Types of Pollution", "Air pollution", "Water pollution", "Land (soil) pollution", "Noise pollution"],
+          "type": "match",
+          "question": "Match the ecological term with its definition or example.",
+          "matches": [
+            { "term": "Producer", "definition": "Organism that makes its own food (e.g., plants)" },
+            { "term": "Consumer", "definition": "Organism that eats other organisms" },
+            { "term": "Decomposer", "definition": "Breaks down dead matter (e.g., fungi)" },
+            { "term": "Pollution", "definition": "Introduction of harmful substances into the environment" }
+          ],
+          "explanation": "Ecosystems consist of producers, consumers and decomposers; pollution harms environmental balance."
+        },
+        {
+          "topic": "Plants in Daily Life",
+          "topichint": ["Plants as Food", "Vegetables", "Cereals", "Pulses", "Spices", "Spices used in India", "Medicinal plants", "Fibre yielding plants", "Timber yielding plants", "Hardwoods", "Softwoods", "Ornamental plants", "Interrelationship between plants and animals", "Animal-plant Interactions", "uses of plants"],
+          "type": "match",
+          "question": "Match the plant category with its common use or example.",
+          "matches": [
+            { "term": "Cereals", "definition": "Staple foods like rice and wheat" },
+            { "term": "Pulses", "definition": "Source of protein (e.g., lentils)" },
+            { "term": "Medicinal Plants", "definition": "Used to prepare remedies (e.g., Aloe vera)" },
+            { "term": "Fibre-yielding Plants", "definition": "Provide fibres for textiles (e.g., cotton)" }
+          ],
+          "explanation": "Plants provide food, medicine, materials and ecological services used in daily life."
+        },
+        {
+          "topic": "Hardware and Software",
+          "topichint": ["Hardware", "Software", "Types of Software", "System Software", "Application software", "System and Application Software types", "Free and Open source", "Paid and Proprietary Software"],
+          "type": "match",
+          "question": "Match the software/hardware term with its meaning.",
+          "matches": [
+            { "term": "Hardware", "definition": "Physical components of a computer" },
+            { "term": "System Software", "definition": "Software that runs the computer (e.g., operating system)" },
+            { "term": "Application Software", "definition": "Programs for specific tasks (e.g., word processor)" },
+            { "term": "Open Source", "definition": "Software whose source code is available to modify" }
+          ],
+          "explanation": "Computing requires both hardware and different types of software to perform tasks."
+        }
+      ]
+    },
+    {
+        "subject": "Social Studies",
+        "questions": [
+            {
+                "topic": "What is History?",
+                "topichint": ["Introduction to History", "Sources of History", "Pre-historic tools", "Historic - paintings", "Artifacts"],
+                "type": "match",
+                "question": "Match the historical source with its type.",
+                "matches": [
+                    { "term": "Stone Tools", "definition": "Prehistoric source" },
+                    { "term": "Paintings", "definition": "Visual source" },
+                    { "term": "Artifacts", "definition": "Material source" },
+                    { "term": "Written records", "definition": "Textual source" }
+                ],
+                "explanation": "History is studied through different sources like tools, artwork, objects, and documents."
+            },
+            {
+                "topic": "Human Evolution",
+                "topichint": ["Archaeology", "Stages of Human evolution", "Anthropology", "Hunting and Food Gathering", "Art of Flaking", "Stone Tools and Weapons", "Invention of the Wheel", "Pot Making", "Ancient Rock Paintings", "From Nomadic to Settled Life : The World’s Earliest Farmers", "Pre-Historic Rock Art of Tamilnadu"],
+                "type": "match",
+                "question": "Match the evolutionary development with its significance.",
+                "matches": [
+                    { "term": "Stone Tools", "definition": "Helped in hunting and survival" },
+                    { "term": "Wheel Invention", "definition": "Enabled transportation" },
+                    { "term": "Pot Making", "definition": "Used for storing food" },
+                    { "term": "Settled Life", "definition": "Shift from nomadic to farming lifestyle" }
+                ],
+                "explanation": "Human evolution involved tools, inventions, and cultural shifts."
+            },
+            {
+                "topic": "Indus Civilisation",
+                "topichint": ["Discovery of a lost city – Harappa", "Sites in Indian borders", "Time Span of Indus Civilisation", "Unique Features of Harappan Civilisation", "Urban Civilisation", "Mehergarh – the Precursor to Indus Civilisation", "Streets and Houses", "Drainage System", "The Great Bath (Mohenjo-daro)", "The Assembly Hall", "Trade and Transport", "The Great Granary (Harappa)", "Leader in Mohenjo-Daro", "Dockyard at Lothal", "General Facts about Indus Civilisation", "The hidden treasures of the Indus civilisation"],
+                "type": "match",
+                "question": "Match the feature with its significance in Indus culture.",
+                "matches": [
+                    { "term": "Great Bath", "definition": "Ritual bathing and water management" },
+                    { "term": "Granary", "definition": "Storage of grains" },
+                    { "term": "Dockyard at Lothal", "definition": "Centre for maritime trade" },
+                    { "term": "Drainage System", "definition": "Urban sanitation system" }
+                ],
+                "explanation": "Indus Civilization excelled in urban planning, trade, and infrastructure."
+            },
+            {
+                "topic": "Ancient Cities of Tamilagam",
+                "topichint": ["Poompuhar", "Poompuhar Port", "Madurai", "Thoonga Nagaram", "Kanchi"],
+                "type": "match",
+                "question": "Match the Tamil city with its notable feature.",
+                "matches": [
+                    { "term": "Poompuhar", "definition": "Famous port city" },
+                    { "term": "Madurai", "definition": "City that never sleeps (Thoonga Nagaram)" },
+                    { "term": "Kanchi", "definition": "Center of learning and temples" },
+                    { "term": "Poompuhar Port", "definition": "Maritime trade hub" }
+                ],
+                "explanation": "These cities were key in trade, culture, and education in ancient Tamil regions."
+            },
+            {
+                "topic": "The Universe and Solar System",
+                "topichint": ["Universe", "Galaxy", "History of Universe", "The solar system (sun,planets)", "Planets - Mercury,Venus,Earth,Mars,Jupiter,Saturn,Uranus,Pluto,Neptune", "The Dwarf Planets", "The Moon - Earth’s Satellite", "Asteroids", "Comets", "Meteors and Meteorites", "Motions of the Earth", "Shape and Inclination of the Earth", "Rotation", "Revolution", "Spheres of the Earth - Lithosphere,Hydrosphere,Atmosphere,Biosphere"],
+                "type": "match",
+                "question": "Match the celestial body with its description.",
+                "matches": [
+                    { "term": "Galaxy", "definition": "Cluster of stars, gas, and dust" },
+                    { "term": "Asteroids", "definition": "Rocky bodies orbiting the Sun" },
+                    { "term": "Comets", "definition": "Icy bodies with glowing tails" },
+                    { "term": "Dwarf Planet", "definition": "Planet-like object not cleared its orbit" }
+                ],
+                "explanation": "The universe includes varied celestial objects and phenomena."
+            },
+            {
+                "topic": "Land and Oceans",
+                "topichint": ["Classification of Landforms", "First order landforms", "Second order landforms", "Mountains", "Plateaus", "Plains", "Third order landforms", "Continents and  oceans"],
+                "type": "match",
+                "question": "Match the landform with its example.",
+                "matches": [
+                    { "term": "Mountains", "definition": "Himalayas" },
+                    { "term": "Plateau", "definition": "Deccan Plateau" },
+                    { "term": "Plains", "definition": "Indo-Gangetic Plain" },
+                    { "term": "Ocean", "definition": "Indian Ocean" }
+                ],
+                "explanation": "Formation and classification of Earth's surface features."
+            },
+            {
+                "topic": "Understanding Diversity",
+                "topichint": ["Understanding diversity", "Diversity in India", "Land Forms and Lifestyle Diversity", "Social Diversity", "Interdependence and Co-existence", "Family and Society", "Religious Diversity", "Linguistic Diversity", "Cultural Diversity", "Popular Dances and Music of India", "Unity in Diversity"],
+                "type": "match",
+                "question": "Match the concept with its example in Indian context.",
+                "matches": [
+                    { "term": "Religious Diversity", "definition": "Many religions in India" },
+                    { "term": "Linguistic Diversity", "definition": "Multiple languages spoken" },
+                    { "term": "Cultural Diversity", "definition": "Variety in arts and traditions" },
+                    { "term": "Social Diversity", "definition": "Differences in lifestyles and castes" }
+                ],
+                "explanation": "India is characterized by diversity in religion, language, culture, and society."
+            },
+            {
+                "topic": "Achieving Equality",
+                "topichint": ["Prejudice", "Causes for Prejudice", "Stereotypes", "Inequality and Discrimination", "Caste Discrimination", "Gender Discrimination", "Religious Discrimination", "Socio-Economic Inequality", "Remedial Measures for Abolishing Inequality and Discrimination", "Constitution of India and Equality"],
+                "type": "match",
+                "question": "Match the type of discrimination with its example.",
+                "matches": [
+                    { "term": "Caste Discrimination", "definition": "Untouchability practices" },
+                    { "term": "Gender Discrimination", "definition": "Unequal pay for women" },
+                    { "term": "Religious Discrimination", "definition": "Bias based on religion" },
+                    { "term": "Socio-Economic Inequality", "definition": "Wealth gap among classes" }
+                ],
+                "explanation": "Equality involves addressing various forms of discrimination and prejudice."
+            },
+            {
+                "topic": "Vedic Culture in North India and Megalithic Culture in South India",
+                "topichint": ["Vedic Age", "Aryans", "Aryans and their Home in India", "Vedic literature", "Archaeological Sources", "Vedic Culture", "Polity and Society", "Gurukula System of Education", "Age – based Ashramas", "CONTEMPORARY CULTURE IN SOUTH INDIA AND TAMIL NADU", "MEGALITHIC / IRON AGE IN TAMILNADU", "Adichanallur - Thoothukudi District", "Keezhadi – Sivagangai District", "Porunthal – Dindigul District", "Paiyampalli – Vellore District", "Kodumanal – Erode District", "Megalithic Monuments in Tamil Nadu"],
+                "type": "match",
+                "question": "Match the cultural system/place with its description.",
+                "matches": [
+                    { "term": "Gurukula System", "definition": "Vedic method of education" },
+                    { "term": "Ashramas", "definition": "Stages of life in Vedic culture" },
+                    { "term": "Keezhadi", "definition": "Iron-age excavation site in Tamil Nadu" },
+                    { "term": "Megalithic Monuments", "definition": "Burial structures in South India" }
+                ],
+                "explanation": "Contrasts Vedic and megalithic cultural traditions in India's past."
+            },
+            {
+                "topic": "Great Thinkers and New Faiths",
+                "topichint": ["Intellectual Awakening", "Literary sources", "Origin of Jainism", "Mahavira (The Great Hero)", "Unique Teachings of Jainism", "Tri–rathnas or Three Jewels", "Digambaras and Svetambaras", "Influence of Jainism (Samanam) in Tamil Nadu", "Buddhism", "Gautama Buddha", "Buddha’s Four Noble Truths", "Teachings of Buddha", "Influence of Buddhism in Tamilnadu"],
+                "type": "match",
+                "question": "Match the faith/philosopher with its principle.",
+                "matches": [
+                    { "term": "Mahavira", "definition": "Founder of Jainism" },
+                    { "term": "Four Noble Truths", "definition": "Core Buddhist teaching" },
+                    { "term": "Three Jewels", "definition": "Essentials of Jainism" },
+                    { "term": "Gautama Buddha", "definition": "Founder of Buddhism" }
+                ],
+                "explanation": "Explores the foundations of Jainism and Buddhism and their impact."
+            },
+            {
+                "topic": "From Chiefdoms to Empires Geography",
+                "topichint": ["Importance of Sixth Century BC (BCE)", "Role of iron in a changing society", "Gana - sanghas and Kingdoms", "Janapadas and Mahajanapadas", "Sixteen Mahajanapadas (“Great Countries”)", "Dynasties of Ancient Magadha", "Haryanka Dynasty", "Shishunaga Dynasty", "Nanda Dynasty", "Mauryan Empire", "Chandragupta Maurya", "Bindusara", "Ashoka", "Edicts of Ashoka", "Mauryan Administration", "Mauryan Art and Architecture", "Monolithic Pillar – Sarnath", "Reasons for the Decline of the Mauryan Empire"],
+                "type": "match",
+                "question": "Match the ruler or feature with its description.",
+                "matches": [
+                    { "term": "Chandragupta Maurya", "definition": "Founder of Mauryan empire" },
+                    { "term": "Ashoka", "definition": "Promoted dharma and Buddhism" },
+                    { "term": "Edicts of Ashoka", "definition": "Rock inscriptions about law and morality" },
+                    { "term": "Monolithic Pillar", "definition": "Stone pillar erected by Ashoka" }
+                ],
+                "explanation": "Highlights the transformation from small polities to a unified empire."
+            },
+            {
+                "topic": "Resources",
+                "topichint": ["Types of resources", "NATURAL RESOURCES", "CLASSIFICATION OF NATURAL RESOURCES", "MAN-MADE RESOURCES", "HUMAN RESOURCE", "Gandhian thought on Resources", "CONSERVATION OF RESOURCES"],
+                "type": "match",
+                "question": "Match the resource with its category.",
+                "matches": [
+                    { "term": "Water", "definition": "Natural renewable resource" },
+                    { "term": "Coal", "definition": "Non-renewable resource" },
+                    { "term": "Human Resource", "definition": "People's skills and labor" },
+                    { "term": "Manufactured products", "definition": "Man-made resources" }
+                ],
+                "explanation": "Overview of different resource types including conservation ideas."
+            },
+            {
+                "topic": "National Symbols",
+                "topichint": ["NATURAL NATIONAL SYMBOLS", "Other Symbols of our Country", "National flag", "National Emblem", "National Anthem", "The rules to be observed while singing the Anthem", "National song", "National pledge", "National Micro organism", "Currency of India- (INR)", "National Calender", "National Holidays", "Independence Day", "Republic Day", "Gandhi Jayanthi"],
+                "type": "match",
+                "question": "Match the national symbol with its representation.",
+                "matches": [
+                    { "term": "National Flag", "definition": "Tricolor representing India" },
+                    { "term": "National Emblem", "definition": "Lion Capital of Ashoka" },
+                    { "term": "National Anthem", "definition": "\"Jana Gana Mana\"" },
+                    { "term": "National Song", "definition": "\"Vande Mataram\"" }
+                ],
+                "explanation": "Symbols that represent national identity and pride."
+            },
+            {
+                "topic": "The Constitution of India",
+                "topichint": ["Fundamental rights", "formation of the constitution of India", "Preamble", "Secular", "Sovereign", "Universal Adult Franchise"],
+                "type": "match",
+                "question": "Match the term with its meaning in the Constitution.",
+                "matches": [
+                    { "term": "Preamble", "definition": "Introduction stating aims of the constitution" },
+                    { "term": "Secular", "definition": "Equal respect for all religions" },
+                    { "term": "Universal Adult Franchise", "definition": "Voting rights for all adults" },
+                    { "term": "Fundamental Rights", "definition": "Basic guaranteed freedoms" }
+                ],
+                "explanation": "Core principles and rights outlined in the Indian Constitution."
+            },
+            {
+                "topic": "Economics-An Introduction",
+                "topichint": ["Barter system", "Consumer goods", "Primary activity", "Secondary activity", "Tertiary activity"],
+                "type": "match",
+                "question": "Match the economic activity with its example.",
+                "matches": [
+                    { "term": "Barter System", "definition": "Goods exchanged without money" },
+                    { "term": "Primary Activity", "definition": "Farming and mining" },
+                    { "term": "Secondary Activity", "definition": "Manufacturing goods" },
+                    { "term": "Tertiary Activity", "definition": "Services like banking" }
+                ],
+                "explanation": "Different types of economic activities form the basis of the economy."
+            },
+            {
+                "topic": "Society and Culture in Ancient Tamizhagam:The Sangam Age",
+                "topichint": ["The Sangam Age", "Sources", "Chera,Chola,Pandya", "Minor Chieftains – Ay, Velir and Kizhar", "Sangam Polity", "Kingship", "Law and justice", "Court,’Local administration", "Army", "Important towns", "Dress and Ornaments", "Thinai (tract)-based Sangam Society", "Kalabhras"],
+                "type": "match",
+                "question": "Match the Sangam dynasty with its region.",
+                "matches": [
+                    { "term": "Chera", "definition": "Western Tamilakam (Kerala region)" },
+                    { "term": "Chola", "definition": "Eastern Tamilakam (Kaveri delta)" },
+                    { "term": "Pandya", "definition": "Southern Tamilakam (Madurai region)" },
+                    { "term": "Kalabhras", "definition": "Early medieval interlopers" }
+                ],
+                "explanation": "The Sangam period was defined by dynasties, literature, and regional societies."
+            },
+            {
+                "topic": "The Post-Mauryan India",
+                "topichint": ["Archaeological Sources - Inscriptions / Copper Plates", "The Sungas and Kanvas in the North", "The Sungas", "Importance of the Sunga Period", "The Kanvas", "Satavahanas in the South", "Contributions of Satavahanas - Literature , Art and architecture", "Indo-Greeks, Indo-Parthians, Sakas and Kushanas", "Sakas", "Kushanas", "The Kushana Kings Kanishka"],
+                "type": "match",
+                "question": "Match the ruling dynasty with its region.",
+                "matches": [
+                    { "term": "Sungas", "definition": "Northern India after Mauryas" },
+                    { "term": "Satavahanas", "definition": "Are primarily in Deccan region" },
+                    { "term": "Kushanas", "definition": "Northwestern India and Central Asia" },
+                    { "term": "Indo-Greeks", "definition": "Northwest India influenced by Greek culture" }
+                ],
+                "explanation": "India’s post-Mauryan period saw multiple regional dynasties with different legacies."
+            },
+            {
+                "topic": "The Age of Empires: Guptas and Vardhanas",
+                "topichint": ["Archaeological Sources", "Literary Sources", "Foundation of the Gupta Dynasty", "Chandragupta I", "Samudragupta (335–380 AD(CE))", "Navaratna in the court of Vikramaditya", "Consolidation of Gupta Dynasty", "Chandragupta II (380 - 415AD(CE))", "Gupta Polity", "Nalanda University", "Metallurgy", "Slavery", "Vardhana Dynasty", "Conquest of Harshavardhana"],
+                "type": "match",
+                "question": "Match the Gupta ruler with their achievement.",
+                "matches": [
+                    { "term": "Samudragupta", "definition": "Conquest and expansion; 'India’s Napoleon'" },
+                    { "term": "Chandragupta II", "definition": "Golden period of art, literature, and prosperity" },
+                    { "term": "Vikramaditya", "definition": "Fabled wise king among the Navaratnas" },
+                    { "term": "Nalanda University", "definition": "Ancient centre of learning established in Gupta era" }
+                ],
+                "explanation": "Gupta era was a golden period marked by expansions, learning, and art."
+            },
+            {
+                "topic": "South Indian Kingdoms",
+                "topichint": ["The Pallavas", "Pallava Genealogy (Prominent Kings)", "Pallava’s Contribution to Architecture", "Mahendra Style", "Mamalla Style", "Rajasimha Style", "Nandivarma Style", "Society and Culture", "Pallava Art", "The Chalukyas", "The Chalukyas of Vatapi", "Western Chalukyas of Kalyani", "Rashtrakuta Kings", "Contribution of Rashtrakutas to literature, art and architecture", "Kailasanatha Temple – Ellora", "Elephanta Island", "Pattadakal"],
+                "type": "match",
+                "question": "Match the dynasty with its architectural contribution.",
+                "matches": [
+                    { "term": "Pallavas", "definition": "Shore Temple at Mahabalipuram" },
+                    { "term": "Chalukyas (Vatapi)", "definition": "Rock-cut and structural Hindu temples in Aihole and Pattadakal" },
+                    { "term": "Rashtrakutas", "definition": "Kailasanatha temple at Ellora" },
+                    { "term": "Western Chalukyas", "definition": "Temples in Lakkundi/Kalyani style" }
+                ],
+                "explanation": "South Indian kingdoms are known for their distinctive temple architecture."
+            },
+            {
+                "topic": "Asia and Europe",
+                "topichint": ["Location and Area", "Boundaries", "Political Divisions", "Physiographic Divisions", "The Northern lowlands", "The Central High Mountains", "The Southern Plateaus", "The Great Plains and", "The Island Groups", "Drainage", "Climate", "Natural Vegetation", "Resource Base and Economic Activities of Asia", "Mineral sources", "Cultural Mosaic of Europe", "Resources Base and Economic Activities of Europe"],
+                "type": "match",
+                "question": "Match the region with its characteristic.",
+                "matches": [
+                    { "term": "Northern Lowlands", "definition": "Fertile plains of Asia" },
+                    { "term": "Himalayas", "definition": "Central high mountains" },
+                    { "term": "Southern Plateaus", "definition": "Indian peninsula region" },
+                    { "term": "Europe", "definition": "Cultural mosaic with diverse economies" }
+                ],
+                "explanation": "Geographical and cultural diversity across continents."
+            },
+            {
+                "topic": "Globe",
+                "topichint": ["Directions", "Globe", "Lines on the globe", "Latitudes", "Northern Hemisphere", "Southern Hemisphere", "Important lines of latitude", "Torrid Zone", "Temperate Zone", "Frigid Zone", "Longitudes", "Eastern Hemisphere", "Western Hemisphere", "Greenwich Meridian", "International Date Line", "Longitude and Time", "Earth Grid", "Local Time", "Indian Standard Time", "Time Zones"],
+                "type": "match",
+                "question": "Match the term with its meaning.",
+                "matches": [
+                    { "term": "Equator", "definition": "0° latitude dividing Earth into hemispheres" },
+                    { "term": "Prime Meridian", "definition": "0° longitude line at Greenwich" },
+                    { "term": "Torrid Zone", "definition": "Hot climate zone near Equator" },
+                    { "term": "Time Zones", "definition": "Divisions of Earth by standard time" }
+                ],
+                "explanation": "Latitude, longitude, and time zones help in global positioning and timekeeping."
+            },
+            {
+                "topic": "Understanding Disaster",
+                "topichint": ["Disaster", "Natural Disasters", "Earthquakes", "Volcanoes", "Tsunami", "Cylone", "Flood", "Landslides", "Avalanche", "Thunder and lightning", "Man-made disasters", "Fire", "Destruction of buildings", "Accidents in industries", "Disaster Risk Reduction (DRR)"],
+                "type": "match",
+                "question": "Match the type of disaster with its example.",
+                "matches": [
+                    { "term": "Earthquake", "definition": "Tremors from Earth's crust movements" },
+                    { "term": "Tsunami", "definition": "Giant wave caused by earthquakes under sea" },
+                    { "term": "Cyclone", "definition": "Intense tropical storm with strong winds" },
+                    { "term": "Man-made Disaster", "definition": "Industrial accident or building collapse" }
+                ],
+                "explanation": "Understanding types of disasters helps in prevention and preparedness."
+            },
+            {
+                "topic": "Democracy",
+                "topichint": ["REPRESENTATIVE DEMOCRACY", "Parliamentary Democracy", "Presidential Democracy", "Aims of Democracy", "World Democracy"],
+                "type": "match",
+                "question": "Match the democracy type with its feature.",
+                "matches": [
+                    { "term": "Representative Democracy", "definition": "Citizens elect representatives" },
+                    { "term": "Parliamentary", "definition": "Executive derived from legislature" },
+                    { "term": "Presidential", "definition": "President directly elected by people" },
+                    { "term": "Aims of Democracy", "definition": "Equality, freedom and justice" }
+                ],
+                "explanation": "Democracy in various forms focuses on representation, governance, and values."
+            },
+            {
+                "topic": "Local Bodies – Rural and Urban",
+                "topichint": ["The List of corporations in Tamil Nadu", "Panchayat Union", "District Panchayat", "Functions of the village Panchayat", "Functions of the City Municipal", "Revenue of the Village Panchayat", "Revenue of the City Municipal", "Role of women in the Local Self", "Local Body Election", "Special features of Panchayat Raj"],
+                "type": "match",
+                "question": "Match the local body with its level.",
+                "matches": [
+                    { "term": "Village Panchayat", "definition": "Lowest rural local body" },
+                    { "term": "District Panchayat", "definition": "At district rural level" },
+                    { "term": "Municipal Corporation", "definition": "Urban local body for cities" },
+                    { "term": "Panchayat Union", "definition": "Block-level rural body" }
+                ],
+                "explanation": "Local bodies handle administration and development at the grassroots level."
+            },
+            {
+                "topic": "Road Safety",
+                "topichint": ["Three types of traffic signs - Mandatory, Cautionary and Informatory", "Cross roads and pedestrian crossing", "Always use pavements", "Staying safe on a bicycle", "Pedestrian - do's and don'ts", "Play at safe places"],
+                "type": "match",
+                "question": "Match the sign type with its purpose.",
+                "matches": [
+                    { "term": "Mandatory Sign", "definition": "Shows required action (e.g., wear seatbelt)" },
+                    { "term": "Cautionary Sign", "definition": "Warns of danger ahead" },
+                    { "term": "Informatory Sign", "definition": "Provides information (e.g., hospital ahead)" },
+                    { "term": "Pedestrian Crossing", "definition": "Safe crossing zone for walkers" }
+                ],
+                "explanation": "Traffic signs and safety practices help prevent accidents and ensure safe behavior."
+            }
+        ]
+    }
+]
+}
+]
